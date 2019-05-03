@@ -1,0 +1,42 @@
+\section{Additional Notes on Model}
+\subsection{Continuity of Value Functions}
+This part discusses violations of continuity caused by the dynamic bargaining structure. The general conclusion is that collective value function does is not necessary continuous in couple's characteristics, and this discontinuity propagates onto all value functions in the model.
+
+To simplify the example, let's consider value function of couple with kids. Similarly to equation \ref{tht_noneq}, we can write
+\[ V^{ck}_t(\Omega) = \theta\cdot V^{f,ck}_t(\Omega) + (1-\theta)\cdot V^{m,ck}_t(\Omega) + \Delta(\Omega),\]
+and use it to substitute the term under the expectation in equation \ref{vf_ck} 
+\begin{align*} & (1-d)\cdot   V^{ck}_{t+1}(\Omega') + d\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})] =    V^{ck}_{t+1}(\Omega') + \\
+ &  \ \ \ \theta \cdot d(\Omega') \cdot [V_{t+1}^{f,sk}(\omega^{df}) - V_{t+1}^{f,ck}(\Omega')] + (1-\theta) \cdot d(\Omega') \cdot [V_{t+1}^{m,sk}(\omega^{dm}) - V_{t+1}^{m,ck}(\Omega')] - d(\Omega')\cdot \Delta(\Omega'),
+\end{align*}
+if we consider couple that is close to divorce, so there exist two $\Omega'_1$ and $\Omega'_2$  that are close to each other according to some metric, but $d(\Omega'_2) = 1$ and $d(\Omega'_1) = 0$. Note that around the divorce threshold by [...] \textbf{both} spouses should be indifferent between staying on leaving, therefore
+\[ V_{t+1}^{f,sk}(\omega^{df}) - V_{t+1}^{f,ck}(\Omega')\approx 0, \ \ V_{t+1}^{m,sk}(\omega^{dm}) - V_{t+1}^{m,ck}(\Omega') \approx 0,\]
+therefore if $\Delta(\Omega')$ is non-zero in these points, this whole expression jumps where value of $d$ jumps. [It is not clear whether it is actually zero or not, but in simulations it does look like it is positive.]
+
+\subsection{Renegotiation With Collective Discrete Decisions\label{ren-disc}}
+This section explains how discrete decisions interact with couple's renegotiation. The theory requires participation constraints to be satisfied \textit{after} any discrete choice. In the context of fertility decisions, that means that both spouses can predict future decisions and re-negotiate $\theta$ accounting for this prediction (rather than assuming that fertility status does not change).
+
+With slight abuse of notation, let's suppose that couple gets collective value $V^{ck}(\theta,\Omega)$ if it makes a baby and $V^{c}(\theta,\Omega)$ is it does not. Given $\theta$ total value before the decision is made is \[V^{c?}(\theta,\Omega) = \max\{ V^{ck}(\theta,\Omega), V^{c}(\theta,\Omega)\}\]
+after that I define
+\[V^{f,c?}(\theta,\Omega) = V^{f,ck}(\theta,\Omega)\cdot \I[V^{ck}(\theta,\Omega) \geq V^{c}(\theta,\Omega)] + V^{f,c}(\theta,\Omega) \cdot \I[V^{ck}(\theta,\Omega) < V^{c}(\theta,\Omega)],\]
+note that it is not necessary equal to $\max\{ V^{f,ck},V^{f,c} \}$. Similarly we can define $V^{m,c?}(\theta,\Omega)$.
+
+The main thing to notice is that although $V^{c?}$ is continuous in $\theta$ individual values $V^{f,c?}$ and $V^{m,c?}$ are not, unless both spouses always have agreement on whether to make a baby: $V^{ck} \geq V^{c} \Leftrightarrow V^{f,ck} \geq V^{f,c} \Leftrightarrow V^{m,ck} \geq V^{m,c}$. Therefore set
+\[\Omega = \left\{\tilde{\theta} : V^{f,c?}(\tilde\theta,\Omega) \geq V^{f,s}(\omega^{df}), \ \  V^{m,c?}(\tilde\theta,\Omega) \geq V^{m,s}(\omega^{dm}) \right\}\]
+may be disjoint, and careful approximation of $V$ with respect to $\Omega$ is required. 
+
+The possible solution to it would be to limit fertility decisions to the cases where both spouses agree on having kids, this, however, goes against the logic where couple maximizes collective utility subject to participation constraints. 
+
+\subsection{Accounting for Additional Transitions\label{add-trans}}
+In value functions I stated above I assumed that females stays single mother for at least one period if it exits a couple with a kid or if she has a baby at the moment of marriage and disagrees to marry. In the actual model I relax this assumption so the female can stop being single mother immediately. This is needed, for instance, for evaluating counterfactuals in which female can exit couple without pressure of being a single mother. 
+
+I assume that at the moment of (re)negotiation female is unsure about whether she is going to be a single mother. Therefore, I define expected value of leaving the couple to be
+\[V_t^{f,c?}(\omega) = p^{\text{out}}[V_t^{f,s}(\omega) + S] + (1-p^{\text{out}})V_t^{f,sk}(\omega),\]
+therefore equaiton \ref{single-fem} becomes
+\begin{align}V^{f,s}_t(\omega) = \max\limits_{c} & \bigg\{ u(c) + \beta \E_t \Big[ (1 - p^{\text{meet}}_t)\cdot V^{f,s}_{t+1}(\omega') + \label{single-fem-true} \\  \nonumber
+& \hspace{7em} p^{\text{meet}}_t (1-p^{\text{preg}}_t) \big\{ m^{np} \cdot V^{f,c}_{t+1}(\Omega^c) + (1-m^{np})V^{f,s}_t(\omega')\big\} + \\  \nonumber
+& \hspace{10em} p^{\text{meet}}_t p^{\text{preg}}_t \big\{ m^{p} \cdot V^{f,ck}_{t+1}(\Omega^c) + (1-m^{p})V^{f,s?}_{t+1}(\omega')\big\}  \Big]  \bigg\},
+\end{align}
+the set is \ref{reneg-with-kids} becomes
+\begin{equation}\Theta_t = \left\{ \tilde\theta : V^{f,ck}_t(a,\tilde\theta,\psi,z^f,z^m,\xi) \geq V_t^{f,s?}(a^{df},z^f,\xi) , \ \ V_t^{m,ck}(a,\tilde\theta,\psi,z^f,z^m,\xi)\geq V_t^{m,s}(a^{dm},z^m) \right\} \label{reneg-with-kids}
+,\end{equation}
+and the analogous term is introduced for initial negotiation of couples in case of pregnancy shock.

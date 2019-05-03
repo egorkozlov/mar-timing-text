@@ -1,0 +1,98 @@
+\newpage
+\section*{Very Technical Appendix, Not For Final Version}
+
+
+\section{Expressions for Value Functions}
+\subsection{Notation}
+This technical note shows exact expressions for approximating value functions. For the couple's state I use partition $\Omega = (a,O)$, where $O = (\theta,\psi,z^f,z^m)$. For the age variable I put $\xi\in\{y,s\}$ counts as a separate letter, so states for couples with kids are noted like $cky$ and $cks$. Let $p^s$ represents probability that the child ``grows up'' so couple switches from $cky$ to $cks$. For individual's state there are only two variables $\omega = (a,z)$, and child's age for single mother is reported as state $sky$ if $\xi = y$ and $sks$ if $\xi = y$. 
+
+Grid consists of all possible combinations of $a$ and $O$ ($a$ and $z$ in single's case), so \[G = \{ \{a_1,...,a_I\} \times \{o_1,...,o_J\}\}\]
+
+Let $i$ refers to assets position and $j$ refers to values of everything else. Finally, indices $q$ refer to quadrature nodes, and $w_q$ to quadrature weights that add up to 1.
+
+\subsection{Single Agents}
+Consider females, males are handled analogously. Value function \ref{single-fem} can be written as
+\[V^{f,s}_t(a,z) = \max\limits_{c} \left\{ u(c) + \beta \mathcal{V}^{f,s}_{t+1}(s,z)\right\}, \ \ c + s = M(a,z),\]
+Here  $\mathcal{V}^{f,s}_{t+1}$ represents expectation of tomorrow's individual value function, accounting for all possible transitions. Argument $s$ refers to savings made in the current period (it is not necessary equal to future assets as future assets change if the partner is met), and $z$ refers to current value of productivity. Approximating $\mathcal{V}_{t+1}(s,z)$ (i.e. integration) is the key challenge. Note that it does not depend on current assets, only on savings $s$ that define future assets position. $M(a,z) = R\cdot a + \exp(z + \text{Trend}_t)$ is the amount of money in the end of the period.
+
+I treat the function $\mathcal{V}^{f,s}_{t+1}(s,z)$ as a collection of functions $\mathcal{V}^{f,s}_{mj,t+1}$ for each value of current productivity $z_j$ and savings $s_m$. I generate quadrature nodes that consist of shock to individual productivity $\epsilon^{z,f}$, shocks to partner's assets and productivity positions
+$(\epsilon^{a,p},\epsilon^{z,p})$ and initial couple's surplus $\psi$. I denote these nodes as $x_q = (\epsilon^{z,f}_q,\epsilon^{a,p},\epsilon^{z,p},\psi_q)$, in total monomial rule results in $Q = [...]$ nodes. Weight $w_q$ corresponds to each node. Given savings $s$ and grid point in $z_j$ I generate partner's and couple's characteristics. 
+\[a^p_{mq} = s_m\cdot \exp(\epsilon^{a,p}_q), \ \ a^c_{mq} = s_m\cdot [1 + \exp(\epsilon^{a,p}_q)], \ \ z^m_{jq} = z^f_j \exp(\epsilon^{z,p}_q),\]
+(in some sense in this setup by saving more individuals have chances of getting more wealthy partners).  Also, individual next period's productivity is generated according to $z^f_{jq} = z^f\cdot \exp(\epsilon^{z,f}_q)$. Note that $z^f_j$ refers to the current value and $z^f_{jq}$ refers to the next period's values;
+
+This allows to generate potential couple's characteristics $(a^c_{mq},\psi_q,z^{f}_{jq},z^{m}_{jq})$, and combining it with value functions for the next period we can define:
+\[\Theta^{np}_{mjq,t+1} = \left\{ \tilde\theta : V^{f,c}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq}) \geq V^{f,s}(s_m,z^f_{jq}), \ V^{m,c}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq}) \geq V^{m,s}(a^p_{mq},z^m_{jq}) \right\},\]
+if $\Theta^{np}_{mjq,t+1}$ is empty\footnote{I figure this out by defining a uniformly spaced grid for $\theta \in [0.05,0.95]$. Because of Smolyak grid, this can be done very efficiently as $V^{f,c}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq})$ are just a polynomial in $\tilde{\theta}$.}
+, $m^{np}_{mjq,t+1} = 0$ (so no marriage happens at node $jq$ if agents made savings of $s_m$). If the set is not empty, then $\theta_{mjq}$ is determined by Nash Bargaining \ref{nbs} and $m^{np}_{mjq,t+1} = 1$. Therefore at node $(s_m,z_j)$ future value function in case the partner is met and pregnancy did not happen can be approximated as
+\[\E_t  \big\{ m^{np} \cdot V^{f,c}_{t+1}(\Omega^c) + (1-m^{np})V^{f,s}_t(\omega')\big\} \approx \mathcal{E}^{np}(s_m,z_j),\]
+where
+\[\mathcal{E}^{np}(s_m,z_j) = \sum\limits_{q=1}^{Q} w_q \cdot \left\{ m^{np}_{mjq,t+1}\cdot V^{f,c}_{t+1}(a^c_{mq},\theta_{mjq},\psi_q,z^{f\prime}_{jq},z^m_{jq}) + (1-m^{np}_{mjq,t+1})\cdot V^{f,s}_{t+1}(s_m,z_j)\right\}.\]
+In exactly the same manner we define the set in the case the pregnancy shock did happen:
+\[\Theta^{p}_{mjq,t+1} = \left\{ \tilde\theta : V^{f,ck}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_j,z^{m}_{jq}) \geq V^{f,s?}(s_m,z^f_{j}), \ V^{m,ck}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq}) \geq V^{m,s}(a^p_{mq},z^m_{jq}) \right\},\]
+where function $V^{f,s?} = p^{\text{out}}[V^{f,s} + S] + (1-p^{\text{out}})V^{f,sky}_t$ captures possible immediate transition out of being single mother. In the same way 
+\begin{align*}\mathcal{E}^{p}(s_m,z_j) = \sum\limits_{q=1}^{Q} w_q \cdot  \Big\{ m^{p}_{mjq,t+1}\cdot V^{f,cky}_{t+1}(a^c_{mq},\theta_{mjq},\psi_q,z^f_j,z^m_{jq}) + (1-m^{p}_{mjq,t+1})\cdot V^{f,s?}(s_m,z_j) \Big\},
+\end{align*}
+lastly, the value of not meeting any partner is simply
+\begin{align*}\mathcal{E}^{0}(s_m,z_j) = \sum\limits_{q=1}^{Q} w_q \cdot  V^{f,s}_{t+1}(s_m,z^f_{jq}),
+\end{align*}
+finally, the whole function $\mathcal{V}^{f,s}_{t+1}(s_m,z_j)$ can be approximated by weighted average
+\[\mathcal{V}^{f,s}_{t+1}(s_m,z_j) \approx (1-p^{\text{meet}}_t) \cdot \mathcal{E}^{0}(s_m,z_j) +  p^{\text{meet}}_t(1-p^{\text{preg}}_t)  \cdot \mathcal{E}^{np}(s_m,z_j) 
++  p^{\text{meet}}_t p^{\text{preg}}_t  \cdot \mathcal{E}^{p}(s_m,z_j).\]
+
+After that I use linear interpolation in $s$ dimension to approximate $\mathcal{V}^{f,s}_{t+1}(s_m,z_j)$ for arbitrary $s$. Therefore I can get approximation of $\mathcal{V}^{f,s}_{t+1}(s,z_j)$. As a result, value function in each asset point $a_i$, $z_j$ is obtained by numerically solving
+\[V^{f,s}_t(a_i,z_j) = \max\limits_{s \in [\underline{A},\overline{A}]} \left\{ u(M(a_i,z_j) - s) + \beta \mathcal{V}^{f,s}_{t+1}(s,z_j)\right\}.\]
+I take $\underline{A}$ and $\overline{A}$ the same as upper and lover bound for individual's assets grid (this is important as approximation may be crude). I use Matlab's \textbf{fminbnd} to solve for the maximum point, although I also test that results are very similar when I just use discrete grid $s \in \mathcal{S} = M(a_i,z_j) \cdot\{0,...,0.99\}$ with some spacing, though this variation is much slower.
+
+Choice of solver can generically be an issue as because of concerns described above function $\mathcal{V}^{f,s}_{t+1}(s_m,z_j)$ may be non-smooth or even discontinuous.
+
+\subsection{Couples}
+I consider couples that do not have kids yet as they have richer set of possible transitions.  Following [...] I split household's decision problem on intrahousehold, intratemporal and intertemporal levels, where first two can be solved analytically. For intrahousehold, I define
+\[U(c,\theta) = \max\limits_{c^f,c^m} \left\{\theta u(c^f)  + (1-\theta)u(c^m) \right\}, \ \ \text{s.t.} \ \ \ c = \left[ (c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}\right]^{\frac1{1+\rho_c}},\]
+and given CES assumption this function has simple analytical form.
+
+Intratemporal dimension is trivial, as total consumption is the only intratemporal choice.
+
+For intertemporal I can write the problem \ref{vf-c} as
+\[V^{c}_{t+1}(a,\theta,\psi,z^f,z^m) = \max\limits_{c} \left\{ U(c,\theta) + \beta \mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m) \right\},\]
+where $\mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m)$ consists of two terms: what happens if pregnancy shock arrives and what if it does not.
+
+If the shock arrives, in the next period couple is in state $cky$, and if it decides to divorce female becomes a single mother (and may quit this state immediately), and male becomes just a single male. I approximate $\mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m)$ here. 
+
+I write current state as combination of $(a_i,O_j)$. Function $\mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m)$ depends on current state $O= (\theta,\psi,z^f,z^m)$ and future savings $s$.  Integration nodes contains $x_q = (\epsilon^{z,f}_q,\epsilon^{z,m}_q,\epsilon^{\psi}_q)$. I take grid with respect to current states, so $O_j= (\theta_j,\psi_j,z^f_j,z^m_j) \in O$ and future savings $s \in A$, so I again approximate expected future value function at each combination of $s_m$ and $O_j$, so I compute values $\mathcal{V}_{mj,t+1} = \mathcal{V}_{t+1}(s_m,\theta_j,\psi_j,z^f_j,z^m_j)$. Given each $j$, I can compute next period values of $(\psi_{jq},z^f_{jq},z^m_{jq})$ by adding shocks given by quadrature notes to the current point. I also can compute divorce options: $\omega^{df}_{mjq} = ( (1-\kappa)\cdot 0.5 \cdot s_m, \ z^f_{mjq})$ and $\omega^{dm}_{mjq} = ( (1-\kappa)\cdot 0.5 \cdot s_m, \ z^m_{mjq})$. This allows to define for each quadrature node a renegotiation set:
+\[\Omega^{p}_{mjq,t+1} = \left\{ \tilde\theta \ : \ V^{f,cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{f,s?}_{t+1}(\omega^{df}_{mjq}), \ \ V^{m,cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{m,s}_{t+1}(\omega^{dm}_{mjq}) \right\},\]
+and then if $\Omega^{p}_{mjq,t+1}$ is not empty, I pick from it next period's $\theta_{mjq}$ closest to initial $\theta_j$ and set $d^{p}_{mjq} = 0$, otherwise divorce happens and $d^{p}_{mjq} = 0$.
+
+Therefore expected future value if pregnancy shock arrives is 
+{\small
+\[\mathcal{E}^{p}(s_m,O_j) = \sum\limits_{q=1}^{Q} w_q \cdot\left\{ d^p_{mjq}\cdot V_{t+1}^{cky}(s_m,\theta_{mjq},\psi_{jq},z^f_{jq},z^m_{jq}) + (1-d^p_{mjq}) [\theta_{j}\cdot V^{f,sky}(\omega^{df}_{mjq}) + (1-\theta_j)V^{m,s}(\omega^{dm}_{mjq})] \right\} \]
+}
+If pregnancy shock does not arrive, then renegotiation should account for discrete decision of whether to have a kids that happens afterwards, and this decision may depend on $\theta$. Namely, I define
+\[k_{mjq}(\tilde\theta) = \I\left[ V^{cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{c}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq})\right],\]
+then I define individual value accounting for this choice:
+\[V^{f,c?}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) = k_{mjq}(\tilde\theta)\cdot V^{f,cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) + (1-k_{mjq}(\tilde\theta))\cdot V^{f,c}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}),\]
+and the renegotiation set is defined as
+\[\Omega^{np}_{mjq,t+1} = \left\{ \tilde\theta \ : \ V^{f,c?}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{f,s}_{t+1}(\omega^{df}_{mjq}), \ \ V^{m,c?}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{m,s}_{t+1}(\omega^{dm}_{mjq}) \right\},\]
+and we define $\theta_{mjq}$ and $d^{np}_{mjq}$ analogously.
+
+Therefore we define expected future value if pregnancy shock does not arrive to be
+{\small
+\[\mathcal{E}^{np}(s_m,O_j) = \sum\limits_{q=1}^{Q} w_q \cdot\left\{ d^{np}_{mjq}\cdot V_{t+1}^{c?}(s_m,\theta_{mjq},\psi_{jq},z^f_{jq},z^m_{jq}) + (1-d^{np}_{mjq}) [\theta_{j}\cdot V^{f,s}(\omega^{df}_{mjq}) + (1-\theta_j)V^{m,s}(\omega^{dm}_{mjq})] \right\} \]
+}
+so we can finally define value of $\mathcal{V}$ at points $s_m$:
+\[\mathcal{V}^{c}_{t+1}(s_m,O_j) = p_t^{\text{preg}}\cdot \mathcal{E}^{p}(s_m,O_j) + (1-p_t^{\text{preg}})\cdot \mathcal{E}^{np}(s_m,O_j),\]
+and then values at arbitrary points $s$ are obtained by linear interpolation. Therefore the ultimate problem is
+\[V^{c}_t(a_i,O_j) = \max\limits_{s \in [\underline{A},\overline{A}]} \left\{ U(M(a_i,O_j) - s,\theta_j) + \beta \mathcal{V}^{c}_{t+1}(s,O_j)\right\}.\]
+
+
+\subsection{Couples With Kids} 
+Namely, for intrahousehold allocation of consumption I define
+\[U(c,q,\theta) = \max\limits_{c^f,c^m} \left\{\theta u(c^f,q)  + (1-\theta)u(c^m,q) \right\}, \ \ \text{s.t.} \ \ \ c = \left[ (c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}\right]^{\frac1{1+\rho_c}},\]
+and it still has simple tractable form.
+
+For intratemporal level I have to solve
+\[U(m,W^f,\xi,\theta) = \max\limits_{c,q,l_f,x} U(c,q,\theta), \ \ \ \text{s.t.} \ \ \ c + x + l_f\cdot W^f = m, \ \ q =[\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}}. \]
+this function can also be derived analytically given my assumption on functional forms.
+
+After aggregation, the intertemporal problem looks similar to the one for singles:
+\[V^{cky}(a,\theta,\psi,z^f,z^m) = \max\limits_{m} \left\{ U(m,W^f_t(z^f),\xi,\theta) + \beta \mathcal{V}^{ck}_{t+1}(s,\theta,\psi,z^f,z^m,\xi)\right\}, \ \ \text{s.t.} \ \ m + s = M(a,z^f,z^m),\]
+where definition of $\mathcal{V}$ is analogous.

@@ -189,7 +189,7 @@ I take ACS samples of 2008--2016, as only they have variables concerning the dur
 \begin{enumerate}
 \item Had exactly one marriage, so they are either married or divorced now (treating legally separated, spouse absent and widowed as married)
 \item Have children present in household, with age of the eldest child below 18
-\item Most likely reside with their eldest child judging by mother's age (I pick 20--40)
+\item Most likely reside with their eldest child judging by mother's age (I pick 21--40)
 \end{enumerate}
 %The last restriction can be relaxed, but it allows to track partners and children more clearly and also insures better quality of self-reported data.
 
@@ -207,17 +207,7 @@ SIPP has much more detailed information on marital history and fertility: it exp
 %When dividing people by income, however, I have to further restrict attention to households that consist of mother + spouse/partner (if reported) + children. This creates some attrition especially for young people, but differences in defining household members are minimal between ACS and SIPP, so it is not likely that it creates an issue.
 
 \subsection{Defining Income}
-This part describes how I define income in ACS.
-
-
-
-Following development and household literature, when dividing people by income group I use total household income adjusted by OECD equivalence scale. The scale assigns weight 1 to the household head, 0.5 to spouse and 0.3 to each child.
-
-As I use the household income as the main variable of interest, I have to restrict attention to couples that live by themselves and single females with children. I do this both for ACS and SIPP, and as definition of households wary a little, this may drop out slightly different groups of people.
-
-Formally,for income considerations I take a subsample of females who is marked as household's head or head's spouse, and who do not have any people living in household other than their spouse/unmarried partner and their children. This, for instance, excludes multigenerational household and people living with roommates, as total household's income may not be a relevant thing for some types of household composition. I cannot define income equivalence scale for more complicated living arrangements, although there are different scales that allow to do this.
-
-To mitigate selectivity, I compute income percentiles in all sample of females with household composition mentioned above, regardless of their marriage and fertility status. I use total family income as the key variable. To mitigate misreporting I drop observations with total yearly family income below $\$4000$ for ACS (that is about a third of federal the poverty level) or monthly income below $\$300$ for SIPP.
+This part describes how I define income partitions in ACS. Shortly, I define income groups based on per hour income of working females, by excluding those who does not work from income considerations. In the appendix I try several 
 
 For income percentiles I divide data on cells that consist of the US state, survey year (for ACS) and age group. I define age groups as 20--25, 26--30, 31--35, 36--40, and this classification is based on the age of female. Conditioning for year is done mainly to mitigate consequences of income decline in 2008. 
 
@@ -324,180 +314,8 @@ See Table \ref{diff-contr} for the results.
 
 [I look at earnings, hours and LFP differences] [Grade retention depends on child's age, so need to compare given child's age]
 \section{Model}
-The model is a mixture between conventional heterogeneous agents savings model (B--A--H framework) and household formation and dynamic bargaining, that is extensively developed by [...]. 
 
-Agents live for $T$ periods. The agents are males, females and married couples. Couples can have a child together, and if a couple with a child divorces up, the child stays with mother, and this is how singe females can have kids. Single females with kids randomly re-enter marriage market by becoming single females without kids.\footnote{The reason for this assumption is to avoid modeling mixture between step and own children, and the fact that single mothers are not a main focus of the paper.}
-
-
-Single people without kids randomly meet partners with characteristics similar to them and decide whether to create a couple. Couples agree on some marriage terms, represented by each spouse's weight in couple's objective function. The rationale for marriage includes risk-sharing, returns to scale in consumption, possibility to have a child in the future and additional utility surplus of being married (love shock). Each period after random shocks are realized, couples may decide to renegotiate their marriage terms if one of the spouses is better off being single. If they cannot find marriage terms that are satisfactory for both, divorce happens.
-
-Couples can choose to have a child and can also experience unplanned pregnancies. Unplanned pregnancies cannot be aborted. In addition to couples, single people who met each other may experience an unplanned pregnancy just before they decide whether to create a couple. In this case, upon disagreement female becomes a single mother. This mechanism is a stylized representation of kids appearing in unmarried cohabitating couples: since I do not model cohabitation, those kids appear just before people actually decide to marry each other.\textit{ I discuss this issue additionally in Section ....}
-
-\subsection{Remarks on Notation}
-I write $V^{i,j}$ to represent individual value functions in the model. Here $i$ represents gender: $f$ for female or $m$ for male. $j$ represents demographic status: $s$ for singles without kids, $sk$ for singles with kids (females only), $c$ for couples without kids and $ck$ for couples with kids. Couple's joint value functions have only one superscript $j \in \{c,ck\}$. Relation between joint value function $V^{c}$ and each spouse's value functions $V^{m,c}$ and $V^{f,c}$ is described in details in couple's section.
-
-\subsection{Singles Without Kids}
-Singles without kids are characterized by age $t$, labor productivity $z$ and assets (savings) $a$. I use $\omega = \{z,a\}$ to individual characteristics other than age.
-
-Each period single individuals meet a partner of the same age and characteristics $\omega^p$ with probability $p^{\text{meet}}_t$. If meeting happens, with probability $p^{\text{preg}}_t$ unplanned pregnancy happens. After realizing new period's shocks and pregnancy status couple tries to negotiate marriage terms. If they found marriage terms that are satisfactory for both ($m^{np} = 1$ in case of no pregnancy or $m^p = 1$ in case of pregnancy), they form couple with characteristics $\Omega^c$ . If satisfactory marriage terms could not be found, the individual stays single, or becomes single mother if she is female and unplanned pregnancy happened.
-
-The value function of male agent therefore is
-\begin{align}V^{m,s}_t(\omega) = \max\limits_{c} & \bigg\{ u(c) + \beta \E_t \Big[ (1 - p^{\text{meet}}_t)\cdot V^{m,s}_{t+1}(\omega') + \\ \nonumber
-& \hspace{7em} p^{\text{meet}}_t (1-p^{\text{preg}}_t) \big\{ m^{np} \cdot V^{m,c}_{t+1}(\Omega^c) + (1-m^{np})V^{m,s}_t(\omega')\big\} + \\  \nonumber
-& \hspace{10em} p^{\text{meet}}_t p^{\text{preg}}_t \big\{ m^{p} \cdot V^{m,ck}_{t+1}(\Omega^c) + (1-m^{p})V^{m,s}_{t+1}(\omega')\big\}  \Big]  \bigg\},\\  \nonumber
- \end{align}\vspace{-3em}
- \begin{align*}
- \text{s.t. \ }  &  a' = R\cdot a  + W^m_t(z) - c  & \text{ (evolution of assets)}\\
- &  z' = z + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of productivity)}\\
-  & \log W^m_t = z_t + \text{Trend}^m_t, \ \ \  \text{Trend}^m_t = a^m_0 + a^m_1\cdot t  +  a^m_2 \cdot t^2 &  \text{ (labor income and trend)}\\
-  & \Omega^c = \mathcal{M}^m(a',z') &  \text{ (marriage prospectives)}
-\end{align*}
-where random function $\mathcal{M}^m$, representing characteristics of potential couple is defined in Section [...].
-
-The value function of female agent is
-\begin{align}V^{f,s}_t(\omega) = \max\limits_{c} & \bigg\{ u(c) + \beta \E_t \Big[ (1 - p^{\text{meet}}_t)\cdot V^{f,s}_{t+1}(\omega') + \label{single-fem} \\  \nonumber
-& \hspace{7em} p^{\text{meet}}_t (1-p^{\text{preg}}_t) \big\{ m^{np} \cdot V^{f,c}_{t+1}(\Omega^c) + (1-m^{np})V^{f,s}_t(\omega')\big\} + \\  \nonumber
-& \hspace{10em} p^{\text{meet}}_t p^{\text{preg}}_t \big\{ m^{p} \cdot V^{f,ck}_{t+1}(\Omega^c) + (1-m^{p})V^{f,sk}_{t+1}(\omega')\big\}  \Big]  \bigg\},
-\end{align}\vspace{-3em}
-\begin{align*}
- \text{s.t. \ }  &  a' = R\cdot a  + W^f_t(z) - c  & \text{ (evolution of assets)}\\
- &  z' = z + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of productivity)}\\
-  & \log W^f_t = z_t + \text{Trend}^f_t, \ \ \  \text{Trend}^f_t = a^f_0 + a^f_1\cdot t  +  a^f_2 \cdot t^2 &  \text{ (labor income and trend)}\\
-  & \Omega^c = \mathcal{M}^f(a',z') &  \text{ (marriage prospectives)}
-\end{align*}
-
-% 
-The crucial difference here is the term $V^{f,sk}$: it reflects the fact that upon disagreement woman becomes a single female with a child. 
-
-\subsection{Couples Without Kids}
-Couple is characterized by age $t$ (assumed the same for both spouses), marriage terms $\theta$, productivities of female and male $z^f$, $z^m$ and additive marriage surplus $\psi$. Couple maximizes weighted expected lifetime utility, and $\theta$ represents share of female in this objective function, therefore $\Omega = \{\theta,\psi,z^f,z^m\}$ represent characteristics of couple.
-
-The key element shaping couple's decisions is participation constraints: each period the expected lifetime utility of staying in couple should be not less that expected lifetime utility of getting a divorce and becoming a single agent. Depending on realization of the shocks, if it is possible to satisfy both participation constraints the next period (so no divorce happens, $d = 0$) state is $\Omega'$. If participation constraints cannot be satisfied, the couple gets a divorce $d = 1$ and its characteristics are dissolved onto $\omega^{df}$ and $\omega^{dm}$.  In more details this is described in Section [...].
-
-Fertility dimension is an important element. Each period couples get fertility shock $p^{\text{preg}}_t$. If it happens, they become couple with a child if they stay together (renegotiation happens after they know realization of the shock), or become single male and single female with a child if they do not. If the shock does not happen, they still may make a decision to get a baby \emph{after} they renegotiate the marriage terms if they stay together. This timing is subtle, but is required for everything to be internally consistent, see Appendix ... for more details on how timing interacts with renegotiation. 
-
-After realization of all the shocks and making fertility and divorce decisions in the current period the problem of the couple that stays childless is
-\begin{align}& \hspace{5em}  V^{c}_t(\Omega) = \max\limits_{c^f,c^m}  \bigg\{ \theta\cdot u(c^f) + (1-\theta)\cdot u(c^m) + \psi +  \label{vf-c} \\   \nonumber
- &  \beta \E_t \Big[   (1 - p^{\text{preg}}_t)\cdot \left\{ (1-d^{\text{np}})\cdot \max\left\{ V^{ck}_{t+1}(\Omega'),V^{c}_{t+1}(\Omega')\right\} + d^{\text{np}}\cdot [ \theta V_{t+1}^{f,s}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\}  +  \\  \nonumber
-& \hspace{5em} p^{\text{preg}}_t\cdot \left\{ (1-d^{\text{p}})\cdot V^{ck}_{t+1}(\Omega') + d^{\text{p}}\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\} \Big] \bigg\},
-\end{align}\vspace{-2em}
-\begin{align*}
-\text{s.t. \ }& a' + c = R\cdot a  + W^m_t(z^m) + W^f_t(z^f) & \text{(evolution of joint assets)},\\
-				 & c = [(c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}]^{\frac1{1+\rho_c}} & \text{(increasing returns in consumption)},\\
-				 &  z^{f\prime} = z^f + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of female productivity)}\\
-				 &  z^{m\prime} = z^m + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of male productivity)}\\
-                    & \psi' = \psi + \varepsilon^{\psi}_t, \ \ \varepsilon^{\psi}_t \sim \mathcal{N}(0;\sigma_{\psi}^2)  & \text{(evolution of marriage surplus),} \\
-                    & (\Omega',\omega^{df},\omega^{dm}) = \mathcal{R}(\theta,a',z^{m\prime},z^{f\prime},\psi') & \text{(renegotiation correspondence)},
-\end{align*}
-
-\subsubsection{Defining Individual Values}
-The couple's collective value function $V^c$ is the object relevant for making decisions of consumption and fertility. Making marriage and divorce decisions involves individual value functions of spouses living in the couple. I denote them as $V^{f,c}$ and $V^{m,c}$. These value functions are obtained by plugging optimal decisions of couple into intertemporal utilities of each agent and accounting for possible transitions. Note that they cannot be derived from a maximization problem, and common properties of value functions such as envelope theorems do not hold for them.
-
-Namely, given couple's decisions $c^f(\Omega)$, female's value of being in couple is defined recursively as
-\begin{align}
-& \hspace{5em}  V^{f,c}_t(\Omega) =    u(c^f) + \psi +  \\   \nonumber
- &  \beta \E_t \Big[   (1 - p^{\text{preg}}_t)\cdot \left\{ (1-d^{\text{np}})\cdot \max{}^C \left\{ V^{f,ck}_{t+1}(\Omega'),V^{f,c}_{t+1}(\Omega')\right\} + d^{\text{np}}\cdot [ V_{t+1}^{f,s}(\omega^{df})]\right\}  +  \\  \nonumber
-& \hspace{5em} p^{\text{preg}}_t\cdot \left\{ (1-d^{\text{p}})\cdot V^{f,ck}_{t+1}(\Omega') + d^{\text{p}}\cdot [ V_{t+1}^{f,sk}(\omega^{df}) ]\right\} \Big] 
-\end{align}
-where operator $\max{}^C\{A,B\} \equiv A\cdot \I[V^{ck}_{t+1}(\Omega')\geq V^{c}_{t+1}(\Omega')] + B\cdot \I[V^{ck}_{t+1}(\Omega')< V^{c}_{t+1}(\Omega')]$. It reflects the fact that couple makes joint decision that is not necessary individually optimal.
-
-Another important property of individual values is that
-\begin{equation} V^{c}_t(\Omega) \neq \theta\cdot V^{f,c}_t(\Omega) + (1-\theta)\cdot V^{m,c}_t(\Omega),\label{tht_noneq}\end{equation}
-the main reason for this is that $\theta$ changes in the future as a result of random shocks, and this change is not likely to be symmetric. This, in particular, causes couple's expected future value function to be discontinuous in $(a,z)$. See Appendix [...] for some additional discussion.
-
-\subsection{Couples With Kids}
-State space for couples is the same as for singles, except for additional variable $\xi$ representing child's age, therefore $\Omega = \{\theta,\psi,z^f,z^m,\xi\}$. I consider just two states for $\xi \in \{y,s\}$ representing young and school-age child. At birth the child is young, then each period with probability $p^{s}$ the child becomes of school-age. The difference between young and school-age children are mother's time requirement, namely young children require more time and elder --- more money.
-
-Couples with kids have additional choice variable $q$, that can be interpreted as flow of child quality or child consumption. Child quality is produced using mother's labor $l_f$ and monetary expenditures $x$ according to constant returns to scale production function. Labor input to child quality causes female to lose part of her labor income. The production function depends on age, namely I parametrize it as $q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}}$. This follows, for instance, [Sommer ...], with the addition of changing labor share $\mu$.
-
-\begin{align}& \hspace{5em}  V^{ck}_t(\Omega) = \max\limits_{c^f,c^m,q,l_f,x}  \bigg\{ \theta\cdot u(c^f,q) + (1-\theta)\cdot u(c^m,q) + \psi + \label{vf_ck} \\  \nonumber
- & \hspace{10em} \beta \E_t \Big[   \left\{ (1-d)\cdot   V^{ck}_{t+1}(\Omega') + d\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\} \Big] \bigg\},
-\end{align}\vspace{-2em}
-\begin{align*}
-\text{s.t. \ } & a' + c + x = R\cdot a  + W^m_t(z^m) + (1-l_f)\cdot W^f_t(z^f) & \text{(evolution of joint assets)},\\
-                    & c = [(c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}]^{\frac1{1+\rho_c}} & \text{(increasing returns in consumption)},\\
-                    & q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}} & \text{(production function of child quality)},\\
-                    &  z^{f\prime} = z^f + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of female productivity)}\\
-				 &  z^{m\prime} = z^m + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of male productivity)}\\
-                    & \psi' = \psi + \varepsilon^{\psi}_t, \ \ \varepsilon^{\psi}_t \sim \mathcal{N}(0;\sigma_{\psi}^2)  & \text{(evolution of marriage surplus),} \\
-                   &  \P(\xi' = s | \xi = y) = p^s, \ \ \P(\xi' = s | \xi = s) = 1 & \text{(evolution of child's age)},\\
-                    & (\Omega',\omega^{df},\omega^{dm}) = \mathcal{R}(\theta,a',z^{m\prime},z^{f\prime},\psi',\xi) & \text{(renegotiation correspondence)},
-\end{align*}
-
-\subsection{Single Mothers}
-State space for single mothers contains individual productivity and child's age. Single mothers cannot marry, but have chance $p^{\text{out}}$ of recovering their marriage prospectives. In the model this is captured by transition of them to single females. This form is somewhat restrictive, although any other option requires modeling marriage of single mothers separately. This is a complex issue, for instance, males would seek females who already have kids if we do not make difference between step and own children. Since for the purposes of the model option of being single mother is used mainly as a factor affecting bargaining, I introduce additional (constant) utility factor $S$ to flexibly control utility of exiting the state. This can be interpreted as equivalent of utility of kids from past marriages when entering the marriage market again. This form seems flexible enough to capture variation in an option of being a single mother without putting extra computational and modeling burden.
-
-The problem of a female who stays single mother is
-\begin{align}V^{f,sk}_t(\omega) = \max\limits_{c} & \bigg\{ u(c,q) + \beta \E_t \Big[ p^{\text{out}} \cdot \left\{ V^{f,s}_{t+1}(\omega') + S\right\} +(1-p^{\text{out}})V^{f,sk}_{t+1}(\omega') \Big]  \bigg\},
-\end{align}\vspace{-1em}
-\begin{align*}
- \text{s.t. \ }  &  a' = R\cdot a  + (1-l_f)W^f_t(z) - c  & \text{ (evolution of assets)}\\
- & q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}} & \text{(production function of child quality)},\\
- &  z' = z + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of productivity)}\\
- &  \P(\xi' = s | \xi = y) = p^s, \ \ \P(\xi' = s | \xi = s) = 1 & \text{(evolution of child's age)},\\
-\end{align*}
-
-\subsection{Marriage Market}
-Single males and females meet potential partners of identical age and characteristics that depend on their assets $a$ (chosen in the previous period) and productivity $z$ (revealed after realization of shock):
-\begin{equation}\log a^p = \log a + \varepsilon^{a,p}, \ \ \varepsilon^{a,p} \sim \mathcal{N}(0,\sigma_{a,p}^2),\end{equation}
-\begin{equation}	z^p = z + \varepsilon^{z,p}, \ \ \varepsilon^{z,p} \sim \mathcal{N}(0,\sigma_{z,p}^2),\end{equation}
-for example, $\sigma_{a,p} = 0.1$ can be read as standard deviation of partner's assets being 10\% around of what agent has. 
-Additionally, initial marriage surplus (love shock) is drawn from
-\begin{equation} \psi \sim \mathcal{N}(0,\sigma_{\psi,0}^2).\end{equation}
-
-If people agree to be a couple they pool their assets $a^c = a + a^p$. If no unplanned pregnancy happens, people agree to marry if set of mutually satisfactory marriage terms
-\begin{equation}\small \Theta^{np}_t = \left\{ \theta : V_t^{f,c}(\theta,\psi,a^c,z^f,z^m) \geq V_t^{f,s}(a^f,z^f), \ \ V_t^{m,c}(\theta,\psi_0,a^c,z^f,z^m) \geq V_t^{m,s}(a^m,z^m)\right\}\end{equation}
-is non-empty. If potential couple gets the pregnancy shock, the set changes to
-\begin{equation} \small \Theta^{p}_t = \left\{ \theta : V_t^{f,ck}(\theta,\psi,a^c,z^f,z^m,y) \geq V_t^{f,sk}(a^f,z^f,y), \ \ V_t^{m,ck}(\theta,\psi_0,a^c,z^f,z^m,y) \geq V_t^{m,s}(a^m,z^m)\right\} \end{equation}
-(at birth child's age is $\xi = y$).
-
-If the respective set is non-empty, initial bargaining power of couple is determined by symmetric Nash Bargaining, for instance:
-\small
-\begin{align}&\theta^*(a,z,\psi,\epsilon^{a,p},\epsilon^{z,p}) = \label{nbs} \\ \nonumber &= \argmax\limits_{\theta \in \Theta^{np}} \left[V_t^{f,c}(\theta,\psi,a^c,z^f,z^m) - V_t^{f,s}(a^f,z^f)\right] \times \left[V_t^{\vphantom{f}m,c}(\theta,\psi,a^c,z^f,z^m) - V_t^{m,s}(a^m,z^m)\right],\end{align}
-and analogously for the case when pregnancy shock happened.
-
-From the prospective of a single agent, this set is determined by realization of $\psi$ and partner's characteristics $\epsilon^{a,p}$ and $\epsilon^{z,p}$. Given them, marriage function $m$ is binary:
-\[m^{np}_t(a,z,\psi,\epsilon^{a,p},\epsilon^{z,p}) = \I(\Theta^{np}_t \neq \varnothing),\]
-where variables affecting set $\Theta$ are unambiguously recovered from arguments of $(a,z,\psi,\epsilon^{a,p},\epsilon^{z,p})$ as described above.
-
-%Because of good properties of Nash Bargaining, expected future value function is continuous with respect to of $a$ and $z$. See Appendix [...] for additional discussion of this.
-
-Let $\omega = (a,z)$ and $\epsilon = (\psi,\epsilon^{a,p},\epsilon^{z,p})$. This allows to define a random function
-\[\Omega^c = \mathcal{M}_t(\omega) = M_t(\omega,\epsilon) = (\theta^*,\psi,a^c,z^m,z^f),\]
-so the future characteristics of couple are function of current characteristics of individual and three-dimensional random shock.
-\subsection{Renegotiation And Divorce}
-
-Upon divorce, $\kappa\cdot a$ of assets disappears and the rest is split evenly. This generalizes [Voena ...], where I put additional parameter $\kappa$ captures can rationalize extra costs of divorce for more wealthy couples. [Voena ...] argues that this approximates well actual property divisions. So, the splitting rule is
-\[a^{df} = 0.5\cdot (1-\kappa)\cdot a,  \ \ a^{dm} = 0.5\cdot (1-\kappa)\cdot a.\]
-This splitting rule defines mapping of couple's state $\Omega$ to individual states $\{\omega^{df},\omega^{dm}\}$ in case of divorce. 
-
-The option to leave with a share of couple's assets creates pressure for participation constraints. As argues by [...], the household prefers to keep $\theta$ constant. However, after shocks to $z$ and $\psi$ happen, one (or both) participation constraints might be violated. To address this formally, consider couple that already has kids. I define set
-\begin{equation}\Theta_t = \left\{ \tilde\theta : V^{f,ck}_t(a,\tilde\theta,\psi,z^f,z^m,\xi) \geq V_t^{f,sk}(a^{df},z^f,\xi) , \ \ V_t^{m,ck}(a,\tilde\theta,\psi,z^f,z^m,\xi)\geq V_t^{m,s}(a^{dm},z^m) \right\} \label{reneg-with-kids}
-,\end{equation}
-and if couple starts with current value $\theta_{0}$ there are three possible options:
-\begin{enumerate}
-\item \textit{Status quo.} If $\theta_0 \in \Theta_t$, current marriage terms are satisfactory for both spouses so $\theta_t = \theta_{0}$.
-\item \textit{Renegotiation.} If $\theta_0 \not\in \Theta_t$, but $\Theta_t \neq \varnothing$, then spouses can continue to be married if they change their marriage terms. In this case they pick the closest the new value from set $\Theta_t$ such that it is the closest to the old marriage terms: $\theta_t = \min\limits_{\tilde\theta\in\Theta_t} |\tilde\theta - \theta_0|$. 
-\item \textit{Divorce.}  If $\Theta_t = \varnothing$, so if there do not exist any marriage terms satisfactory for both spouses, then divorce happens according to the rule described above.
-\end{enumerate}
-Picking $\theta$ that is the closest to the old one is not a random choice: it is rationalized by models with limited commitment models, where change in $\theta$ represents the value of Lagrange multiplier on binding participation constraint. Intuitively, since couple does not like $\theta$ to be changing and everything is continuous in $\theta$, the couple prefers small changes to larger ones, and this drives the result.
-
-Renegotiation that involves making discrete decisions has few more issues as backward induction has to be used: fertility decisions have to be made after new $\theta$ is set, and these decisions might depend on $\theta$, therefore inequalities defining set $\Theta_t$ need to be modified. This is an artifact of assuming that fertility decisions are made collectively and it can be the case that having a baby benefits couple but hurts wife alone (mainly by worsening her outside option), and such scenario of renegotiation insures that participation constraints hold after the fertility decisions are made. See Appendix \ref{ren-disc} where I elaborate on this.
-
-
-\subsection{Additional Details}
-The model I solve an estimate contains few additional things that are omitted for more clear exposition above.
-
-First, females may exit the state of being single mother immediately. This transition is assumed to happen after divorce or failure to agree to marry, therefore in the value functions and in (re)negotiation I use $V^{f,s?} = p^{\text{out}} [V^{f,s} + S] + (1-p^{\text{out}})V^{f,sk}$ instead of just $V^{f,sk}$. This allows for quicker re-marriage and easier implementation of counterfactual in which females do not have risk of becoming single mother at all. I use notation of $V^{f,s?}$ in Appendix \ref{add-trans} where I show exact value functions.
-
-Second, I assume that having a baby is possible only before certain age $\bar{T}$. After that, value functions and negotiation rules are modified in a straightforward manner.
-
-Finally, to simplify computations I also do not allow marriage status and marriage terms to change after certain $\bar{T}_2$. Therefore I drop participation constraints in the couples, the value functions look the same but do not allow for $\theta$ to change.
-
-\subsection{Functional Forms}
-I use standard CES utility functions for individuals and couples with no kids: $u(c) = \frac{c^{1-\sigma}}{1-\sigma}$.  When kids appear, people extract additional utility of child quality, I use the following non-separable utility function:
-\[u(c,q) = \frac{\left(e^{\phi_0}\cdot c^{1-\phi_1} \cdot (\phi_2 + q)^{\phi_1}\right)^{1-\sigma}}{1-\sigma},\]
-parameter $\phi_0$ represents fixed gain in marginal utility because of having a baby, $\phi_1$ drives relative importance of child quality in utility function and $\phi_2$ is a ``luxury good'' parameter that can rationalize large child expenditures of wealthy couples that are discussed in the estimation section.
+\input{model}
 
 \section{Estimation Strategy}
 I use techniques of indirect inference, extensively described, for instance, in [...] for estimation of the parameters. Shortly, I select parameters such that features of the real data are similar to the features of the data simulated from model. It is not entirely correct to call the procedure simulated method of moments, as some things that I match are not moments in econometric sense, however it has many similarities with simulated method of moments so I occasionally extend notion of moments to reflect any statistics derived from the data.
@@ -577,189 +395,27 @@ Table ... shows targeted and
 
 \appendix
 \section{Additional Empirical Results}
-\subsection{ACS}
+\subsection{Alternative Income Partitions\label{inc-part}}
+
+Defining income groups in cross-sectional comparisons is no trivial, as income is endogenous to household's composition that is the main object of study here. I in this section I build several altrenative income partitions and argue that qualitatively pattern I care about holds for variety of definitions, although exact numbers may differ quite a lot.
+
+
+
+\subsubsection{Equivalence Scale}
+
+Following development and household literature, when dividing people by income group I use total household income adjusted by OECD equivalence scale. The scale assigns weight 1 to the household head, 0.5 to spouse and 0.3 to each child.
+
+As I use the household income as the main variable of interest, I have to restrict attention to couples that live by themselves and single females with children. I do this both for ACS and SIPP, and as definition of households wary a little, this may drop out slightly different groups of people.
+
+Formally,for income considerations I take a subsample of females who is marked as household's head or head's spouse, and who do not have any people living in household other than their spouse/unmarried partner and their children. This, for instance, excludes multigenerational household and people living with roommates, as total household's income may not be a relevant thing for some types of household composition. I cannot define income equivalence scale for more complicated living arrangements, although there are different scales that allow to do this.
+
+To mitigate selectivity, I compute income percentiles in all sample of females with household composition mentioned above, regardless of their marriage and fertility status. I use total family income as the key variable. To mitigate misreporting I drop observations with total yearly family income below $\$4000$ for ACS (that is about a third of federal the poverty level) or monthly income below $\$300$ for SIPP.
+
 
 \section{Additional Robustness Checks}
 
-\section{Additional Notes on Model}
-\subsection{Continuity of Value Functions}
-This part discusses violations of continuity caused by the dynamic bargaining structure. The general conclusion is that collective value function does is not necessary continuous in couple's characteristics, and this discontinuity propagates onto all value functions in the model.
-
-To simplify the example, let's consider value function of couple with kids. Similarly to equation \ref{tht_noneq}, we can write
-\[ V^{ck}_t(\Omega) = \theta\cdot V^{f,ck}_t(\Omega) + (1-\theta)\cdot V^{m,ck}_t(\Omega) + \Delta(\Omega),\]
-and use it to substitute the term under the expectation in equation \ref{vf_ck} 
-\begin{align*} & (1-d)\cdot   V^{ck}_{t+1}(\Omega') + d\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})] =    V^{ck}_{t+1}(\Omega') + \\
- &  \ \ \ \theta \cdot d(\Omega') \cdot [V_{t+1}^{f,sk}(\omega^{df}) - V_{t+1}^{f,ck}(\Omega')] + (1-\theta) \cdot d(\Omega') \cdot [V_{t+1}^{m,sk}(\omega^{dm}) - V_{t+1}^{m,ck}(\Omega')] - d(\Omega')\cdot \Delta(\Omega'),
-\end{align*}
-if we consider couple that is close to divorce, so there exist two $\Omega'_1$ and $\Omega'_2$  that are close to each other according to some metric, but $d(\Omega'_2) = 1$ and $d(\Omega'_1) = 0$. Note that around the divorce threshold by [...] \textbf{both} spouses should be indifferent between staying on leaving, therefore
-\[ V_{t+1}^{f,sk}(\omega^{df}) - V_{t+1}^{f,ck}(\Omega')\approx 0, \ \ V_{t+1}^{m,sk}(\omega^{dm}) - V_{t+1}^{m,ck}(\Omega') \approx 0,\]
-therefore if $\Delta(\Omega')$ is non-zero in these points, this whole expression jumps where value of $d$ jumps. [It is not clear whether it is actually zero or not, but in simulations it does look like it is positive.]
-
-\subsection{Renegotiation With Collective Discrete Decisions\label{ren-disc}}
-This section explains how discrete decisions interact with couple's renegotiation. The theory requires participation constraints to be satisfied \textit{after} any discrete choice. In the context of fertility decisions, that means that both spouses can predict future decisions and re-negotiate $\theta$ accounting for this prediction (rather than assuming that fertility status does not change).
-
-With slight abuse of notation, let's suppose that couple gets collective value $V^{ck}(\theta,\Omega)$ if it makes a baby and $V^{c}(\theta,\Omega)$ is it does not. Given $\theta$ total value before the decision is made is \[V^{c?}(\theta,\Omega) = \max\{ V^{ck}(\theta,\Omega), V^{c}(\theta,\Omega)\}\]
-after that I define
-\[V^{f,c?}(\theta,\Omega) = V^{f,ck}(\theta,\Omega)\cdot \I[V^{ck}(\theta,\Omega) \geq V^{c}(\theta,\Omega)] + V^{f,c}(\theta,\Omega) \cdot \I[V^{ck}(\theta,\Omega) < V^{c}(\theta,\Omega)],\]
-note that it is not necessary equal to $\max\{ V^{f,ck},V^{f,c} \}$. Similarly we can define $V^{m,c?}(\theta,\Omega)$.
-
-The main thing to notice is that although $V^{c?}$ is continuous in $\theta$ individual values $V^{f,c?}$ and $V^{m,c?}$ are not, unless both spouses always have agreement on whether to make a baby: $V^{ck} \geq V^{c} \Leftrightarrow V^{f,ck} \geq V^{f,c} \Leftrightarrow V^{m,ck} \geq V^{m,c}$. Therefore set
-\[\Omega = \left\{\tilde{\theta} : V^{f,c?}(\tilde\theta,\Omega) \geq V^{f,s}(\omega^{df}), \ \  V^{m,c?}(\tilde\theta,\Omega) \geq V^{m,s}(\omega^{dm}) \right\}\]
-may be disjoint, and careful approximation of $V$ with respect to $\Omega$ is required. 
-
-The possible solution to it would be to limit fertility decisions to the cases where both spouses agree on having kids, this, however, goes against the logic where couple maximizes collective utility subject to participation constraints. 
-
-\subsection{Accounting for Additional Transitions\label{add-trans}}
-In value functions I stated above I assumed that females stays single mother for at least one period if it exits a couple with a kid or if she has a baby at the moment of marriage and disagrees to marry. In the actual model I relax this assumption so the female can stop being single mother immediately. This is needed, for instance, for evaluating counterfactuals in which female can exit couple without pressure of being a single mother. 
-
-I assume that at the moment of (re)negotiation female is unsure about whether she is going to be a single mother. Therefore, I define expected value of leaving the couple to be
-\[V_t^{f,c?}(\omega) = p^{\text{out}}[V_t^{f,s}(\omega) + S] + (1-p^{\text{out}})V_t^{f,sk}(\omega),\]
-therefore equaiton \ref{single-fem} becomes
-\begin{align}V^{f,s}_t(\omega) = \max\limits_{c} & \bigg\{ u(c) + \beta \E_t \Big[ (1 - p^{\text{meet}}_t)\cdot V^{f,s}_{t+1}(\omega') + \label{single-fem-true} \\  \nonumber
-& \hspace{7em} p^{\text{meet}}_t (1-p^{\text{preg}}_t) \big\{ m^{np} \cdot V^{f,c}_{t+1}(\Omega^c) + (1-m^{np})V^{f,s}_t(\omega')\big\} + \\  \nonumber
-& \hspace{10em} p^{\text{meet}}_t p^{\text{preg}}_t \big\{ m^{p} \cdot V^{f,ck}_{t+1}(\Omega^c) + (1-m^{p})V^{f,s?}_{t+1}(\omega')\big\}  \Big]  \bigg\},
-\end{align}
-the set is \ref{reneg-with-kids} becomes
-\begin{equation}\Theta_t = \left\{ \tilde\theta : V^{f,ck}_t(a,\tilde\theta,\psi,z^f,z^m,\xi) \geq V_t^{f,s?}(a^{df},z^f,\xi) , \ \ V_t^{m,ck}(a,\tilde\theta,\psi,z^f,z^m,\xi)\geq V_t^{m,s}(a^{dm},z^m) \right\} \label{reneg-with-kids}
-,\end{equation}
-and the analogous term is introduced for initial negotiation of couples in case of pregnancy shock.
-
-\section{Computational Notes}
-This section describes the procedures I use to approximate the solution of the model above. In general, since the model is finite-horizon, value function iteration starting from the last period is used. The value functions and corresponding policy functions are approximated on a grid. Since state space is quite large (it has at least 4 continuous dimensions for couples), I use approximation techniques of [Judd--Maliar--Maliar] to deal with dimensionality. Namely, in the dimension of productivity, marriage terms and marriage surplus the functions are approximated by Smolyak polynomials (that are a variation of multi-dimensional Chebyshev polynomials) on sparse Smolyak grid. However, since the assets dimension is important and non-convex value functions can cause troubles, so I use full grid in the dimension of assets and linearly interpolate between assets points.
-
-An additional issue is integration, required to compute expected future values of the value function accounting for possible (re)negotiation and divorce. This is noted to be the most costly part of value function iteration. I utilize monomial integration rules describe by [JMM] to do it efficiently. The second part of this section describe this. 
-
-\subsection{Value Function Approximation}
-I describe techniques I used for value functions, the same principle applies for policy functions: they are just byproduct of value function iteration that I use for simulations.
-
-State space of continuous variables for couples is $\Omega = (a,\theta,\psi,z^f,z^m)$. I partition it as $\Omega = (a,O)$. Smolyak method generates $S$ gridpoints $G = \{O_1,...,O_S\}$, where each $O$ represents some combination of $(\theta,\psi,z^f,z^m)$; and polynomials $P = \{p_1(o),...,p_S(o)\}$. Therefore any function $f(o)$ is approximated by
-\[f(o) \approx \hat{f}(o) = \sum_{i=1}^S c_{i}\cdot p_i(o),\]
-and coefficients $c$ are found from collocation relation
-\[\hat{f}(O_i) = f(O_i) \ \forall i = 1,...,S.\]
-
-Since we have to approximate functions for different levels of $a$, I introduce additional grid $A = \{a_1,...,a_J\}$. For each $a_j$ we can find corresponding coefficients $c$, I denote them $c_i(a_j)$. At points $a_j$ the function can be written as
-\[\hat{f}(a_j,o) = \sum\limits_{i=1}^S c_i(a_j) p_i(o),\]
-for points between grid $a \not A$ I linearly interpolate $f(a_j,o)$. Generically, to interpolate values for arbitrary $a$ and $o$ the  reasonable approach is to first compute values of $f$ on each point of $A$ grid for current $o$, to get $F = \{f(a_1,o),...,f(a_J,o)\}$ and then interpolate $F$ with respect to $a$. However, I use linear interpolation and since the function is bilinear in $c$ and $p$, this is fully equivalent to linear interpolation of coefficients $c_i(a_j)$. Therefore I define $\hat{c}_i(a)$ to be linearly interpolated value of coefficients, and therefore the function at arbitrary point is approximated by
-\[\hat{f}(a,o) = \sum\limits_{i=1}^S \bar{c}_i(a) p_i(o).\]
-If we use interpolation other than linear with respect to $a$ this equivalence would be violated so the procedure becomes more complicated as it requires evaluating many values of $f$.
-
-\subsection{Monomial Quadratures}
-See [JMM] for a detailed discussion. Let $\epsilon$ be $d$-dimensional normal distribution and we are interested in evaluating $\E(f(\epsilon))$. Standard techinque would involve using Gauss--Hermite quadrature with respect to each dimension of $\epsilon$, this, however, quickly becomes infeasible: if we want to have 5 points with respect to each dimension of 4-dimensional vector we would have $5^d = 625$ points, out of which many will have very low weights. 
-
-Monomial quadratures generate number of integration node that grows much lower than exponent of $d$. I use the one that is proportional to $d^2$. So, the rule generates $Q$ vectors $\{\epsilon_1,...,\epsilon_q\}$ with weights $w_q$, and the integral can just be written as $\E(f(x))\approx \sum_{q} f(\epsilon_q)$.
-
-As it is noted by [...] that there is a separate issue of using quadratures to approximate integrals of discontinuous functions. However, they also show that the model with deterministic transition decisions can be interpreted as a limiting case of model with stochastic (logit) transitions, for which integration by quadratures is valid. I also believe that this can be addressed by re-interpreting shocks to have a discrete distribution with probability mass $w_q$ rather than true normal distribution (so we do not pretend to recover the integrals under true normal distribution). In general, the math background for this does not seem to be well-developed and I use conventional tools at this stage of the project without asserting its mathematical rigor. In the future, I may try to test the approximations I use against just discretizing all random walks with number of points.
-
-\section{Auxiliary Estimates}
-\subsection{Partner's Earnings\label{partearn}}
-The model assumes that
-\[ z^p = z^{\text{own}} + \varepsilon^{z,p}, \ \ \ \varepsilon^{z,p}\sim\mathcal{N}(0,(\sigma^{z,p})^2),\]
-so detrended log-wage of potential partner is normally distributed with the mean of own detrended log-wage and standard deviation of $\sigma^{z,p}$.
-
-To estimate $\sigma^{z,p}$ I regress log-difference in spouses earning for couples in ACS on several predictors, that include ages of spouses, ACS year and state. In this section I present several alternative specifications, including an attempt to correct for selection into marriage, and show what variance they imply. 
-
-The main specification is
-\[\log \frac{\text{Earnings of wife}}{\text{Earnings of husband}} = \alpha + X'\gamma + \epsilon,\]
-where I run regression on subsample of couples in which both spouses work full time and report labor income above 5000 per year.  Controls $X$ include 4th degree polynomials and wife's and husband's age, as well as absolute value of age difference, dummies for states and ACS years. I regress difference in per-hour earnings to the set of controls for couples who married in the year previous to the survey year and who have no children in the household. Relaxing this definition, using total earnings instead of per-hour and even controlling for education lead to slightly different estimates, but all of them are within $[0.66,0.8]$ range.
-
-I pick the upper bound of this interval and set $\sigma^{z,p} = 0.8$: as in the model people are more likely to agree to marry similar partners, I expect similar statistic in the simulations to be slightly lower. [Similar statistic computed on simulated data returns ...]
-
-
-\newpage
-\section*{Very Technical Appendix, Not For Final Version}
-\section{Expressions for Value Functions}
-\subsection{Notation}
-This technical note shows exact expressions for approximating value functions. For the couple's state I use partition $\Omega = (a,O)$, where $O = (\theta,\psi,z^f,z^m)$. For the age variable I put $\xi\in\{y,s\}$ counts as a separate letter, so states for couples with kids are noted like $cky$ and $cks$. Let $p^s$ represents probability that the child ``grows up'' so couple switches from $cky$ to $cks$. For individual's state there are only two variables $\omega = (a,z)$, and child's age for single mother is reported as state $sky$ if $\xi = y$ and $sks$ if $\xi = y$. 
-
-Grid consists of all possible combinations of $a$ and $O$ ($a$ and $z$ in single's case), so \[G = \{ \{a_1,...,a_I\} \times \{o_1,...,o_J\}\}\]
-
-Let $i$ refers to assets position and $j$ refers to values of everything else. Finally, indices $q$ refer to quadrature nodes, and $w_q$ to quadrature weights that add up to 1.
-
-\subsection{Single Agents}
-Consider females, males are handled analogously. Value function \ref{single-fem} can be written as
-\[V^{f,s}_t(a,z) = \max\limits_{c} \left\{ u(c) + \beta \mathcal{V}^{f,s}_{t+1}(s,z)\right\}, \ \ c + s = M(a,z),\]
-Here  $\mathcal{V}^{f,s}_{t+1}$ represents expectation of tomorrow's individual value function, accounting for all possible transitions. Argument $s$ refers to savings made in the current period (it is not necessary equal to future assets as future assets change if the partner is met), and $z$ refers to current value of productivity. Approximating $\mathcal{V}_{t+1}(s,z)$ (i.e. integration) is the key challenge. Note that it does not depend on current assets, only on savings $s$ that define future assets position. $M(a,z) = R\cdot a + \exp(z + \text{Trend}_t)$ is the amount of money in the end of the period.
-
-I treat the function $\mathcal{V}^{f,s}_{t+1}(s,z)$ as a collection of functions $\mathcal{V}^{f,s}_{mj,t+1}$ for each value of current productivity $z_j$ and savings $s_m$. I generate quadrature nodes that consist of shock to individual productivity $\epsilon^{z,f}$, shocks to partner's assets and productivity positions
-$(\epsilon^{a,p},\epsilon^{z,p})$ and initial couple's surplus $\psi$. I denote these nodes as $x_q = (\epsilon^{z,f}_q,\epsilon^{a,p},\epsilon^{z,p},\psi_q)$, in total monomial rule results in $Q = [...]$ nodes. Weight $w_q$ corresponds to each node. Given savings $s$ and grid point in $z_j$ I generate partner's and couple's characteristics. 
-\[a^p_{mq} = s_m\cdot \exp(\epsilon^{a,p}_q), \ \ a^c_{mq} = s_m\cdot [1 + \exp(\epsilon^{a,p}_q)], \ \ z^m_{jq} = z^f_j \exp(\epsilon^{z,p}_q),\]
-(in some sense in this setup by saving more individuals have chances of getting more wealthy partners).  Also, individual next period's productivity is generated according to $z^f_{jq} = z^f\cdot \exp(\epsilon^{z,f}_q)$. Note that $z^f_j$ refers to the current value and $z^f_{jq}$ refers to the next period's values;
-
-This allows to generate potential couple's characteristics $(a^c_{mq},\psi_q,z^{f}_{jq},z^{m}_{jq})$, and combining it with value functions for the next period we can define:
-\[\Theta^{np}_{mjq,t+1} = \left\{ \tilde\theta : V^{f,c}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq}) \geq V^{f,s}(s_m,z^f_{jq}), \ V^{m,c}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq}) \geq V^{m,s}(a^p_{mq},z^m_{jq}) \right\},\]
-if $\Theta^{np}_{mjq,t+1}$ is empty\footnote{I figure this out by defining a uniformly spaced grid for $\theta \in [0.05,0.95]$. Because of Smolyak grid, this can be done very efficiently as $V^{f,c}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq})$ are just a polynomial in $\tilde{\theta}$.}
-, $m^{np}_{mjq,t+1} = 0$ (so no marriage happens at node $jq$ if agents made savings of $s_m$). If the set is not empty, then $\theta_{mjq}$ is determined by Nash Bargaining \ref{nbs} and $m^{np}_{mjq,t+1} = 1$. Therefore at node $(s_m,z_j)$ future value function in case the partner is met and pregnancy did not happen can be approximated as
-\[\E_t  \big\{ m^{np} \cdot V^{f,c}_{t+1}(\Omega^c) + (1-m^{np})V^{f,s}_t(\omega')\big\} \approx \mathcal{E}^{np}(s_m,z_j),\]
-where
-\[\mathcal{E}^{np}(s_m,z_j) = \sum\limits_{q=1}^{Q} w_q \cdot \left\{ m^{np}_{mjq,t+1}\cdot V^{f,c}_{t+1}(a^c_{mq},\theta_{mjq},\psi_q,z^{f\prime}_{jq},z^m_{jq}) + (1-m^{np}_{mjq,t+1})\cdot V^{f,s}_{t+1}(s_m,z_j)\right\}.\]
-In exactly the same manner we define the set in the case the pregnancy shock did happen:
-\[\Theta^{p}_{mjq,t+1} = \left\{ \tilde\theta : V^{f,ck}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_j,z^{m}_{jq}) \geq V^{f,s?}(s_m,z^f_{j}), \ V^{m,ck}_{t+1}(a^c_{mjq}, \tilde\theta, \psi_q,z^{f}_{jq},z^{m}_{jq}) \geq V^{m,s}(a^p_{mq},z^m_{jq}) \right\},\]
-where function $V^{f,s?} = p^{\text{out}}[V^{f,s} + S] + (1-p^{\text{out}})V^{f,sky}_t$ captures possible immediate transition out of being single mother. In the same way 
-\begin{align*}\mathcal{E}^{p}(s_m,z_j) = \sum\limits_{q=1}^{Q} w_q \cdot  \Big\{ m^{p}_{mjq,t+1}\cdot V^{f,cky}_{t+1}(a^c_{mq},\theta_{mjq},\psi_q,z^f_j,z^m_{jq}) + (1-m^{p}_{mjq,t+1})\cdot V^{f,s?}(s_m,z_j) \Big\},
-\end{align*}
-lastly, the value of not meeting any partner is simply
-\begin{align*}\mathcal{E}^{0}(s_m,z_j) = \sum\limits_{q=1}^{Q} w_q \cdot  V^{f,s}_{t+1}(s_m,z^f_{jq}),
-\end{align*}
-finally, the whole function $\mathcal{V}^{f,s}_{t+1}(s_m,z_j)$ can be approximated by weighted average
-\[\mathcal{V}^{f,s}_{t+1}(s_m,z_j) \approx (1-p^{\text{meet}}_t) \cdot \mathcal{E}^{0}(s_m,z_j) +  p^{\text{meet}}_t(1-p^{\text{preg}}_t)  \cdot \mathcal{E}^{np}(s_m,z_j) 
-+  p^{\text{meet}}_t p^{\text{preg}}_t  \cdot \mathcal{E}^{p}(s_m,z_j).\]
-
-After that I use linear interpolation in $s$ dimension to approximate $\mathcal{V}^{f,s}_{t+1}(s_m,z_j)$ for arbitrary $s$. Therefore I can get approximation of $\mathcal{V}^{f,s}_{t+1}(s,z_j)$. As a result, value function in each asset point $a_i$, $z_j$ is obtained by numerically solving
-\[V^{f,s}_t(a_i,z_j) = \max\limits_{s \in [\underline{A},\overline{A}]} \left\{ u(M(a_i,z_j) - s) + \beta \mathcal{V}^{f,s}_{t+1}(s,z_j)\right\}.\]
-I take $\underline{A}$ and $\overline{A}$ the same as upper and lover bound for individual's assets grid (this is important as approximation may be crude). I use Matlab's \textbf{fminbnd} to solve for the maximum point, although I also test that results are very similar when I just use discrete grid $s \in \mathcal{S} = M(a_i,z_j) \cdot\{0,...,0.99\}$ with some spacing, though this variation is much slower.
-
-Choice of solver can generically be an issue as because of concerns described above function $\mathcal{V}^{f,s}_{t+1}(s_m,z_j)$ may be non-smooth or even discontinuous.
-
-\subsection{Couples}
-I consider couples that do not have kids yet as they have richer set of possible transitions.  Following [...] I split household's decision problem on intrahousehold, intratemporal and intertemporal levels, where first two can be solved analytically. For intrahousehold, I define
-\[U(c,\theta) = \max\limits_{c^f,c^m} \left\{\theta u(c^f)  + (1-\theta)u(c^m) \right\}, \ \ \text{s.t.} \ \ \ c = \left[ (c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}\right]^{\frac1{1+\rho_c}},\]
-and given CES assumption this function has simple analytical form.
-
-Intratemporal dimension is trivial, as total consumption is the only intratemporal choice.
-
-For intertemporal I can write the problem \ref{vf-c} as
-\[V^{c}_{t+1}(a,\theta,\psi,z^f,z^m) = \max\limits_{c} \left\{ U(c,\theta) + \beta \mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m) \right\},\]
-where $\mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m)$ consists of two terms: what happens if pregnancy shock arrives and what if it does not.
-
-If the shock arrives, in the next period couple is in state $cky$, and if it decides to divorce female becomes a single mother (and may quit this state immediately), and male becomes just a single male. I approximate $\mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m)$ here. 
-
-I write current state as combination of $(a_i,O_j)$. Function $\mathcal{V}_{t+1}(s,\theta,\psi,z^f,z^m)$ depends on current state $O= (\theta,\psi,z^f,z^m)$ and future savings $s$.  Integration nodes contains $x_q = (\epsilon^{z,f}_q,\epsilon^{z,m}_q,\epsilon^{\psi}_q)$. I take grid with respect to current states, so $O_j= (\theta_j,\psi_j,z^f_j,z^m_j) \in O$ and future savings $s \in A$, so I again approximate expected future value function at each combination of $s_m$ and $O_j$, so I compute values $\mathcal{V}_{mj,t+1} = \mathcal{V}_{t+1}(s_m,\theta_j,\psi_j,z^f_j,z^m_j)$. Given each $j$, I can compute next period values of $(\psi_{jq},z^f_{jq},z^m_{jq})$ by adding shocks given by quadrature notes to the current point. I also can compute divorce options: $\omega^{df}_{mjq} = ( (1-\kappa)\cdot 0.5 \cdot s_m, \ z^f_{mjq})$ and $\omega^{dm}_{mjq} = ( (1-\kappa)\cdot 0.5 \cdot s_m, \ z^m_{mjq})$. This allows to define for each quadrature node a renegotiation set:
-\[\Omega^{p}_{mjq,t+1} = \left\{ \tilde\theta \ : \ V^{f,cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{f,s?}_{t+1}(\omega^{df}_{mjq}), \ \ V^{m,cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{m,s}_{t+1}(\omega^{dm}_{mjq}) \right\},\]
-and then if $\Omega^{p}_{mjq,t+1}$ is not empty, I pick from it next period's $\theta_{mjq}$ closest to initial $\theta_j$ and set $d^{p}_{mjq} = 0$, otherwise divorce happens and $d^{p}_{mjq} = 0$.
-
-Therefore expected future value if pregnancy shock arrives is 
-{\small
-\[\mathcal{E}^{p}(s_m,O_j) = \sum\limits_{q=1}^{Q} w_q \cdot\left\{ d^p_{mjq}\cdot V_{t+1}^{cky}(s_m,\theta_{mjq},\psi_{jq},z^f_{jq},z^m_{jq}) + (1-d^p_{mjq}) [\theta_{j}\cdot V^{f,sky}(\omega^{df}_{mjq}) + (1-\theta_j)V^{m,s}(\omega^{dm}_{mjq})] \right\} \]
-}
-If pregnancy shock does not arrive, then renegotiation should account for discrete decision of whether to have a kids that happens afterwards, and this decision may depend on $\theta$. Namely, I define
-\[k_{mjq}(\tilde\theta) = \I\left[ V^{cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{c}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq})\right],\]
-then I define individual value accounting for this choice:
-\[V^{f,c?}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) = k_{mjq}(\tilde\theta)\cdot V^{f,cky}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) + (1-k_{mjq}(\tilde\theta))\cdot V^{f,c}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}),\]
-and the renegotiation set is defined as
-\[\Omega^{np}_{mjq,t+1} = \left\{ \tilde\theta \ : \ V^{f,c?}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{f,s}_{t+1}(\omega^{df}_{mjq}), \ \ V^{m,c?}_{t+1}(s_m,\tilde\theta,\psi_{jq},z^f_{jq},z^m_{jq}) \geq V^{m,s}_{t+1}(\omega^{dm}_{mjq}) \right\},\]
-and we define $\theta_{mjq}$ and $d^{np}_{mjq}$ analogously.
-
-Therefore we define expected future value if pregnancy shock does not arrive to be
-{\small
-\[\mathcal{E}^{np}(s_m,O_j) = \sum\limits_{q=1}^{Q} w_q \cdot\left\{ d^{np}_{mjq}\cdot V_{t+1}^{c?}(s_m,\theta_{mjq},\psi_{jq},z^f_{jq},z^m_{jq}) + (1-d^{np}_{mjq}) [\theta_{j}\cdot V^{f,s}(\omega^{df}_{mjq}) + (1-\theta_j)V^{m,s}(\omega^{dm}_{mjq})] \right\} \]
-}
-so we can finally define value of $\mathcal{V}$ at points $s_m$:
-\[\mathcal{V}^{c}_{t+1}(s_m,O_j) = p_t^{\text{preg}}\cdot \mathcal{E}^{p}(s_m,O_j) + (1-p_t^{\text{preg}})\cdot \mathcal{E}^{np}(s_m,O_j),\]
-and then values at arbitrary points $s$ are obtained by linear interpolation. Therefore the ultimate problem is
-\[V^{c}_t(a_i,O_j) = \max\limits_{s \in [\underline{A},\overline{A}]} \left\{ U(M(a_i,O_j) - s,\theta_j) + \beta \mathcal{V}^{c}_{t+1}(s,O_j)\right\}.\]
-
-
-\subsection{Couples With Kids} 
-Namely, for intrahousehold allocation of consumption I define
-\[U(c,q,\theta) = \max\limits_{c^f,c^m} \left\{\theta u(c^f,q)  + (1-\theta)u(c^m,q) \right\}, \ \ \text{s.t.} \ \ \ c = \left[ (c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}\right]^{\frac1{1+\rho_c}},\]
-and it still has simple tractable form.
-
-For intratemporal level I have to solve
-\[U(m,W^f,\xi,\theta) = \max\limits_{c,q,l_f,x} U(c,q,\theta), \ \ \ \text{s.t.} \ \ \ c + x + l_f\cdot W^f = m, \ \ q =[\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}}. \]
-this function can also be derived analytically given my assumption on functional forms.
-
-After aggregation, the intertemporal problem looks similar to the one for singles:
-\[V^{cky}(a,\theta,\psi,z^f,z^m) = \max\limits_{m} \left\{ U(m,W^f_t(z^f),\xi,\theta) + \beta \mathcal{V}^{ck}_{t+1}(s,\theta,\psi,z^f,z^m,\xi)\right\}, \ \ \text{s.t.} \ \ m + s = M(a,z^f,z^m),\]
-where definition of $\mathcal{V}$ is analogous.
+\input{theory-appendix} % notes on model
+\input{comp-appendix} % notes on computations
+\input{tech-appendix} % notes on solution process
 
 \end{document}

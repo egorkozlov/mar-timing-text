@@ -1,0 +1,176 @@
+% This is part of draft.tex containig the model
+% \section{Model}
+The model is a mixture between conventional heterogeneous agents savings model (B--A--H framework) and household formation and dynamic bargaining, that is extensively developed by [...]. 
+
+Agents live for $T$ periods. The agents are males, females and married couples. Couples can have a child together, and if a couple with a child divorces up, the child stays with mother, and this is how singe females can have kids. Single females with kids randomly re-enter marriage market by becoming single females without kids.\footnote{The reason for this assumption is to avoid modeling mixture between step and own children, and the fact that single mothers are not a main focus of the paper.}
+
+
+Single people without kids randomly meet partners with characteristics similar to them and decide whether to create a couple. Couples agree on some marriage terms, represented by each spouse's weight in couple's objective function. The rationale for marriage includes risk-sharing, returns to scale in consumption, possibility to have a child in the future and additional utility surplus of being married (love shock). Each period after random shocks are realized, couples may decide to renegotiate their marriage terms if one of the spouses is better off being single. If they cannot find marriage terms that are satisfactory for both, divorce happens.
+
+Couples can choose to have a child and can also experience unplanned pregnancies. Unplanned pregnancies cannot be aborted. In addition to couples, single people who met each other may experience an unplanned pregnancy just before they decide whether to create a couple. In this case, upon disagreement female becomes a single mother. This mechanism is a stylized representation of kids appearing in unmarried cohabitating couples: since I do not model cohabitation, those kids appear just before people actually decide to marry each other.\textit{ I discuss this issue additionally in Section ....}
+
+\subsection{Remarks on Notation}
+I write $V^{i,j}$ to represent individual value functions in the model. Here $i$ represents gender: $f$ for female or $m$ for male. $j$ represents demographic status: $s$ for singles without kids, $sk$ for singles with kids (females only), $c$ for couples without kids and $ck$ for couples with kids. Couple's joint value functions have only one superscript $j \in \{c,ck\}$. Relation between joint value function $V^{c}$ and each spouse's value functions $V^{m,c}$ and $V^{f,c}$ is described in details in couple's section.
+
+\subsection{Singles Without Kids}
+Singles without kids are characterized by age $t$, labor productivity $z$ and assets (savings) $a$. I use $\omega = \{z,a\}$ to individual characteristics other than age.
+
+Each period single individuals meet a partner of the same age and characteristics $\omega^p$ with probability $p^{\text{meet}}_t$. If meeting happens, with probability $p^{\text{preg}}_t$ unplanned pregnancy happens. After realizing new period's shocks and pregnancy status couple tries to negotiate marriage terms. If they found marriage terms that are satisfactory for both ($m^{np} = 1$ in case of no pregnancy or $m^p = 1$ in case of pregnancy), they form couple with characteristics $\Omega^c$ . If satisfactory marriage terms could not be found, the individual stays single, or becomes single mother if she is female and unplanned pregnancy happened.
+
+The value function of male agent therefore is
+\begin{align}V^{m,s}_t(\omega) = \max\limits_{c} & \bigg\{ u(c) + \beta \E_t \Big[ (1 - p^{\text{meet}}_t)\cdot V^{m,s}_{t+1}(\omega') + \\ \nonumber
+& \hspace{7em} p^{\text{meet}}_t (1-p^{\text{preg}}_t) \big\{ m^{np} \cdot V^{m,c}_{t+1}(\Omega^c) + (1-m^{np})V^{m,s}_t(\omega')\big\} + \\  \nonumber
+& \hspace{10em} p^{\text{meet}}_t p^{\text{preg}}_t \big\{ m^{p} \cdot V^{m,ck}_{t+1}(\Omega^c) + (1-m^{p})V^{m,s}_{t+1}(\omega')\big\}  \Big]  \bigg\},\\  \nonumber
+ \end{align}\vspace{-3em}
+ \begin{align*}
+ \text{s.t. \ }  &  a' = R\cdot a  + W^m_t(z) - c  & \text{ (evolution of assets)}\\
+ &  z' = z + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of productivity)}\\
+  & \log W^m_t = z_t + \text{Trend}^m_t, \ \ \  \text{Trend}^m_t = a^m_0 + a^m_1\cdot t  +  a^m_2 \cdot t^2 &  \text{ (labor income and trend)}\\
+  & \Omega^c = \mathcal{M}^m(a',z') &  \text{ (marriage prospectives)}
+\end{align*}
+where random function $\mathcal{M}^m$, representing characteristics of potential couple is defined in Section [...].
+
+The value function of female agent is
+\begin{align}V^{f,s}_t(\omega) = \max\limits_{c} & \bigg\{ u(c) + \beta \E_t \Big[ (1 - p^{\text{meet}}_t)\cdot V^{f,s}_{t+1}(\omega') + \label{single-fem} \\  \nonumber
+& \hspace{7em} p^{\text{meet}}_t (1-p^{\text{preg}}_t) \big\{ m^{np} \cdot V^{f,c}_{t+1}(\Omega^c) + (1-m^{np})V^{f,s}_t(\omega')\big\} + \\  \nonumber
+& \hspace{10em} p^{\text{meet}}_t p^{\text{preg}}_t \big\{ m^{p} \cdot V^{f,ck}_{t+1}(\Omega^c) + (1-m^{p})V^{f,sk}_{t+1}(\omega')\big\}  \Big]  \bigg\},
+\end{align}\vspace{-3em}
+\begin{align*}
+ \text{s.t. \ }  &  a' = R\cdot a  + W^f_t(z) - c  & \text{ (evolution of assets)}\\
+ &  z' = z + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of productivity)}\\
+  & \log W^f_t = z_t + \text{Trend}^f_t, \ \ \  \text{Trend}^f_t = a^f_0 + a^f_1\cdot t  +  a^f_2 \cdot t^2 &  \text{ (labor income and trend)}\\
+  & \Omega^c = \mathcal{M}^f(a',z') &  \text{ (marriage prospectives)}
+\end{align*}
+
+% 
+The crucial difference here is the term $V^{f,sk}$: it reflects the fact that upon disagreement woman becomes a single female with a child. 
+
+\subsection{Couples Without Kids}
+Couple is characterized by age $t$ (assumed the same for both spouses), marriage terms $\theta$, productivities of female and male $z^f$, $z^m$ and additive marriage surplus $\psi$. Couple maximizes weighted expected lifetime utility, and $\theta$ represents share of female in this objective function, therefore $\Omega = \{\theta,\psi,z^f,z^m\}$ represent characteristics of couple.
+
+The key element shaping couple's decisions is participation constraints: each period the expected lifetime utility of staying in couple should be not less that expected lifetime utility of getting a divorce and becoming a single agent. Depending on realization of the shocks, if it is possible to satisfy both participation constraints the next period (so no divorce happens, $d = 0$) state is $\Omega'$. If participation constraints cannot be satisfied, the couple gets a divorce $d = 1$ and its characteristics are dissolved onto $\omega^{df}$ and $\omega^{dm}$.  In more details this is described in Section [...].
+
+Fertility dimension is an important element. Each period couples get fertility shock $p^{\text{preg}}_t$. If it happens, they become couple with a child if they stay together (renegotiation happens after they know realization of the shock), or become single male and single female with a child if they do not. If the shock does not happen, they still may make a decision to get a baby \emph{after} they renegotiate the marriage terms if they stay together. This timing is subtle, but is required for everything to be internally consistent, see Appendix ... for more details on how timing interacts with renegotiation. 
+
+After realization of all the shocks and making fertility and divorce decisions in the current period the problem of the couple that stays childless is
+\begin{align}& \hspace{5em}  V^{c}_t(\Omega) = \max\limits_{c^f,c^m}  \bigg\{ \theta\cdot u(c^f) + (1-\theta)\cdot u(c^m) + \psi +  \label{vf-c} \\   \nonumber
+ &  \beta \E_t \Big[   (1 - p^{\text{preg}}_t)\cdot \left\{ (1-d^{\text{np}})\cdot \max\left\{ V^{ck}_{t+1}(\Omega'),V^{c}_{t+1}(\Omega')\right\} + d^{\text{np}}\cdot [ \theta V_{t+1}^{f,s}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\}  +  \\  \nonumber
+& \hspace{5em} p^{\text{preg}}_t\cdot \left\{ (1-d^{\text{p}})\cdot V^{ck}_{t+1}(\Omega') + d^{\text{p}}\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\} \Big] \bigg\},
+\end{align}\vspace{-2em}
+\begin{align*}
+\text{s.t. \ }& a' + c = R\cdot a  + W^m_t(z^m) + W^f_t(z^f) & \text{(evolution of joint assets)},\\
+				 & c = [(c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}]^{\frac1{1+\rho_c}} & \text{(increasing returns in consumption)},\\
+				 &  z^{f\prime} = z^f + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of female productivity)}\\
+				 &  z^{m\prime} = z^m + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of male productivity)}\\
+                    & \psi' = \psi + \varepsilon^{\psi}_t, \ \ \varepsilon^{\psi}_t \sim \mathcal{N}(0;\sigma_{\psi}^2)  & \text{(evolution of marriage surplus),} \\
+                    & (\Omega',\omega^{df},\omega^{dm}) = \mathcal{R}(\theta,a',z^{m\prime},z^{f\prime},\psi') & \text{(renegotiation correspondence)},
+\end{align*}
+
+\subsubsection{Defining Individual Values}
+The couple's collective value function $V^c$ is the object relevant for making decisions of consumption and fertility. Making marriage and divorce decisions involves individual value functions of spouses living in the couple. I denote them as $V^{f,c}$ and $V^{m,c}$. These value functions are obtained by plugging optimal decisions of couple into intertemporal utilities of each agent and accounting for possible transitions. Note that they cannot be derived from a maximization problem, and common properties of value functions such as envelope theorems do not hold for them.
+
+Namely, given couple's decisions $c^f(\Omega)$, female's value of being in couple is defined recursively as
+\begin{align}
+& \hspace{5em}  V^{f,c}_t(\Omega) =    u(c^f) + \psi +  \\   \nonumber
+ &  \beta \E_t \Big[   (1 - p^{\text{preg}}_t)\cdot \left\{ (1-d^{\text{np}})\cdot \max{}^C \left\{ V^{f,ck}_{t+1}(\Omega'),V^{f,c}_{t+1}(\Omega')\right\} + d^{\text{np}}\cdot [ V_{t+1}^{f,s}(\omega^{df})]\right\}  +  \\  \nonumber
+& \hspace{5em} p^{\text{preg}}_t\cdot \left\{ (1-d^{\text{p}})\cdot V^{f,ck}_{t+1}(\Omega') + d^{\text{p}}\cdot [ V_{t+1}^{f,sk}(\omega^{df}) ]\right\} \Big] 
+\end{align}
+where operator $\max{}^C\{A,B\} \equiv A\cdot \I[V^{ck}_{t+1}(\Omega')\geq V^{c}_{t+1}(\Omega')] + B\cdot \I[V^{ck}_{t+1}(\Omega')< V^{c}_{t+1}(\Omega')]$. It reflects the fact that couple makes joint decision that is not necessary individually optimal.
+
+Another important property of individual values is that
+\begin{equation} V^{c}_t(\Omega) \neq \theta\cdot V^{f,c}_t(\Omega) + (1-\theta)\cdot V^{m,c}_t(\Omega),\label{tht_noneq}\end{equation}
+the main reason for this is that $\theta$ changes in the future as a result of random shocks, and this change is not likely to be symmetric. This, in particular, causes couple's expected future value function to be discontinuous in $(a,z)$. See Appendix [...] for some additional discussion.
+
+\subsection{Couples With Kids}
+State space for couples is the same as for singles, except for additional variable $\xi$ representing child's age, therefore $\Omega = \{\theta,\psi,z^f,z^m,\xi\}$. I consider just two states for $\xi \in \{y,s\}$ representing young and school-age child. At birth the child is young, then each period with probability $p^{s}$ the child becomes of school-age. The difference between young and school-age children are mother's time requirement, namely young children require more time and elder --- more money.
+
+Couples with kids have additional choice variable $q$, that can be interpreted as flow of child quality or child consumption. Child quality is produced using mother's labor $l_f$ and monetary expenditures $x$ according to constant returns to scale production function. Labor input to child quality causes female to lose part of her labor income. The production function depends on age, namely I parametrize it as $q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}}$. This follows, for instance, [Sommer ...], with the addition of changing labor share $\mu$.
+
+\begin{align}& \hspace{5em}  V^{ck}_t(\Omega) = \max\limits_{c^f,c^m,q,l_f,x}  \bigg\{ \theta\cdot u(c^f,q) + (1-\theta)\cdot u(c^m,q) + \psi + \label{vf_ck} \\  \nonumber
+ & \hspace{10em} \beta \E_t \Big[   \left\{ (1-d)\cdot   V^{ck}_{t+1}(\Omega') + d\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\} \Big] \bigg\},
+\end{align}\vspace{-2em}
+\begin{align*}
+\text{s.t. \ } & a' + c + x = R\cdot a  + W^m_t(z^m) + (1-l_f)\cdot W^f_t(z^f) & \text{(evolution of joint assets)},\\
+                    & c = [(c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}]^{\frac1{1+\rho_c}} & \text{(increasing returns in consumption)},\\
+                    & q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}} & \text{(production function of child quality)},\\
+                    &  z^{f\prime} = z^f + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of female productivity)}\\
+				 &  z^{m\prime} = z^m + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of male productivity)}\\
+                    & \psi' = \psi + \varepsilon^{\psi}_t, \ \ \varepsilon^{\psi}_t \sim \mathcal{N}(0;\sigma_{\psi}^2)  & \text{(evolution of marriage surplus),} \\
+                   &  \P(\xi' = s | \xi = y) = p^s, \ \ \P(\xi' = s | \xi = s) = 1 & \text{(evolution of child's age)},\\
+                    & (\Omega',\omega^{df},\omega^{dm}) = \mathcal{R}(\theta,a',z^{m\prime},z^{f\prime},\psi',\xi) & \text{(renegotiation correspondence)},
+\end{align*}
+
+\subsection{Single Mothers}
+State space for single mothers contains individual productivity and child's age. Single mothers cannot marry, but have chance $p^{\text{out}}$ of recovering their marriage prospectives. In the model this is captured by transition of them to single females. This form is somewhat restrictive, although any other option requires modeling marriage of single mothers separately. This is a complex issue, for instance, males would seek females who already have kids if we do not make difference between step and own children. Since for the purposes of the model option of being single mother is used mainly as a factor affecting bargaining, I introduce additional (constant) utility factor $S$ to flexibly control utility of exiting the state. This can be interpreted as equivalent of utility of kids from past marriages when entering the marriage market again. This form seems flexible enough to capture variation in an option of being a single mother without putting extra computational and modeling burden.
+
+The problem of a female who stays single mother is
+\begin{align}V^{f,sk}_t(\omega) = \max\limits_{c} & \bigg\{ u(c,q) + \beta \E_t \Big[ p^{\text{out}} \cdot \left\{ V^{f,s}_{t+1}(\omega') + S\right\} +(1-p^{\text{out}})V^{f,sk}_{t+1}(\omega') \Big]  \bigg\},
+\end{align}\vspace{-1em}
+\begin{align*}
+ \text{s.t. \ }  &  a' = R\cdot a  + (1-l_f)W^f_t(z) - c  & \text{ (evolution of assets)}\\
+ & q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}} & \text{(production function of child quality)},\\
+ &  z' = z + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of productivity)}\\
+ &  \P(\xi' = s | \xi = y) = p^s, \ \ \P(\xi' = s | \xi = s) = 1 & \text{(evolution of child's age)},\\
+\end{align*}
+
+\subsection{Marriage Market}
+Single males and females meet potential partners of identical age and characteristics that depend on their assets $a$ (chosen in the previous period) and productivity $z$ (revealed after realization of shock):
+\begin{equation}\log a^p = \log a + \varepsilon^{a,p}, \ \ \varepsilon^{a,p} \sim \mathcal{N}(0,\sigma_{a,p}^2),\end{equation}
+\begin{equation}	z^p = z + \varepsilon^{z,p}, \ \ \varepsilon^{z,p} \sim \mathcal{N}(0,\sigma_{z,p}^2),\end{equation}
+for example, $\sigma_{a,p} = 0.1$ can be read as standard deviation of partner's assets being 10\% around of what agent has. 
+Additionally, initial marriage surplus (love shock) is drawn from
+\begin{equation} \psi \sim \mathcal{N}(0,\sigma_{\psi,0}^2).\end{equation}
+
+If people agree to be a couple they pool their assets $a^c = a + a^p$. If no unplanned pregnancy happens, people agree to marry if set of mutually satisfactory marriage terms
+\begin{equation}\small \Theta^{np}_t = \left\{ \theta : V_t^{f,c}(\theta,\psi,a^c,z^f,z^m) \geq V_t^{f,s}(a^f,z^f), \ \ V_t^{m,c}(\theta,\psi_0,a^c,z^f,z^m) \geq V_t^{m,s}(a^m,z^m)\right\}\end{equation}
+is non-empty. If potential couple gets the pregnancy shock, the set changes to
+\begin{equation} \small \Theta^{p}_t = \left\{ \theta : V_t^{f,ck}(\theta,\psi,a^c,z^f,z^m,y) \geq V_t^{f,sk}(a^f,z^f,y), \ \ V_t^{m,ck}(\theta,\psi_0,a^c,z^f,z^m,y) \geq V_t^{m,s}(a^m,z^m)\right\} \end{equation}
+(at birth child's age is $\xi = y$).
+
+If the respective set is non-empty, initial bargaining power of couple is determined by symmetric Nash Bargaining, for instance:
+\small
+\begin{align}&\theta^*(a,z,\psi,\epsilon^{a,p},\epsilon^{z,p}) = \label{nbs} \\ \nonumber &= \argmax\limits_{\theta \in \Theta^{np}} \left[V_t^{f,c}(\theta,\psi,a^c,z^f,z^m) - V_t^{f,s}(a^f,z^f)\right] \times \left[V_t^{\vphantom{f}m,c}(\theta,\psi,a^c,z^f,z^m) - V_t^{m,s}(a^m,z^m)\right],\end{align}
+and analogously for the case when pregnancy shock happened.
+
+From the prospective of a single agent, this set is determined by realization of $\psi$ and partner's characteristics $\epsilon^{a,p}$ and $\epsilon^{z,p}$. Given them, marriage function $m$ is binary:
+\[m^{np}_t(a,z,\psi,\epsilon^{a,p},\epsilon^{z,p}) = \I(\Theta^{np}_t \neq \varnothing),\]
+where variables affecting set $\Theta$ are unambiguously recovered from arguments of $(a,z,\psi,\epsilon^{a,p},\epsilon^{z,p})$ as described above.
+
+%Because of good properties of Nash Bargaining, expected future value function is continuous with respect to of $a$ and $z$. See Appendix [...] for additional discussion of this.
+
+Let $\omega = (a,z)$ and $\epsilon = (\psi,\epsilon^{a,p},\epsilon^{z,p})$. This allows to define a random function
+\[\Omega^c = \mathcal{M}_t(\omega) = M_t(\omega,\epsilon) = (\theta^*,\psi,a^c,z^m,z^f),\]
+so the future characteristics of couple are function of current characteristics of individual and three-dimensional random shock.
+\subsection{Renegotiation And Divorce}
+
+Upon divorce, $\kappa\cdot a$ of assets disappears and the rest is split evenly. This generalizes [Voena ...], where I put additional parameter $\kappa$ captures can rationalize extra costs of divorce for more wealthy couples. [Voena ...] argues that this approximates well actual property divisions. So, the splitting rule is
+\[a^{df} = 0.5\cdot (1-\kappa)\cdot a,  \ \ a^{dm} = 0.5\cdot (1-\kappa)\cdot a.\]
+This splitting rule defines mapping of couple's state $\Omega$ to individual states $\{\omega^{df},\omega^{dm}\}$ in case of divorce. 
+
+The option to leave with a share of couple's assets creates pressure for participation constraints. As argues by [...], the household prefers to keep $\theta$ constant. However, after shocks to $z$ and $\psi$ happen, one (or both) participation constraints might be violated. To address this formally, consider couple that already has kids. I define set
+\begin{equation}\Theta_t = \left\{ \tilde\theta : V^{f,ck}_t(a,\tilde\theta,\psi,z^f,z^m,\xi) \geq V_t^{f,sk}(a^{df},z^f,\xi) , \ \ V_t^{m,ck}(a,\tilde\theta,\psi,z^f,z^m,\xi)\geq V_t^{m,s}(a^{dm},z^m) \right\} \label{reneg-with-kids}
+,\end{equation}
+and if couple starts with current value $\theta_{0}$ there are three possible options:
+\begin{enumerate}
+\item \textit{Status quo.} If $\theta_0 \in \Theta_t$, current marriage terms are satisfactory for both spouses so $\theta_t = \theta_{0}$.
+\item \textit{Renegotiation.} If $\theta_0 \not\in \Theta_t$, but $\Theta_t \neq \varnothing$, then spouses can continue to be married if they change their marriage terms. In this case they pick the closest the new value from set $\Theta_t$ such that it is the closest to the old marriage terms: $\theta_t = \min\limits_{\tilde\theta\in\Theta_t} |\tilde\theta - \theta_0|$. 
+\item \textit{Divorce.}  If $\Theta_t = \varnothing$, so if there do not exist any marriage terms satisfactory for both spouses, then divorce happens according to the rule described above.
+\end{enumerate}
+Picking $\theta$ that is the closest to the old one is not a random choice: it is rationalized by models with limited commitment models, where change in $\theta$ represents the value of Lagrange multiplier on binding participation constraint. Intuitively, since couple does not like $\theta$ to be changing and everything is continuous in $\theta$, the couple prefers small changes to larger ones, and this drives the result.
+
+Renegotiation that involves making discrete decisions has few more issues as backward induction has to be used: fertility decisions have to be made after new $\theta$ is set, and these decisions might depend on $\theta$, therefore inequalities defining set $\Theta_t$ need to be modified. This is an artifact of assuming that fertility decisions are made collectively and it can be the case that having a baby benefits couple but hurts wife alone (mainly by worsening her outside option), and such scenario of renegotiation insures that participation constraints hold after the fertility decisions are made. See Appendix \ref{ren-disc} where I elaborate on this.
+
+
+\subsection{Additional Details}
+The model I solve an estimate contains few additional things that are omitted for more clear exposition above.
+
+First, females may exit the state of being single mother immediately. This transition is assumed to happen after divorce or failure to agree to marry, therefore in the value functions and in (re)negotiation I use $V^{f,s?} = p^{\text{out}} [V^{f,s} + S] + (1-p^{\text{out}})V^{f,sk}$ instead of just $V^{f,sk}$. This allows for quicker re-marriage and easier implementation of counterfactual in which females do not have risk of becoming single mother at all. I use notation of $V^{f,s?}$ in Appendix \ref{add-trans} where I show exact value functions.
+
+Second, I assume that having a baby is possible only before certain age $\bar{T}$. After that, value functions and negotiation rules are modified in a straightforward manner.
+
+Finally, to simplify computations I also do not allow marriage status and marriage terms to change after certain $\bar{T}_2$. Therefore I drop participation constraints in the couples, the value functions look the same but do not allow for $\theta$ to change.
+
+\subsection{Functional Forms}
+I use standard CES utility functions for individuals and couples with no kids: $u(c) = \frac{c^{1-\sigma}}{1-\sigma}$.  When kids appear, people extract additional utility of child quality, I use the following non-separable utility function:
+\[u(c,q) = \frac{\left(e^{\phi_0}\cdot c^{1-\phi_1} \cdot (\phi_2 + q)^{\phi_1}\right)^{1-\sigma}}{1-\sigma},\]
+parameter $\phi_0$ represents fixed gain in marginal utility because of having a baby, $\phi_1$ drives relative importance of child quality in utility function and $\phi_2$ is a ``luxury good'' parameter that can rationalize large child expenditures of wealthy couples that are discussed in the estimation section.

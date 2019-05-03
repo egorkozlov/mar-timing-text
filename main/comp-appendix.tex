@@ -1,0 +1,40 @@
+\section{Computational Notes}
+This section describes the procedures I use to approximate the solution of the model above. In general, since the model is finite-horizon, value function iteration starting from the last period is used. The value functions and corresponding policy functions are approximated on a grid. Since state space is quite large (it has at least 4 continuous dimensions for couples), I use approximation techniques of [Judd--Maliar--Maliar] to deal with dimensionality. Namely, in the dimension of productivity, marriage terms and marriage surplus the functions are approximated by Smolyak polynomials (that are a variation of multi-dimensional Chebyshev polynomials) on sparse Smolyak grid. However, since the assets dimension is important and non-convex value functions can cause troubles, so I use full grid in the dimension of assets and linearly interpolate between assets points.
+
+An additional issue is integration, required to compute expected future values of the value function accounting for possible (re)negotiation and divorce. This is noted to be the most costly part of value function iteration. I utilize monomial integration rules describe by [JMM] to do it efficiently. The second part of this section describe this. 
+
+\subsection{Value Function Approximation}
+I describe techniques I used for value functions, the same principle applies for policy functions: they are just byproduct of value function iteration that I use for simulations.
+
+State space of continuous variables for couples is $\Omega = (a,\theta,\psi,z^f,z^m)$. I partition it as $\Omega = (a,O)$. Smolyak method generates $S$ gridpoints $G = \{O_1,...,O_S\}$, where each $O$ represents some combination of $(\theta,\psi,z^f,z^m)$; and polynomials $P = \{p_1(o),...,p_S(o)\}$. Therefore any function $f(o)$ is approximated by
+\[f(o) \approx \hat{f}(o) = \sum_{i=1}^S c_{i}\cdot p_i(o),\]
+and coefficients $c$ are found from collocation relation
+\[\hat{f}(O_i) = f(O_i) \ \forall i = 1,...,S.\]
+
+Since we have to approximate functions for different levels of $a$, I introduce additional grid $A = \{a_1,...,a_J\}$. For each $a_j$ we can find corresponding coefficients $c$, I denote them $c_i(a_j)$. At points $a_j$ the function can be written as
+\[\hat{f}(a_j,o) = \sum\limits_{i=1}^S c_i(a_j) p_i(o),\]
+for points between grid $a \not A$ I linearly interpolate $f(a_j,o)$. Generically, to interpolate values for arbitrary $a$ and $o$ the  reasonable approach is to first compute values of $f$ on each point of $A$ grid for current $o$, to get $F = \{f(a_1,o),...,f(a_J,o)\}$ and then interpolate $F$ with respect to $a$. However, I use linear interpolation and since the function is bilinear in $c$ and $p$, this is fully equivalent to linear interpolation of coefficients $c_i(a_j)$. Therefore I define $\hat{c}_i(a)$ to be linearly interpolated value of coefficients, and therefore the function at arbitrary point is approximated by
+\[\hat{f}(a,o) = \sum\limits_{i=1}^S \bar{c}_i(a) p_i(o).\]
+If we use interpolation other than linear with respect to $a$ this equivalence would be violated so the procedure becomes more complicated as it requires evaluating many values of $f$.
+
+\subsection{Monomial Quadratures}
+See [JMM] for a detailed discussion. Let $\epsilon$ be $d$-dimensional normal distribution and we are interested in evaluating $\E(f(\epsilon))$. Standard techinque would involve using Gauss--Hermite quadrature with respect to each dimension of $\epsilon$, this, however, quickly becomes infeasible: if we want to have 5 points with respect to each dimension of 4-dimensional vector we would have $5^d = 625$ points, out of which many will have very low weights. 
+
+Monomial quadratures generate number of integration node that grows much lower than exponent of $d$. I use the one that is proportional to $d^2$. So, the rule generates $Q$ vectors $\{\epsilon_1,...,\epsilon_q\}$ with weights $w_q$, and the integral can just be written as $\E(f(x))\approx \sum_{q} f(\epsilon_q)$.
+
+As it is noted by [...] that there is a separate issue of using quadratures to approximate integrals of discontinuous functions. However, they also show that the model with deterministic transition decisions can be interpreted as a limiting case of model with stochastic (logit) transitions, for which integration by quadratures is valid. I also believe that this can be addressed by re-interpreting shocks to have a discrete distribution with probability mass $w_q$ rather than true normal distribution (so we do not pretend to recover the integrals under true normal distribution). In general, the math background for this does not seem to be well-developed and I use conventional tools at this stage of the project without asserting its mathematical rigor. In the future, I may try to test the approximations I use against just discretizing all random walks with number of points.
+
+\section{Auxiliary Estimates}
+\subsection{Partner's Earnings\label{partearn}}
+The model assumes that
+\[ z^p = z^{\text{own}} + \varepsilon^{z,p}, \ \ \ \varepsilon^{z,p}\sim\mathcal{N}(0,(\sigma^{z,p})^2),\]
+so detrended log-wage of potential partner is normally distributed with the mean of own detrended log-wage and standard deviation of $\sigma^{z,p}$.
+
+To estimate $\sigma^{z,p}$ I regress log-difference in spouses earning for couples in ACS on several predictors, that include ages of spouses, ACS year and state. In this section I present several alternative specifications, including an attempt to correct for selection into marriage, and show what variance they imply. 
+
+The main specification is
+\[\log \frac{\text{Earnings of wife}}{\text{Earnings of husband}} = \alpha + X'\gamma + \epsilon,\]
+where I run regression on subsample of couples in which both spouses work full time and report labor income above 5000 per year.  Controls $X$ include 4th degree polynomials and wife's and husband's age, as well as absolute value of age difference, dummies for states and ACS years. I regress difference in per-hour earnings to the set of controls for couples who married in the year previous to the survey year and who have no children in the household. Relaxing this definition, using total earnings instead of per-hour and even controlling for education lead to slightly different estimates, but all of them are within $[0.66,0.8]$ range.
+
+I pick the upper bound of this interval and set $\sigma^{z,p} = 0.8$: as in the model people are more likely to agree to marry similar partners, I expect similar statistic in the simulations to be slightly lower. [Similar statistic computed on simulated data returns ...]
+
