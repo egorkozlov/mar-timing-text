@@ -1,0 +1,374 @@
+
+\documentclass[12pt,letter]{article}
+\usepackage[left=0.8in,right=0.8in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{euscript}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand{\hypo}{\mathcal{H}}            
+\bibliographystyle{ieeetr}
+
+\usepackage[flushleft]{threeparttable}
+
+%\usepackage[cp1251]{inputenc}
+\usepackage[english]{babel} 
+\DeclareMathOperator{\rank}{rank}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+            {\hbox{$\mathsurround=0pt #1$}}{}}
+
+            \def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}  
+\newcommand{\bsA}{\boldsymbol{A}}
+
+%\setstretch{1}                         
+\flushbottom                            
+\righthyphenmin=2                      
+\pagestyle{plain}                       
+%\settimeformat{hhmmsstime}  
+\widowpenalty=300                   
+\clubpenalty=3000                     
+\setlength{\parindent}{0em}           
+\setlength{\topsep}{0pt}              
+\usepackage[pdftex,unicode,colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{bbm}
+\renewcommand{\emptyset}{\varnothing}
+
+\setlength{\parskip}{0.5\baselineskip plus2pt minus2pt}
+
+\newcommand{\e}{\varepsilon}
+\DeclareMathOperator*{\Argmax}{\mathrm{Argmax}}
+\DeclareMathOperator*{\Argmin}{\mathrm{Argmin}}
+\DeclareMathOperator*{\argmax}{\mathrm{arg\,max}}
+\DeclareMathOperator*{\argmin}{\mathrm{argmin}}
+
+\newcommand{\blp}{\mathrm{BLP}}
+\DeclareMathOperator*{\plim}{\mathrm{plim}}
+\DeclareMathOperator{\Max}{\mathrm{Max}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Z}{\mathcal{Z}}
+\renewcommand{\geqslant}{\geq}
+\renewcommand{\leqslant}{\leq}
+\newcommand{\p}{\bs p}
+\newcommand{\y}{\bs y}
+\def\dd#1#2{\frac{\partial#1}{\partial#2}}
+
+\renewcommand{\emptyset}{\varnothing}
+
+
+\DeclareMathOperator{\tr}{\mathrm{tr}}
+
+\newcommand{\bb}{\bs \beta}
+\newcommand{\X}{\bs X}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\PP}{\mathbb{P}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\CM}{\mathbb{C}}
+\renewcommand{\C}{\CM}
+\DeclareMathOperator{\var}{\mathrm{var}}
+\DeclareMathOperator{\cov}{\mathrm{cov}}
+\DeclareMathOperator{\corr}{\mathrm{corr}}
+\DeclareMathOperator{\MSE}{\mathrm{MSE}}
+\DeclareMathOperator{\Bias}{\mathrm{Bias}}
+\renewcommand{\P}{\PP}
+\newcommand{\dsim}{\stackrel{d}{\sim}}
+\newcommand{\hn}{\mathcal{H}_0}
+\newcommand{\ha}{\mathcal{H}_a}
+\newcommand{\thetab}{\bs \theta}
+\newcommand{\pv}{\text{P-value}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\MLE}{\scriptscriptstyle MLE}
+\newcommand{\LR}{\mathrm{LR}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\sumin}{\sum\limits_{i=1}^n}
+\newcommand{\sumti}{\sum\limits_{t=0}^\infty}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\hvar}{\widehat{\var}}
+\newcommand{\hcov}{\widehat{\cov}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+
+\newcommand{\pconv}{\xrightarrow{ \ p \ }}
+\newcommand{\dconv}{\xrightarrow{ \ d \ }}
+\newcommand{\asconv}{\xrightarrow{ \ a.s. \ }}
+\newcommand{\msconv}{\xrightarrow{ \ m.s. \ }}
+
+\newcommand{\pic}[4][h!]{\begin{figure}[#1]
+
+
+\begin{center}\includegraphics[width=#2cm]{#3}\caption{#4\label{#3}}\end{center}
+\end{figure}}
+
+%outtex
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+%end outtex
+
+%\bibliographystyle{ieeetr}
+
+\newcommand{\laseq}{\stackrel{\lambda\text{-a.e.}}{=}}
+\renewcommand{\d}{\underline}
+\renewcommand{\u}{\overline}
+\newcommand{\td}{\underline{\theta}}
+\newcommand{\tu}{\overline{\theta}}
+%\renewcommand{\theenumi}{\alph{enumi}}
+%\renewcommand{\labelenumi}{(\theenumi)}
+%\renewcommand{\theenumii}{\roman{enumii}}
+%\renewcommand{\labelenumii}{\theenumii.}
+%\renewcommand{\theenumiii}{\arabic{enumiii}}
+%\renewcommand{\labelenumiii}{\theenumiii.}
+%\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\hneq}{\stackrel{\hn}{=}}
+\newcommand{\deq}{\stackrel{d}{=}}
+%\title{416-2 Final Project\\
+%Reproductive Technologies, Aging and Fertility Choice (Proposal)}
+%\author{Egor Kozlov}
+\begin{document}
+%\begin{center}\textbf{Economics 416-1} \\ \emph{By Egor Kozlov}\end{center}
+%\maketitle
+
+\section{Introduction}
+This note studies how relative timing of marriage and fertility affects households' outcomes in the US economy. The key finding is that for general US population having kids before marriage is associated with higher divorce chances in the future, as opposed to the people who marry before having kids. This pattern, however, is not uniform across different population groups. Namely, it is apparent for the households with high income per person or high level of female's education. In contrast, for the groups with lower income and lower education the relation can be even reversed. In the further parts I provide more details on how I establish this finding, show a comparison between different subgroups and some additional data evidence and then try to hypothesise about what can be the origin of these differences.
+
+\section{Empirical strategy}
+I use American Community Survey yearly data for the period of 2008--2016. The main reason for this choice is that year of marriage dates are collected only since 2008. The main limitation is that the survey keeps only the year of the most recent marriage, and I am mostly interested in the event of the first marriage and the having the first child. Additional issues are obvious cross-sectional nature of the data and no possibility of tracking kids that do not live with their mothers. However, assuming none of the above drives the results entirely with additional conditioning described below we still have more than a million of relevant observations. 
+
+Since upon divorce children usually stay with mothers, I consider only individual records of females here. My sample contains women of ages 18--50, who is marked as household's head or head's spouse. I also keep only observations where ACS  variable ``number of families'' is equal to one, mainly to avoid considering mulitgenerational households. Finally, for the main part I keep only people who married only once. In practice, it means that some cases are excluded from the sample, for instance:
+\begin{enumerate}
+\item If a couple is divorce and no kids stay with mother, she is excluded from the sample.
+\item If a single mother with a child marries someone else than child's father (and she was never married before), the couple will be considered as if they had their kid before marriage. This is a complex issue that is not obvious how to consider, however as a supplemental evidence I try to exclude married couples where the child is marked as ``step-child'' relative to one of the parents and it does not change findings much.
+\item Multigenerational or multi-family households are excluded, as they have complicated structure and household's traits may be misassigned. For instance, a divorced women living with her parents and her child will not be considered as household's head if one of the parents work. 
+\item If all children have moved out, this household is considered as having no kids and is excluded from the consideration. 
+\item If the family had two kids, but one of them has moved out, my methodology will consider this household as having only one kid. If the older kid was born before the marriage and the younger --- after, this will lead to the wrong assignment of relative timing for this household. This cannot be treated well in ACS data, to mitigate this I keep only the records of women on ages 50 and below, so the majority of the sample have kids before the age of 18. 
+\end{enumerate}
+
+Full cross-section of women of age 18--50 satisfying the restriction above contains 3.7 million observations. For the considerations of comparing divorce probabilities I have to exclude women who were never married, married more than once or do not have kids in their household's record. Around two thirds of the sample have married exactly once, interestingly this percentage is not drastically different for women of 40--50: share of never married falls but share of re-married increases as well.
+
+\subsection{Timing Variables\label{km}}
+The key variable for this study is the time when the first kid was born relative to the time woman was first married. ACS has record of the eldest own child present in the household, and the year of the first marriage. Both variables have some quality issues, so I excluded situations where age of the eldest child is more that age of the mother minus 14, and when the age of first marriage was below 18. Then, for the people married once I construct the following variable:
+\[\{ \text{Marriage $\to$ Kids}\}_i = \I(\text{Year eldest kid born} - \text{Year married} \geq 1).\]
+
+Threshold 1 seems like a natural choice, however it slightly misclassifies couples: if the couple got first kid in April, 2015 and got married in December, 2014, then most likely they knew that the wife is pregnant, so from the point of view of household's decisions it should be classified as $\text{K}\to\text{M}$. However, changing this threshold for 2 does not make a lot of difference (see the robustness check part for this).
+
+\subsection{Income Variables}
+For the purpose of comparing people with different income levels, I build the variable of household income per capita. To account for presence of children, I use two different definitions:
+\[\text{HHI}_{eq} = \frac{\text{Total Household Income}}{1 + 0.7\times \I(\text{husband/partner is present}) + 0.5 \times \{ \text{\# of children}\}}\]
+\[\text{HHI}_{pc} = \frac{\text{Total Household Income}}{\{\text{\# of people of any age in the household}\}}\]
+The second one income per capita in literal definition, the first one corresponds to OECD equivalence scale and accounts for economies of scale in the household. The first definition is more preferable, though it may be flawed in case of more complicated family structures (say, more than two adults per household), but since I restrict the attention to the households of particular composition described above this does not seem to be an important issue. Note that in ACS a sizeable share of divorced and separated women still have some partner present in the household, and both measures account for this possibility. 
+
+Since the quality of self-reported income is questionable, for the income considerations I exclude the households where $\text{HHI}_{eq}$ is below $\$3,000$ (yearly), corresponding to about $\$10,000$ household income for two-adults and three-children household. This for sure excludes population living way below the poverty line, however the it is important not to pool people with low income and people with badly reported income together.
+
+The key component of the work is to construct income groups. In each state, year and age group I compute household income quantiles separately, where age groups are $[18;25]$, $[26;30]$, $[31;35]$, ..., $[46;50]$ based on female's age. So, threshold for being top 30\% at the age of 40 in California in 2009 is different from threshold for being top 30\% in Kentucky at the age of 30 in 2015.
+
+As a result, my income groups are $\{\text{Bottom 30\%},\,\text{Mid 40\%},\,\text{Top 30\%}\}$. Finer division is also possible, however this given three-variable conditioning this may lead to some groups being rather small.
+
+\subsection{Education Variables}
+ACS reports education variables for everyone in household. To avoid ambiguity, I classify households based on female education only. I have the following four groups: high school or below, some college, college graduate and more than college. Interestingly, although education and income groups are correlated, about 10\% of highest education group fall within lower 30\% of income.
+
+\subsection{Weights}
+In calculations of means and frequencies I use personal weights provided by ACS. The only limitation is that computing income quantiles to classify people by groups is done without weights (based on raw observations). This is a software issue and I am working on fixing it, however it does not feel like something important for the results (as using unweighted data everywhere delivers very similar results).
+
+\section{Key results}
+See Table \ref{main-results} for the main findings. Income variables are base on $\text{HHI}_{eq}$ there. The table reads as follows: first column indicates different subgroups of women, the second denotes number of observations of any marital/fertility status. Left part provides breakdown of the shares of people in cross-section who have never married, married once or married more than once (re-married someone after divorce or death of spouse). ``\% divorced'' indicates are how much of these people were divorced at the moment of survey. 
+
+Right part of the table focuses on people who have married exactly once and, in addition, have at least one own child in the household. These people are divided on two groups $\text{M}\to\text{K}$ (marriage then kids) and $\text{K}\to\text{M}$ (kids then marriage), as described in section \ref{km}. Group size column gives the proportion of these two groups. Lastly, the table reports shares of divorced people. Column ``All'' corresponds to a share of divorced women among those who have married once and have at least one kid\footnote{This is provided mainly for the purpose of comparing it with share of divorced women in general population. It turns out to be slightly higher yet very close, and that is easily explained by the fact that people who had kids are on average older}. Two last columns are of the main interest: they report shares of divorced people in two groups. Difference between them is the key object I am describing here.
+
+The key findings summarizing the table are:
+\begin{enumerate}
+\item For the general population of women (satisfying restrictions stated above), having kids before marriage is associated with about one-quarter to one-third larger divorce chances, depending on the ages we consider.
+\item The fact that this difference is more pronounced for age group of 40--50 may just reflect the fact that some younger people in $\text{K}\to\text{M}$ groups are at a higher risk of divorce but it has not happened yet. However, this may as well reflect the fact that the effect I document here is more apparent for elder cohorts. This can be partially controlled with different methodology when I compare regression coefficients on dummy rather than raw differences, but this approach is less transparent so I do not do it in this exercise. 
+\item The most important finding is that the observed differences in divorce probabilities are mainly driven by medium and high-income groups. The overall divorce rates fall with income for both groups, but the difference in divorce rates increases. For lower 30\% of income, in contrast, having kids before marriage does not really predicts divorce.
+\item Divorce rates vary sharply be race, moving in the same direction with percentage of never married. Difference between the two groups I consider is more pronounced for white population rather than for non-whites. However, this is the result of income differences between different racial groups: conditional on being in high income, black people have very similar difference between groups to whites, however their overall divorce rate is still higher. I conclude from that that the race is not the main driving factor, though it drives overall divorce rates quite a lot.
+\item Conditioning on education reveals the same pattern as conditioning on income: for the people who finished college having kids before marriage predicts higher likelihood of divorce, and it does not work well for people who have never been to college. However, females who have never been to college but live in high-income households look similar enough to females who have finished the college. In general, it seems like income is still a better predictor than education, but since income variables are more noisy, education story also seems compelling. Some people with high (potential) earnings may be classified as low-income, for instance when the wife is out of labor force because she takes care of a newborn.
+\end{enumerate}
+
+In general, it seems like having kids before marriage increases divorce probabilities for educated, middle-income Americans, who typically have small families and high preference for kid's education or high value of time that is required to be spent with the child. Something with investment to children is probably the key dimension of rationalizing observed differences.
+
+
+\section{Additional Evidence}
+This part establishes several pieces of additional evidence that may help understanding the sources of the result. 
+
+\subsection{Sample of Recently Divorced\label{rec-div-section}}
+In addition to the current marital status ACS has a variable ``divorced last year''. This group is relatively small (1--2\% of female population), however this is still enough for the descriptive purposes, as sample sizes reach few millions.
+
+First, see Figures \ref{age-kid} and \ref{age-mother} for distribution of mother's and child's age at the moment of divorce. The graphs have strikingly different nonuniformity: for couples who have kids after their marriage share of divorced couples where kids have age of 5 is very similar to the share of divorced couples where kids have the age of 16. In contrast, for the couples who have kids before marriage likelihood of divorce grows significantly with the child's age. This comparison is, however, flawed because of the following issue: my construction, there will be very few divorced people with kids of age 2 who made these kids before the marriage as this would mean the couple got married exactly 1 year ago. In contrast, the group of couples whose kids are 2 year old and who made them after they got married contains people who married 3 or more years ago, and this group is definitely larger.
+
+Therefore, additionally, I plot the share of recently divorced by the age of the eldest kid:
+\[D(a,M\to K) = \frac{\text{\# Divorced this year, eldest kid of age $a$, $M\to K$}}{\text{\# eldest kid of age $a$, $M\to K$}},\]
+\[D(a,K\to M) = \frac{\text{\# Divorced this year, eldest kid of age $a$, $K\to M$}}{\text{\# eldest kid of age $a$, $K\to M$}}.\]
+see Figures \ref{rec-div} for the main result and \ref{rec-div-educ} for the breakdown in education.
+
+These pictures are suggestive, though not totally conclusive, that divorces for the people who have kids before marriage are concentrated around the ages 6--12, and this concentration is somewhat more pronounced for the groups with lower education level. For people who have marriage then kids the pattern is, again, more uniform. This evidence is pretty weak due to smaller sample sizes, cross-sectional nature of the data, that makes these shares tricky to interpret as probability, and generally noisy look of the graphs. In the further iterations I may come up with some formal statistical test to verify this claim, however defining rigorously what is meant by being ``more concentrated'' is tricky.
+
+
+
+
+\section{Robustness Checks}
+In this part I change some things in methodology to look how it affects the key findings. I replicate the second part of the table for the following cases, corresponding to parts of table \ref{rcheck}:
+\begin{enumerate}
+\item I compute income percentiles without conditioning on states (so top 30\% of income refers to to 30\% in the whole US population and not in the given state). Things stay the same qualitatively, but now the pattern is more uniform across income groups. This for sure requires additional investigation, but in general I think that income groups should be defined within states to control for things like housing and healthcare costs.
+\item I return conditioning on states but use income per capita instead of equivalence scale income. The results hardly change from the baseline. This probably means that equivalence scale (assuming particular family structure) is good enough for this exercise.
+\item I redefine group $M\to K$ so that difference in year your kid is born and in year you are married should be above two. Differences are a bit lower (since we mixed up two groups partially), but still look the same.
+\item Instead of probabilities of being divorced I consider probabilities of being divorced or separated. In this case, the differences between groups are less apparent (it seems that separation is more common for low-income people). Key finding remains the same.
+\item Using alternative divorce variables: I use ``divorced last year'' as in Section \ref{rec-div-section} as an alternative to using ``divorced now''. Key findings are still the same, and again income differences pattern is less apparent (but is still present if we consider the ratio of odds).
+\end{enumerate}
+
+In general, key moment remains similar with these robustness checks, though its relation with income is more fragile. However, we can observe the same results with respect to education (that is measured more precisely than income), so I still think the story is valid. It may be beneficial to discard income variables altogether, however the group of college graduates has great dispersion within it. This all requires some additional investigation. However, I think that the main strategy for the further parts is using regression on dummy variables with many controls instead of comparing raw differences: my group division is crude and there is a lot of heterogeneity inside. 
+
+\newpage
+\begin{landscape}
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c||c|c|c|c|c|}\hline
+& \multicolumn{5}{|c||}{\textbf{All sample}}  &  \multicolumn{5}{|c|}{\textbf{Married once and have a kid}}\\\hline
+& & \multicolumn{3}{|c|}{Times married} &  & \multicolumn{2}{|c|}{Group size}  & \multicolumn{3}{|c|}{\% divorced}  \\\hline
+ &  Obs & \footnotesize Never &  \footnotesize Once &  \footnotesize More & \footnotesize \% divorced  & \footnotesize M $\rightarrow$ K &  \footnotesize K $\rightarrow$ M &  All & \footnotesize M $\rightarrow$ K & \footnotesize K $\rightarrow$ M \\\hline
+\emph{All women, 20--50} & \footnotesize 3,798,950 & 19.3\% & 65.7\% & 12.8\% &   9.5\% & 75.5\% & 24.5\% & 10.3\% &  9.5\% & 12.7\% \\
+\emph{All women, 40--50} & \footnotesize 1,793,232 & 10.3\% & 67.1\% & 18.6\% &  11.4\% & 82.8\% & 17.2\% & 12.6\% & 11.9\% & 16.3\% \\\hline
+\emph{White, non-hispanic, 20--50} &  \footnotesize  2,540,035 & 14.8\% & 67.4\% & 14.8\% &   9.0\% & 81.5\% & 18.5\% &  9.9\% &  9.2\% & 12.7\% \\
+\emph{White, non-hispanic, 40--50} &   \footnotesize 1,242,287 &  7.1\% & 66.9\% & 20.9\% &  10.7\% & 89.2\% & 10.8\% & 11.9\% & 11.4\% & 16.1\% \\ \hline
+\emph{Hispanic, 20--50} &   \footnotesize 356,923 & 17.1\% & 70.5\% & 11.3\% &   8.6\% & 65.8\% & 34.2\% &  9.3\% &  9.3\% &  9.4\% \\
+\emph{Hispanic, 40--50} &   \footnotesize 149,912 &  9.2\% & 72.4\% & 16.2\% &  10.6\% & 73.4\% & 26.6\% & 11.7\% & 11.6\% & 12.0\% \\\hline
+\emph{Black, 20--50} &  \footnotesize 398,573 & 43.8\% & 46.7\% &  8.5\% &  17.5\% & 50.0\% & 50.0\% & 19.7\% & 20.8\% & 18.6\% \\
+\emph{Black, 40--50} &  \footnotesize 184,861 & 28.6\% & 55.7\% & 13.7\% &  20.3\% & 58.3\% & 41.7\% & 23.7\% & 24.3\% & 22.9\% \\\hline\hline
+\emph{Not in MSA, 20--50} &  \footnotesize 515,274 & 14.5\% & 64.5\% & 16.8\% &   9.2\% & 73.3\% & 26.7\% & 11.3\% & 10.5\% & 13.3\% \\
+%\emph{Rural, 40--50} &  248,656 &  6.8\% & 62.7\% & 23.4\% &  10.2\% & 84.1\% & 15.9\% & 13.0\% & 12.1\% & 17.4\% \\\hline
+\emph{Main city in MSA, 20--50} &  \footnotesize 454,220 & 33.7\% & 57.0\% &  8.3\% &  11.3\% & 70.1\% & 29.9\% & 11.4\% & 10.5\% & 13.5\% \\
+%\emph{Urban, 40--50} & 184,873 & 21.7\% & 62.8\% & 13.4\% &  14.8\% & 74.7\% & 25.3\% & 14.8\% & 14.0\% & 17.4\% \\
+\hline\hline
+\emph{Lower 30\% income, 20--50} &  \footnotesize 1,104,277 & 23.0\% & 61.7\% & 12.8\% &  13.5\% & 65.6\% & 34.4\% & 15.5\% & 15.6\% & 15.3\% \\
+\emph{... if white} &  \footnotesize 603,952 & 16.9\% & 62.3\% & 16.7\% &  14.7\% & 72.1\% & 27.9\% & 17.8\% & 18.0\% & 17.6\% \\
+\emph{... if black} &  \footnotesize 168,278 & 48.5\% & 43.0\% &  7.6\% &  20.6\% & 43.5\% & 56.5\% & 23.7\% & 27.2\% & 21.0\% \\
+\emph{Lower 30\% income, 40--50} &  \footnotesize  524,698 & 13.5\% & 64.2\% & 17.9\% &  15.8\% & 75.2\% & 24.8\% & 18.9\% & 19.0\% & 18.6\% \\\hline
+\emph{Mid 40\% income, 20--50} &  \footnotesize 1,468,999 & 15.2\% & 68.7\% & 13.7\% &   8.3\% & 77.2\% & 22.8\% &  8.8\% &  8.3\% & 10.3\% \\
+\emph{Mid 40\% income, 40--50} &  \footnotesize 701,740 &  7.5\% & 69.0\% & 19.5\% &  10.3\% & 84.0\% & 16.0\% & 11.4\% & 10.7\% & 14.8\% \\\hline
+\emph{High 30\% income, 20--50} &  \footnotesize 1,098,178 & 16.8\% & 69.1\% & 12.2\% &   6.0\% & 88.4\% & 11.6\% &  4.5\% &  4.1\% &  7.6\% \\
+\emph{... if white} &  \footnotesize 840,754 & 14.8\% & 69.9\% & 13.1\% &   5.7\% & 90.3\% &  9.7\% &  4.2\% &  3.9\% &  6.7\% \\
+\emph{... if black} &  \footnotesize 63,672 & 35.5\% & 53.6\% &  9.8\% &  13.0\% & 67.7\% & 32.3\% & 11.5\% & 11.0\% & 12.7\% \\
+\emph{High 30\% income, 40--50} &  \footnotesize 526,694 &  9.2\% & 68.9\% & 18.4\% &   7.6\% & 91.0\% &  9.0\% &  5.9\% &  5.4\% & 10.3\% \\\hline\hline
+\emph{High school only, 20--50} &  \footnotesize 1,360,933 & 20.2\% & 62.1\% & 14.7\% &   9.8\% & 64.5\% & 35.5\% & 11.2\% & 11.0\% & 11.5\% \\
+\emph{... if white} &  \footnotesize 791,722 & 13.5\% & 62.3\% & 19.3\% &  10.0\% & 70.5\% & 29.5\% & 12.2\% & 12.1\% & 12.6\% \\
+\emph{... if black} &  \footnotesize 170,288 & 49.7\% & 41.5\% &  7.7\% &  17.2\% & 41.2\% & 58.8\% & 19.5\% & 22.2\% & 17.6\% \\
+\emph{... if bottom 30\% income} &  \footnotesize 628,079 & 22.9\% & 61.6\% & 12.9\% &  12.0\% & 61.3\% & 38.7\% & 13.5\% & 13.8\% & 13.1\% \\
+\emph{... if top 30\% income} &  \footnotesize 164,635 & 12.7\% & 63.6\% & 19.3\% &   5.8\% & 75.5\% & 24.5\% &  5.4\% &  5.0\% &  6.5\% \\
+\hline
+\emph{College graduates, 20--50} &  \footnotesize 915,741 & 17.9\% & 71.6\% &  9.4\% &   7.6\% & 87.6\% & 12.4\% &  7.4\% &  6.8\% & 11.8\% \\
+\emph{... if white} &  \footnotesize 684,079 & 16.3\% & 72.7\% &  9.8\% &   7.2\% & 90.6\% &  9.4\% &  6.9\% &  6.5\% & 10.5\% \\
+\emph{... if black} &  \footnotesize 62,078 & 36.5\% & 54.4\% &  8.3\% &  15.9\% & 62.8\% & 37.2\% & 17.2\% & 17.0\% & 17.6\% \\
+\emph{... if bottom 30\% income} &  \footnotesize 128,296 & 18.5\% & 69.9\% & 10.2\% &  12.5\% & 82.0\% & 18.0\% & 13.6\% & 13.0\% & 16.4\% \\
+\emph{... if top 30\% income} &  \footnotesize 410,656 & 18.6\% & 71.2\% &  9.2\% &   5.7\% & 91.6\% &  8.4\% &  4.0\% &  3.7\% &  7.9\% \\
+\hline
+\end{tabular}
+\end{center}
+\caption{ACS 2008--2016, Main Results\label{main-results}}
+\end{table}
+\end{landscape}
+
+\newpage
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.9]{hist-div-age.eps}
+\caption{Age of (eldest) kid at the moment of divorce. \\ Restriction: eldest kid is below 18.\label{age-kid}}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.9]{hist-div-age-mother.eps}
+\caption{Age of mother at the moment of divorce.  \\ Restriction: eldest kid is below 18.\label{age-mother}}
+\end{center}
+\end{figure}
+
+\newpage
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.9]{rec-div.eps}
+\caption{Share of recently divorced by age of the kid.\label{rec-div}}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.9]{rec-div-educ.eps}
+\caption{Share of recently divorced by age of the kid and education.\label{rec-div-educ}}
+\end{center}
+\end{figure}
+
+
+
+
+
+
+
+\newpage
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}\hline
+&   \multicolumn{5}{|c|}{\textbf{Married once and have a kid}}\\\hline
+&  \multicolumn{2}{|c|}{Group size}   & \multicolumn{3}{|c|}{\% divorced}  \\\hline
+& \footnotesize M $\rightarrow$ K &  \footnotesize K $\rightarrow$ M &  All & \footnotesize M $\rightarrow$ K & \footnotesize K $\rightarrow$ M \\\hline
+\emph{All women, 20--50} & 75.5\% & 24.5\% & 10.3\% &  9.5\% & 12.7\% \\\hline\hline
+\multicolumn{6}{|c|}{\emph{Baseline (for reference)}} \\\hline\hline
+\emph{Lower 30\% income, 20--50} &  75.2\% & 24.8\% & 18.9\% & 19.0\% & 18.6\% \\\hline
+\emph{Mid 40\% income, 20--50} & 77.2\% & 22.8\% &  8.8\% &  8.3\% & 10.3\% \\\hline
+\emph{High 30\% income, 40--50} & 91.0\% &  9.0\% &  5.9\% &  5.4\% & 10.3\% \\
+\emph{... if white} & 90.3\% &  9.7\% &  4.2\% &  3.9\% &  6.7\% \\
+\emph{... if black} & 67.7\% & 32.3\% & 11.5\% & 11.0\% & 12.7\% \\\hline\hline
+\multicolumn{6}{|c|}{\emph{No conditioning on states when computing income quantiles}} \\\hline\hline
+\emph{Lower 30\% income, 20--50} & 73.3\% & 26.7\% & 11.3\% & 10.5\% & 13.3\% \\\hline
+\emph{Mid 40\% income, 20--50} &   83.2\% & 16.8\% &  6.5\% &  6.1\% &  8.4\% \\\hline
+\emph{High 30\% income, 40--50} & 92.0\% &  8.0\% &  3.5\% &  3.2\% &  6.4\% \\
+\emph{... if white} & 92.9\% &  7.1\% &  3.4\% &  3.2\% &  5.7\% \\
+\emph{... if black} & 76.3\% & 23.7\% &  9.2\% &  8.7\% & 10.8\% \\\hline\hline
+\multicolumn{6}{|c|}{\emph{Income definition: $HHI_{pc}$}} \\\hline\hline
+\emph{Lower 30\% income, 20--50} &  65.2\% & 34.8\% & 15.1\% & 15.1\% & 15.1\% \\\hline
+\emph{Mid 40\% income, 20--50} & 78.3\% & 21.7\% &  8.4\% &  8.0\% & 10.0\% \\\hline
+\emph{High 30\% income, 40--50}& 89.6\% & 10.4\% &  4.5\% &  4.1\% &  7.6\% \\
+\emph{... if white} & 91.1\% &  8.9\% &  4.2\% &  4.0\% &  6.9\% \\
+\emph{... if black} & 70.3\% & 29.7\% & 11.2\% & 10.7\% & 12.3\% \\\hline\hline
+\multicolumn{6}{|c|}{\emph{Redefine:} $\{\text{M $\to$ K}\}_i = \I(\text{Year eldest kid born} - \text{Year married} \geq 2)$} \\\hline\hline
+\emph{All women, 20--50} &  63.1\% & 36.9\% & 10.3\% &  9.2\% & 12.2\% \\\hline
+\emph{Lower 30\% income, 20--50} &  50.6\% & 49.4\% & 15.5\% & 16.0\% & 14.9\% \\\hline
+\emph{Mid 40\% income, 20--50} & 64.9\% & 35.1\% &  8.8\% &  8.1\% & 10.0\% \\\hline
+\emph{High 30\% income, 20--50} & 79.8\% & 20.2\% &  4.5\% &  3.9\% &  6.9\% \\\hline\hline
+\multicolumn{6}{|c|}{\emph{Divorced or separated instead of just divorced}} \\\hline\hline
+\emph{All women, 20--50} &  75.5\% & 24.5\% & 14.1\% & 12.2\% & 19.9\% \\\hline
+\emph{Lower 30\% income, 20--50} &  65.6\% & 34.4\% & 22.5\% & 21.0\% & 25.4\% \\\hline
+\emph{Mid 40\% income, 20--50} & 77.2\% & 22.8\% & 10.7\% &  9.8\% & 13.8\% \\\hline
+\emph{High 30\% income, 20--50} & 88.4\% & 11.6\% &  5.2\% &  4.7\% &  9.3\% \\\hline\hline
+\multicolumn{6}{|c|}{\emph{Divorced last year only}} \\\hline\hline
+\emph{All women, 20--50} &  75.5\% & 24.5\% &  1.3\% &  1.1\% &  1.8\% \\\hline
+\emph{Lower 30\% income, 20--50} &  73.3\% & 26.7\% &  1.5\% &  1.3\% &  2.2\% \\\hline
+\emph{Mid 40\% income, 20--50} & 77.2\% & 22.8\% &  1.1\% &  1.0\% &  1.4\% \\\hline
+\emph{High 30\% income, 20--50} & 88.4\% & 11.6\% &  0.5\% &  0.5\% &  0.9\% \\\hline\hline
+\end{tabular}
+\end{center}
+\caption{ACS 2008--2016, Robustness checks\label{rcheck}}
+\end{table}
+
+
+\end{document}
