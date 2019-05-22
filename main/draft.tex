@@ -143,30 +143,46 @@ $\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
 %\renewcommand{\epsilon}{\varepsilon}
 \newcommand{\hneq}{\stackrel{\hn}{=}}
 \newcommand{\deq}{\stackrel{d}{=}}
-%\title{416-2 Final Project\\
-%Reproductive Technologies, Aging and Fertility Choice (Proposal)}
-%\author{Egor Kozlov}
+\title{Kids First or Marriage First?}
+\author{Egor Kozlov}
 \begin{document}
 %\begin{center}\textbf{Economics 416-1} \\ \emph{By Egor Kozlov}\end{center}
-%\maketitle
+\maketitle
+
+
 
 \begin{abstract}
-Unplanned pregnancies often trigger marriage for unmarried cohabitating couples. I show that on average marriages in which a child appeared before or at the year of marriage are characterized with higher divorce probabilities and other outcomes suggesting lower marital quality. This association is robust to different ways of controlling for composition, and it is more pronounced for higher income and more educated couples. I argue that this pattern is consistent with household bargaining models, and the main driver of the result is unequal exposure of spouses to the childcare costs: since being single mother is a bad outcome for an educated female, she is more likely to agree to enter the marriages of lower quality. I estimate a lifecycle model with dynamic bargaining and fertility decisions to show how much of these differences is driven by household bargaining and how childcare costs contribute to observable divorce rates.
+Unplanned pregnancies often trigger marriage for unmarried cohabitating couples. I show that on average marriages in which a child appeared before or at the year of marriage are characterized with higher divorce probabilities and other outcomes suggesting lower marital quality. This association is robust to different ways of controlling for composition, and it is more pronounced for higher income and more educated couples. I argue that this pattern is consistent with household bargaining models, and the main driver of the result is unequal exposure of spouses to the childcare costs: since being single mother is a bad outcome for an educated female, she is more likely to agree to enter the marriages of lower quality. I estimate a lifecycle model with dynamic bargaining and fertility decisions to show how much of these differences is driven by household bargaining and how unplanned pregnancies creating unexpected childcare costs contribute to observable divorce rates.
 \end{abstract}
 
 \section{Introduction}
+As of 2018, [40\%] of new births occurred by unmarried mothers. This number is rising for decades, but, more importantly, it is rather heterogeneous, reaching three-quarters for mothers who are African American, [...] under 25 and [...] for high school or less in education. But even for educated and older women this share is substantial [...]. An increase in non-marital cohabitation is also a documented trend, despite of this, persistent non-marital cohabitation is still not the most common thing: according to SIPP 2014, only [...] of women 21--40 cohabitate for longer than 5 years without being married. A substantial part of children by unmarried parents are born in such cohabitating unions (SIPP [...]).
+
+These numbers have important economic implications: children born by unmarried women, as documented by, for instance [...], display significantly worse future outcomes in terms of education and income, and this pattern survives controlling in many dimensions. Although it is well understood that children of never married single mothers or children of blended families (when a woman marries someone else than child's father) have generally worse outcomes, even when parents marry each other after they made a baby their marriage is statistically less stable, as I argue in this paper, and the larger chances of marriage dissolution do affect future prospects of the children. 
+
+This pairs well with common perception that some couples marry at or shortly after the moment they make a baby: long-lasting marital cohabitations with children are even less common (among ...). If cohabitation is viewed as uncommitted relationship, unexpected fertility may serve as a trigger to obtain more commitment. Narrowly, we can interpret this as shotgun marriage story, however in the times with large abortion access many unplanned pregnancies are aborted, and cohabitating couples seem to \emph{choose} to keep an unplanned baby. The whole role of marriage changes as it is more socially acceptable to cohabitate, though it is much more conventional to do it before having kids. As highlighted by, for instance, [...], despite of general decrease of role of marriage in the society, securing investment to children is one of the most important forces that makes people marry each other.
+
+This paper highlights one important aspect of this: I argue that when marriage decision is driven by having an unexpected child, bargaining friction makes marital outcome worse. The source of this friction is the large childcare costs and unequal relative exposure to them: as women bear relatively more childcare costs, they are more likely to enter relatively lower quality marriages as a commitment to share a part of these costs. This can rationalize observable differences in marital outcomes between couples with and without out-of-wedlock births. 
+
+Namely, I document that females who had their first birth before their first marriage have higher chances of divorce in the future, this is mainly driven by women married to the parents of their children, and this is robust and relatively more pronounced for high education or high income groups. I then provide a model incorporating the bargaining mechanism that can rationalize these differences. I estimate the model parameters to match observable patterns in the data and show what it implies about the role of unequal exposure to childcare costs in observable marriage selection and divorce patterns. Shortly, the model suggests if people could perfectly control timing of their births, general share of divorced people would decrease by ..., especially in high-income groups.
+
+Section 2 of this paper discuss existing results and general trends that are already described by the literature. Section [...] discuss how I construct the dataset and timing variables, and Section 3 establishes main observations about differences in groups depending on their marriage timing, together with a number of additional considerations useful to understand the content of these differences. After that I explain theoretical model in Section 4, the process of setting its parameters in Section 5. Section 6 provides estimation results and counterfactual simulations implied by these results. Section 7 provides more general discussion and concludes.
+
 %Understanding how people make marriage decisions and more generally how household structure is formed is crucial for analyzing labor market outcomes, assets accumulation, various dimensions of inequality and children development outcome. Most of existing studies, even ones that take household structure seriously, typically abstract from the fact that household structure is itself a choice variable. However, existing trends in marriage and divorce rates, increasing share of kids with unmarried parents and in blended families, and, especially, how different these trends are by income and racial groups --- this all suggests economic importance of household issues.
 
 %In particular, economists know pretty little about how people decide on marriage and divorce, despite of the fact that these issues have lots of economic content. Stylized models describing marriage (and, in smaller extent, divorce) emerged in family economics, however most of them describe qualitative issues and do not deliver quantitative predictions that can be applied for analyzing policy or just understanding how different factors contribute to the recent changes. ...]
 
-\subsection{Trends in Marriage And Divorce}
+\section{Existing Results}
+
+My work builds on few branches of literature, following long tradition of modeling fertility and marriage markets in family economics. I am not aware of any studies that cover precisely the narrow issue I focus on, but there are few recently established result that cover related aspects and compliment what I do. Three main building blocks that I utilize are literature on marriage selection and dynamic bargaining, few detailed lifecycle models of fertility and unplanned pregnancies and number of descriptive studies of microdata describing reduced form effects of out-of-wedlock births, trends in divorce rates and heterogeneity in time use of parents.
+
+The main conceptual framework that I utilize are models of household's dynamic bargaining and limited commitment, extensively reviewed by 
 
 
-\subsection{Existing Results}
 
 
-\section{Empirical Evidence}
-The key empirical observation is association between marriage timing and divorce probabilities. Statistically, women who have their kids before they are married have significantly higher chance to be divorced. American Community Survey (ACS) data are suitable for establishing this fact only of particular subsample of women: most importantly, those who had no more than one marriage in their life. To re-confirm the patterns I additionally use Survey of Income and Program Participation (SIPP) data: they have smaller sample size but collect exact questions I care about.
+\section{Empirical Strategy}
+The key empirical observation is association between marriage timing and divorce probabilities. The goal is to argue that statistically women who have their kids before they are married have significantly higher chance to be divorced. American Community Survey (ACS) data are suitable for establishing this fact only of particular subsample of women: most importantly, those who had no more than one marriage in their life. To re-confirm the patterns I additionally use Survey of Income and Program Participation (SIPP) data: they have smaller sample size but collect exact questions I care about.
 
 \subsection{Defining Variables}
 
@@ -207,12 +223,15 @@ SIPP has much more detailed information on marital history and fertility: it exp
 %When dividing people by income, however, I have to further restrict attention to households that consist of mother + spouse/partner (if reported) + children. This creates some attrition especially for young people, but differences in defining household members are minimal between ACS and SIPP, so it is not likely that it creates an issue.
 
 \subsection{Defining Income}
-This part describes how I define income partitions in ACS. Shortly, I define income groups based on per hour income of working females, by excluding those who does not work from income considerations. In the appendix I try several 
+This part describes how I define income partitions in ACS and SIPP. Shortly, I define income groups based on per hour income of working females, by excluding those who does not work from income considerations. In the appendix \ref{inc-part} I try several alternative partitions, shortly they do not affect the conclusions although they do affect magnitudes in different groups. 
 
-For income percentiles I divide data on cells that consist of the US state, survey year (for ACS) and age group. I define age groups as 20--25, 26--30, 31--35, 36--40, and this classification is based on the age of female. Conditioning for year is done mainly to mitigate consequences of income decline in 2008. 
+To define per-hour income, I restrict attention to working women only. I define working as those who are employed now, report to work more than 25 weeks in the last year, report non-missing labor income above or equal to $\$1000$ per year, report non-missing usual working hours above or equal to $5$ hours per week.
 
-I drop cells with less than 100 observations (for instance, Vermont in ACS 2015 has 31 females in age group 20--25), this constitutes around [2\%] of all observations. 
+As weeks worked last year are defined only on intervals for ACS, I impute them using the midpoints of respective intervals, then define yearly hours as a product of usual hours and imputed weeks worked. This allows to define log per-hour income as log-difference of yearly log wage and salary income with yearly log hours. I residualize these income data by regressing it on 4th degree polynomial in age, dummies and linear trends in age for each US state and dummies for each ACS survey year.
 
+In SIPP 2014, I perform the similar operations. I exclude females who had less than $1000/12$ monthly income or had average weekly hours less than 5 during the last month. Then I divide monthly income on four times average weekly hours to get estimate for per-hour earnings. As before, I residualize logs of these income by regressing them on the same factors, except that instead of year controls (I only use 2014) I use month controls that allow to capture variation in number of work days per month. 
+
+\section{Reduced Form Evidence}
 \subsection{Raw Comparisons}
 First, I compare divorce probabilities in cross-sections of people between $K\to M$ and $M\to K$ groups. See Table \ref{diff-raw} for this.
 
@@ -222,15 +241,15 @@ First, I compare divorce probabilities in cross-sections of people between $K\to
 \multicolumn{1}{c|}{} & \multicolumn{3}{c||}{\small ACS: sample of married once} & \multicolumn{3}{c|}{\small SIPP: sample of  ever married} \\\cline{2-7}
 \multicolumn{1}{c|}{}  & \multirow{2}{*}{\small \% K$\to$M}& \multicolumn{2}{c||}{\textbf{\% divorced (now)}} & \multirow{2}{*}{\footnotesize \% K$\to$M }& \multicolumn{2}{c|}{\textbf{\% divorced (ever)}} \\\cline{3-4}\cline{6-7}
 \multicolumn{1}{c|}{}  &  &\small if M$\to$K &  \small if K$\to$M & & \small if M$\to$K & \small if K$\to$M \\\hline
-\textit{All females, 20--40}  & $23.1\%$ & $9.8\%$ & $17.3\%$ & $22.8\%$ & $24.0\%$ & $34.7\%$ \\
-\textit{All females, 35--40} & $17.8\%$ & $11.0\%$ & $22.3\%$ & $18.9\%$ & $28.1\%$ & $45.5\%$ \\\hline\hline
-\multicolumn{7}{|p{0.9\linewidth}|}{\footnotesize \textbf{Education partition.} Note: ``college graduates'' excludes ``some college'' and ``more than college''.}\\\hline
-\textit{High school only, 20--40} & $34.2\%$ & $13.3\%$ & $16.5\%$ & $33.4\%$ & $29.0\%$  & $34.1\%$ \\
-\textit{College graduates, 20--40} & $11.5\%$ & $5.7\%$ & $14.3\%$ & $10.5\%$ & $14.9\%$ & $28.1\%$ \\\hline\hline
-\multicolumn{7}{|p{0.9\linewidth}|}{\footnotesize \textbf{Income partition:} subsample of household heads/spouses living with children and nobody else.}\\\hline
-\textit{Low 30\% income, 20--40} & $33.0\%$ & $17.7\%$ & $22.8\%$ & $29.4\%$ & $34.3\%$ &  $36.0\%$ \\
-\textit{Mid 40\% income, 20--40} & $22.8\%$ & $7.6\%$ & $11.8\%$ & $21.9\%$ & $23.8\%$ & $31.1\%$ \\
-\textit{Top 30\% income, 20--40} & $11.1\%$ & $4.6\%$ & $13.0\%$ & $12.5\%$ & $11.6\%$  & $29.8\%$ \\\hline
+\textit{All females, 21--40}  & $23.2\%$ & $10.1\%$ & $18.0\%$ & $22.8\%$ & $24.1\%$ & $34.8\%$ \\
+\textit{All females, 35--40} & $18.0\%$ & $11.3\%$ & $23.0\%$ & $18.9\%$ & $28.1\%$ & $45.5\%$ \\\hline\hline
+\multicolumn{7}{|p{0.9\linewidth}|}{\footnotesize \textbf{Education partition.}}\\\hline
+\textit{High school only, 21--40} & $34.2\%$ & $13.9\%$ & $17.2\%$ & $33.4\%$ & $29.2\%$  & $34.2\%$ \\
+\textit{College graduates, 21--40} & $9.9\%$ & $5.3\%$ & $14.7\%$ & $10.5\%$ & $12.9\%$ & $27.5\%$ \\\hline\hline
+\multicolumn{7}{|p{0.9\linewidth}|}{\footnotesize \textbf{Income partition:} per-hour income for subsample of working women.}\\\hline
+\textit{Low 30\% income, 21--40} & $30.8\%$ & $17.6\%$ & $24.1\%$ & $34.6\%$ & $30.5\%$ &  $42.5\%$ \\
+\textit{Mid 40\% income, 21--40} & $25.5\%$ & $14.2\%$ & $21.5\%$ & $24.1\%$ & $28.3\%$ & $45.8\%$ \\
+\textit{Top 30\% income, 21--40} & $14.1\%$ & $7.7\%$ & $18.1\%$ & $12.4\%$ & $22.9\%$  & $32.8\%$ \\\hline
 \multicolumn{7}{|p{0.9\linewidth}|}{\footnotesize $\Delta T = \text{Year}^{\text{first child}} - \text{Year}^{\text{first marriage}}$. Restriction: $\Delta T \in \{-5,...,10\}$.}\\
 \multicolumn{7}{|p{0.9\linewidth}|}{\footnotesize Definition: K$\to$M if $\Delta T \in \{-5,...,0\}$. M$\to$K if $\Delta T \in \{1,...,10\}$.}\\
 \hline
@@ -239,8 +258,32 @@ First, I compare divorce probabilities in cross-sections of people between $K\to
 \end{center}
 \end{table}
 
+Three key observations from the table are:
+\begin{enumerate}
+\item About one-fifth of females have their first kid before or at the year they marry, this share quickly decreases with income and education
+\item Share of divorced people among those who had their first kid before on at the year of their first marriage is larger.
+\item The share of divorced people is about 1.5 higher for low income/education females and more than twice higher for high income/education.
+\item The ACS result is not likely to be driven by picking only people with one marriage, as the pattern is exactly the same if I use SIPP and count for remarriages
+\end{enumerate}
 
-\subsection{Differences in Composition}
+This alone is not enough to draw any causal conclusions: composition of these groups is drastically different. For instance, as suggested by the table, people with lower income are more likely to get divorced, so even conditional on income/education group K$\to$M couples may be poorer with each subgroup. Additionally, many other factors may drive the differences, including different ages of children (people in K$\to$M group by construction have older babies after any given number of years after marriage), regional and racial differences in attitudes to divorce, age composition, possible presence of step-children in K$\to$M couples and so on. I attempt to control for few of these things and argue that they explain these differences only partially, that suggests the presence of causal mechanism that I describe.
+
+\subsubsection{Duration Considerations}
+One obvious concern about comparing two groups is the temporal nature of the data: the variable I use captures fact that divorce happened in the past, and the exact timing may be different between the two groups. Due to cumulative nature of the divorce indicator, females who had marriage long time ago are more likely to be divorced even if their divorce chances in any given period are the same. Therefore, I it is useful to look at divorced females conditional on number of years passed from marriage, see the left panel of Figure \ref{pic-aftmar} for this.
+\begin{figure}[h!]
+\includegraphics[width=0.45\linewidth]{div_by_aftmar.eps}
+\includegraphics[width=0.45\linewidth]{aftmar_by_mk.eps}
+\caption{Divorced by years after marriage and distribution of years after marriage\label{pic-aftmar}}
+\end{figure}
+
+First, the pattern about different divorce probabilities hold almost uniformly by the ``age of marriage''. Group that has kids first both have higher share of divorced and faster growth of it as marriage progresses. Combining these two graphs allows to see that M$\to$K group are on average married for longer time at the moment of survey, but overall composition is not dramatically different. That would mean that comparing raw shares of divorced actually \emph{underestimates} the difference relative to controlling for number of years after marriage. This is confirmed by regression results that I skip, as in the following section I present the version where I control for years after marriage and few other factors.
+
+\subsection{Adjusting for Composition}
+
+This part documents large differences in variables that may affect divorce rates between the two groups. After that I try to flexibly capture these factors to see what part of the difference is attributed to the fact of being in K$\to$M group. These exercises use ACS data as they have more observations so the tests are less noisy. Shortly, after adding many controls, observable difference decreases about twice, but still remains sizable and significant. 
+
+
+\subsection{Differences in Observables}
 This section captures demographic and economic differences of K$\to$M and M$\to$K groups. Many factors could compute to the observable differences, here I quantify them and this justifies use of controls in the next part. I present these differences for ACS, SIPP tables are available in [Appendix ...]. For ACS, since M$\to$K and K$\to$M are defined only for subsample of people who were married once and have children present, I also compare this subsample with more general female population. See Table \ref{diff-contr} for the results.
 
 \begin{table}[h!]
@@ -268,9 +311,11 @@ This section captures demographic and economic differences of K$\to$M and M$\to$
 \end{center}
 \end{table}
 
-\subsection{Statistical Tests and Controlling for Composition}
+Shortly, differences in composition are pretty drastic for income and education dimension (as suggested by different shares of K$\to$M in subgroups described above). Most of these things are intuitive, and this suggests importance of flexibly controlling for composition. Similar patterns are observed if I compare composition within each subgroup that I discuss above, so partitions should matter. 
 
-In this section I formally test differences in shares for different subgroups. I also attempt to control for composition using regressions with many fixed effects. I show that generally observable mean differences are not likely to be attributed to composition, and introducing various controls still leaves substantial part of the difference. 
+\subsubsection{Statistical Tests and Controls}
+
+In this section I formally test differences in shares for different subgroups and attempt to control for composition using regressions with many fixed effects.
 
 In general, I perform the following exercise: I regress indicator of female being divorced on set of controls $X$ and dummy variable $\I(\text{K$\to$M})_i$. The specification I use is
 \[D_i = \Delta \cdot \I(\text{K$\to$M})_i + X_i\gamma + \varepsilon_i.\]
@@ -279,11 +324,13 @@ Replacing $X_i$ with a constant corresponds to raw mean comparison described abo
 I report three possible estimates of $\Delta$:
 \begin{itemize}
 \item \textbf{Raw}, corresponding to differences in raw means in the previous part
-\item \textbf{Controls}, where the regression includes dummies for ACS year, the US state, number of children, years after marriage, age of the eldest child, race and education group + 4th degree polynomial in woman's age
-\item \textbf{Controls+income}, where the regression includes all of the above + dummies for income groups (low 30\%, mid 40\%, top 30\%) on a subsample where income equivalence scale is defined. This subsample is smaller, but has arguably better data quality.
+\item \textbf{Controls}, where the regression includes dummies for ACS year, the US state, number of children, number of years after marriage, age of the eldest child, race and education group + 4th degree polynomial in woman's age
+\item \textbf{Controls+income}, where the regression includes all of the above + 3rd degree polynomial in log female per-hour income (residualized as described above) for subsample of working women. This subsample is smaller, but has arguably better data quality.
 \end{itemize}
 
-See Table \ref{diff-contr} for the results. 
+%The most important controls are age of the eldest child and number of years after marriage. Basically, being in K$\to$M group is defined by their interaction 
+
+See Table \ref{diff-contr} for the results. Generally, controlling for composition decreases observable difference, but this decrease is less than half in magnitude: even controlling for many observable factors, many of which may itself be results of unplanned fertility, we cannot assign all observable difference to composition of the groups. This also implicitly suggests that the income partition I choose makes sense: conditional on income group, additional controlling for income does not change the observable coefficient much. 
 
 \begin{table}
 \begin{center}
@@ -291,15 +338,15 @@ See Table \ref{diff-contr} for the results.
 \multicolumn{1}{c|}{} & \multicolumn{7}{c|}{ACS: sample of married once}\\\cline{2-8}
 \multicolumn{1}{c|}{} & \small Share of &\multicolumn{2}{c|}{\small Raw difference} & \multicolumn{2}{c|}{\small with controls} & \multicolumn{2}{c|}{\small controls + income} \\ \cline{3-8}
 \multicolumn{1}{c|}{} & \small divorced & $\Delta$ & (s.e.) & $\Delta$ & (s.e.) & $\Delta$ & (s.e.) \\  \hline
-\textit{All females, 20--50} & 13.0\% & 7.6\% & (0.1\%) & 5.5\% & (0.2\%) & 5.1\% & (0.2\%) \\
-\textit{All females, 35--40} & 16.0\% & 11.3\% & (0.2\%) & 6.5\% & (0.3\%) & 5.9\% & (0.3\%) \\\hline\hline
-\multicolumn{8}{|p{0.9\linewidth}|}{\footnotesize \textbf{Education partition.} Note: ``college graduates'' excludes ``some college'' and ``more than college''.}\\\hline
-\textit{High school only, 20--50} & 16.2\% & 3.2\% & (0.2\%) & 8.0\% & (0.3\%) & 7.6\% & (0.3\%) \\
-\textit{College graduates, 20--50} & 8.3\% & 8.6\% & (0.3\%) & 3.9\% & (0.3\%) & 3.5\% & (0.3\%) \\\hline\hline
-\multicolumn{8}{|p{0.9\linewidth}|}{\footnotesize \textbf{Income partition:} subsample of household heads/spouses living with children and nobody else.}\\\hline
-\textit{Low 30\% income, 20--40} & 20.3\% & 5.1\% & (0.2\%) & 10.3\% & (0.3\%) & \multicolumn{2}{c|}{---}\\
-\textit{Mid 40\% income, 20--40} & 10.1\% & 4.3\% & (0.2\%) & 2.8\% & (0.2\%) & \multicolumn{2}{c|}{---}\\
-\textit{Top 30\% income, 20--40} & 9.0\% & 8.3\% & (0.3\%) & 2.7\% & (0.4\%) & \multicolumn{2}{c|}{---}\\
+\textit{All females, 20--50} & 14.3\% &  7.9\% &   (0.1\%) &    5.7\%  &    (0.2\%) &     4.6\%   &   0.2\% \\
+\textit{All females, 35--40} &  17.3\% &  11.7\%  &  (0.2\%) &   6.7\% &  (0.3\%) &     6.2\%  &   (0.4\%) \\\hline\hline
+\multicolumn{8}{|p{0.9\linewidth}|}{\footnotesize \textbf{Education partition.}}\\\hline
+\textit{High school only, 20--50} & 18.1\% &   3.3\%  &    (0.2\%) &   8.4\% &   (0.3\%)   &  7.8\%   &  (0.5\%) \\
+\textit{College graduates, 20--50} & 8.5\% &   9.4\% &   (0.2\%) &   3.9\% &   (0.3\%) &   3.2\%   &  (0.4\%) \\\hline\hline
+\multicolumn{8}{|p{0.9\linewidth}|}{\footnotesize \textbf{Income partition:} working women only.}\\\hline
+\textit{Low 30\% income, 20--40} &  21.6\% &  6.5\% &    (0.3\%) &    7.8\% &  (0.5\%) &   7.8\%   &  (0.5\%) \\
+\textit{Mid 40\% income, 20--40} &  17.1\% &  7.3\% &   (0.3\%) &    3.6\%   & (0.4\%) &   3.6\% &    (0.4\%) \\
+\textit{Top 30\% income, 20--40} & 11.1\% &  10.4\% &  (0.3\%) &    3.5\% &   (0.4\%) & 3.5\% &  (0.4\%) \\
 \hline
 \end{tabular}
 \caption{Differences, controlled for composition, ACS\label{diff-contr}}
@@ -307,12 +354,81 @@ See Table \ref{diff-contr} for the results.
 \end{table}
 \subsection{Additional Comparisons}
 
-[I pick recently divorced people in ACS, I compare marriage durations for step and non-step children. I also check share of divorced in $M\to K$ and $K\to M$ given child's age and given marriage duration.]
+Here I show few additional results. First, I present several graphs that suggest relation of divorce chances to child's age. Second, I use alternative variable and consider only people who divorced in the year of survey, as for them duration of marriage and age of the first child is (almost) perfectly observed. The main point of these calculations is to show that divorces seem to be more concentrated around the moment where children get older.
 
+\subsubsection{Effects by Child's Age}
+First, I show how share of K$\to$M people varies with age of the eldest child. I focus on subsample children are 18 or younger, as very few people have children above 18 living in the household. This exercise highlights a nuance in the construction of the groups: almost no one in K$\to$M group has children of age less than a year, because that would mean the same year of marriage, first birth and ACS survey. Additionally, since the population is trimmed at the age of 40, having kids around age of 18 means fairly low age of the first birth, that is typically associated with being in M$\to$K group. Left panel of Figure \ref{pics-raw} clearly depicts both issues, and this suggests the importance of using controls. In the specifications above I control both for number of years after marriage and the age of the eldest child, so this should help mitigating these issues.
+
+Right panel of Figure \ref{pics-raw} shows evolution of divorce probabilities for the two groups. The increasing pattern is a result of cumulative nature of processes: people with elder children have more periods to get divorced. But the difference between two probabilities is illustrative: between ages 5 and 10 size of K$\to$M group changes a little, but difference becomes very pronounced.
+
+\begin{figure}[h!]
+\includegraphics[width=0.45\linewidth]{km_by_age.eps}
+\includegraphics[width=0.45\linewidth]{div_by_age_raw.eps}
+\caption{Share of K$\to$M couples and share of divorced, no controls\label{pics-raw}}
+\end{figure}
+
+I focus on studying difference more carefully then: first, I simply run a regression
+\[D_i = \sum_{a=0}^{18} \beta_a \cdot \I(\text{Age of eldest child}_i = a) +  \sum_{a=0}^{18} \Delta_a \cdot \I(\text{Age of eldest child} = a)\cdot \I(\text{K$\to$M})_i + \varepsilon_i,\]
+and plot $\Delta_a$.
+
+Second, for a subsample of working women I run a regression with controls that were used for Table \ref{diff-contr} above (including polynomials in income),
+\[D_i = \sum_{a=0}^{18} \Delta_a \cdot \I(\text{Age of eldest child} = a)\cdot \I(\text{K$\to$M})_i + X_i\gamma + \varepsilon_i,\]
+note that these controls include dummies for the age of the eldest child.
+
+See Figure \ref{pics-diff} for the results. The left panel essentially replicates the differences on the previous graph. The right panel is of the main focus: if the set of controls captures the issues of construction of the groups, then the differences associated with age follow the conjecture above: they are small for younger children and start to hike at ages 5--10 (I believe that first few points are mostly caused by composition). In general, these graphs are kind of consistent with the idea that divorces are concentrated around the moments where kids get older and childcare costs structure changes as they arguably require less time, though they do not provide a formal test.
+\begin{figure}[h!]
+\includegraphics[width=0.45\linewidth]{diff_raw_by_age.eps}
+\includegraphics[width=0.45\linewidth]{diff_cont_by_age.eps}
+\caption{Differences in divorce probabilities by child's age\label{pics-diff}}
+\end{figure}
+
+\subsubsection{Sample of Recently Divorced}
+In this exercise I utilize an alternative variable available in ACS --- indicator whether a particular person got a divorce in the year of survey. It can be interpreted as \textit{marginal} divorce probability as opposed to the previous value being \emph{cumulative}. Therefore, for instance, it does not have an upward trend in number of years married, see Figure \ref{pic-now-aftmar}. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\linewidth]{divnow_by_aftmar.eps}
+\caption{Probabilities of getting divorced in the year of survey\label{pic-now-aftmar}}
+\end{figure}
+
+Table \ref{diff-contr-marginal} replicates the results for marginal divorce probabilities. The key conclusions and proportions remain very similar, that implicitly suggests validity of the approach used above.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c||c|c|c|c|c|c|}\cline{2-8}
+\multicolumn{1}{c|}{} & \multicolumn{7}{c|}{ACS: sample of married once}\\\cline{2-8}
+\multicolumn{1}{c|}{} & \small Share of &\multicolumn{2}{c|}{\small Raw difference} & \multicolumn{2}{c|}{\small with controls} & \multicolumn{2}{c|}{\small controls + income} \\ \cline{3-8}
+\multicolumn{1}{c|}{} & \small divorced & $\Delta$ & (s.e.) & $\Delta$ & (s.e.) & $\Delta$ & (s.e.) \\  \hline
+\textit{All females, 20--50} & 1.94\% &  1.37\% &  (0.05\%) &  0.82\% &  (0.08\%) &  0.79\%  &  (0.11\%) \\
+\textit{All females, 35--40} &   1.59\% &  1.04\% &  (0.08\%) &   0.77\% &  (0.11\%)  &  0.74\%   &  (0.15\%) \\\hline\hline
+\multicolumn{8}{|p{0.9\linewidth}|}{\footnotesize \textbf{Education partition.}}\\\hline
+\textit{High school only, 20--50} & 2.31\% &  0.86\% &  (0.08\%) &   0.82\% &  (0.12\%)  &  0.82\%  &   (0.20\%) \\
+\textit{College graduates, 20--50} & 1.19\% &  1.24\% & (0.10\%) &   0.59\% &   (0.13\%)  &  0.50\% &    (0.16\%) \\\hline\hline
+\multicolumn{8}{|p{0.9\linewidth}|}{\footnotesize \textbf{Income partition:} working women only.}\\\hline
+\textit{Low 30\% income, 20--40} &  3.02\% &  1.31\% &  (0.14\%) &   0.90\% &  (0.21\%) &   0.91\%  &   (0.21\%) \\
+\textit{Mid 40\% income, 20--40} &  2.54\% &  1.34\% &  (0.12\%) &   0.54\%  & (0.18\%) &   0.54\% &    (0.18\%) \\
+\textit{Top 30\% income, 20--40} & 1.69\% &  1.69\% &   (0.15\%) &   0.90\%  & (0.20\%) &   0.90\% &    (0.20\%) \\
+\hline
+\end{tabular}
+\caption{Differences in marginal probablities, controlled for composition, ACS\label{diff-contr-marginal}}
+\end{center}
+\end{table}
 
 \subsection{Intra-Household Allocations}
 
 [I look at earnings, hours and LFP differences] [Grade retention depends on child's age, so need to compare given child's age]
+
+[THIS IS AN OLD VERSION OF TABLE]
+
+\begin{center}
+\begin{tabular}{|l||c|c||c|c|}\hline
+& \multicolumn{2}{|c||}{\footnotesize \textit{All couples}}  & \multicolumn{2}{|c|}{\footnotesize \textit{Top 40\% of income} } \\\hline
+&                       \footnotesize  M$\to$K & \footnotesize  K$\to$M &  \footnotesize  M$\to$K & \footnotesize  K$\to$M \\\hline
+\footnotesize \textit{Female in Labor Force}        & $70.3\%$  & $71.4\%$  & $79.3\%$ & $85.3\%$  \\\hline
+\footnotesize \textit{Earninigs Ratio}    &  $95.2\%$ & $93.9\%$  &  $95.8\%$ &  $96.4\%$ \\\hline
+\footnotesize \textit{Kids' Grade Retention}  & $4.6\%$    & $7.6\%$ &   $3.3\%$   & $5.9\%$ \\\hline
+\end{tabular}
+\end{center}
+
 \section{Model}
 
 \input{model}
@@ -349,11 +465,11 @@ Total number of parameters here is 31. Few additional choices involve time horiz
 
 
 \subsection{Externally Set Parameters}
-Length of the period is set to be 1 year, the model assumes people start their life with no assets at the age of $21$ and die deterministically at the age of $81$ (so $T = 30$). However, it assumes that fertility status can change only till age of 40 ($T_f = 19$) and marriage status till age of 50 ($T_m = 29$). It also assumes that after the age of 60 people retire and get $b = 0.4$ [as in Sommers, 2014] of their income at age of 60 (so no transitions happen). I stop simulations at the age of 50. 
+Length of the period is set to be 1 year, the model assumes people start their life with no assets at the age of $21$ and die deterministically at the age of $81$ (so $T = 30$). However, it assumes that fertility status can change only till age of 40 ($T_f = 20$) and marriage status till age of 45 ($T_m = 25$). It also assumes that after the age of 60 people retire and get $b = 0.4$ [as in Sommers, 2014] of their income at age of 60 (so no transitions happen). I only simulate the data for age 21--40, therefore these choices are not likely to play a crucial role. 
 
-Following standard approach in literature, I fix $\sigma = 1.5$, $R = 1.03$ and $\beta = 1/R$. Also, following estimates of Voena (2014) I set $\rho_c = 0.23$. 
+Following standard approach in literature, I fix $\sigma = 1.5$, $R = 1.03$ and $\beta = 1/R$. %Also, following estimates of Voena (2014) I set $\rho_c = 0.23$. 
 
-I borrow age profiles from $(a^f_0,a^f_1,a^f_2)$, $(a^m_0,a^m_1,a^m_2)$ and variances of income shocks $\sigma^{z,f}$, $\sigma^{z,m}$ from Low et al 2018 [This will be replaced by my own estimates from SIPP].
+I take age-income profiles  $(a^f_0,a^f_1,a^f_2)$, $(a^m_0,a^m_1,a^m_2)$ to match coefficients in per-hour labor earnings in ACS (see Appendix [...] for details). I borrow variances of income shocks $\sigma^{z,f}$, $\sigma^{z,m}$ from Low et al 2018 as they cannot be estimated in cross-sectional data [This could be fixed in later versions as their variances are for subsample of non-college graduates]. 
 
 I also externally estimate $\sigma^{z,p}$ as variance of (unpredicted part of) log-difference in spouses earnings, see Appendix \ref{partearn} for this. Based on this calculations I set $\sigma^{z,p} = 0.8$. As I both do not have good assets data and do not aim to replicate assets distribution, I set $\sigma^{a,p} = \sigma^{z,p}$.
 
@@ -367,27 +483,103 @@ Out of 31, 15 parameters are set externally, so I am left with $16$ parameters t
 Conceptually, they can be split onto following groups:
 \begin{enumerate}
 \item Unplanned pregnancy probabilities are pinned down by share of $K\to M$ females at ages 25 and 35, as well as share of planned births in total population
-\item Meeting probabilities and $\sigma^{\psi_0}$ are pinned down by shares of never married females people at 25, 35, share of females with one marriage at 40 (relevant to capture chances of re-marrying) and shares of never married at 30 for high and low income groups.
+\item Meeting probabilities and $\sigma^{\psi_0}$ are pinned down by shares of never married females people at 25, 35, 40 and share of females with one marriage at 40 (relevant to capture chances of re-marrying).
+\item  Preferences for kids are captured by share of childless females by age of 25, 30, 35 (identifies general scale $\phi_0$), share of childless females for low and high income at 30 $\phi_1$. Luxury good parameter $\phi_2$ is pinned down by ratio of amounts of money spent on kids between 75 and 25 income quantiles.
 \item Childcare production function is recovered by ratio of time spent with kids by couple's income (pins down elasticity of substitution), average share of money spent on kids (captures ``average'' $\mu$) and ratio of time spent by child's age (captures difference between $\mu_a$ and $\mu_y$)
-\item  Preferences for kids are captured by share of childless females by age of 25, 30, 35 (general scale), share of childless females for low and high income at 30 $\phi_1$. Luxury good parameter $\phi_2$ is pinned down by ratio of amounts of money spent on kids between 75 and 25 income quantiles.
-\item Variance of innovation to marriage surplus is mainly pinned down by share of divorced people by age (25, 35, 40) and income groups (at 30).
+\item Variance of innovation to marriage surplus is mainly pinned down by share of divorced people by age (25, 35, 40).
 \item Transition out of single mothers is captured by share of never married single mothers at 25 (picks $S$) and share of divorced women with kids at 30 (picks $p^{\text{out}}$).
+\item Returns to scale in marriage $\rho_c$ are pinned down by comparing divorce probabilities between high and low income females.
 \end{enumerate}
-On top of it, I use shares of divorced people for $K\to M$ and $M \to K$ at 40 as additional targets that are affected by mixture of parameters described above.
+On top of it, I use shares of divorced people for $K\to M$ and $M \to K$ at 40 and their ratio by income groups as additional targets that are affected by mixture of parameters described above.
 
-I additionally impose the following constraints: share of rejected marital offers is within $[0.05,0.95]$ and average share of time spent on kids is below $0.8$. [Both of these constraints are non-binding in the solution I found, although turning them off occasionally may lead to implausible solutions.]
-
+For income considerations I trim females/couples with $l$ larger than its 77\% percentile (corresponding to $77\%$ of ACS females of 21--40 who work at least 5 hours, imputing $l = 0$ for those who does not have kids) in simulated data, and treat their log per-hour income as missing. I then perform similar detrending and divide individuals by group using the same regression procedure. I prefer detrending to simply picking $z$ as choices of $l$ are not independent on age.
+  
 
 \section{Results}
-Table ... shows targeted and 
+Table \ref{targets-main} shows the targets in the model and in the data. [Marriage dimension is somewhat off, this is not crucial as the study mainly contains married couples, though I have few ideas how to fix it in finite time.]
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|}\hline
+Target & Model & Data \\\hline
+\multicolumn{3}{|c|}{Marriage Dimension} \\\hline
+Never married by 25  & $32.8\%$ & $68.3\%$  \\
+Never married by 30 & $12.6\%$ & $25.6\%$  \\
+Never married by 40 & $6.3\%$ & $18.8\%$  \\\hline
+One marriage by 40 & $66.3\%$ & $64.7\%$ \\\hline
+\multicolumn{3}{|c|}{Fertility Dimension} \\\hline
+No kids at 25 & $59.0\%$ & $67.7\%$ \\
+No kids at 30 (low $30\%$ income) & $46.7\%$  &   $44.0\%$ \\
+No kids at 30 (top $30\%$ income) & $52.1\%$  &   $57.8\%$ \\
+No kids at 35  & $32.9\%$  &   $28.1\%$ \\
+No kids at 40 & $17.6\%$ & $25.6\%$ \\\hline
+\multicolumn{3}{|c|}{Marriage/Fertility Interactions} \\\hline
+Never married with kids at 30 & $7.0\%$  & $12.3\%$ \\
+Divorced with kids at 30 & $5.7\%$ & $3.8\%$ \\\hline
+\multicolumn{3}{|c|}{Divorce Dimension (Divorced = Divorced and not remarried)} \\\hline
+Divorced by 25 & 6.6\%   &  10.7\% \\
+Divorced by 30 (low $30\%$ income)  & 14.5\% &     20.8\% \\
+Divorced by 30 (top $30\%$ income)  & 14.0\% &     8.1\% \\
+Divorced by 35  & 15.8\% &    15.9\% \\
+Divorced by 40  & 15.5\% &    19.1\% \\\hline
+\multicolumn{3}{|c|}{K$\to$M --- M$\to$K partition} \\\hline
+Divorced by 40 if K$\to$M & 22.1\% &   23.5\% \\
+Divorced by 40 if M$\to$K & 13.8\% &      13.0\% \\
+Divorced by 40 if K$\to$M and low 30\% & 34.0\% & 28.5\% \\
+Divorced by 40 if K$\to$M and top 30\% & 28.9\% & 23.3\% \\
+Divorced by 40 if M$\to$K and low 30\% & 34.0\% & 28.5\% \\
+Divorced by 40 if M$\to$K and top 30\% & 19.3\% & 11.3\% \\
+Divorced by 40 if M$\to$K and low 30\% & 28.7\% & 18.1\% \\\hline
+\multicolumn{3}{|c|}{Childcare} \\\hline
+Money for childcare / labor income & 25.7\% & 40.0\% \\
+Time spent 0--5 / Time spent 6--12 & 1.92 & 2 \\
+Time spent top 30\% / Time spent low 30\% & 0.92 & 1.19 \\
+Money spent top 30\% / Money spent low 30\% & 2.09 & 2.67 \\\hline
+
+\end{tabular}
+\caption{Targets in the data and in the model\label{targets-main}}
+\end{center}
+\end{table}
+
 
 \subsection{Counterfactual Simulations}
+[TBD]
 \begin{itemize}
 \item Turn off fertility completely
 \item Turn off bargaining
 \item No pressure of being single mother
 \item Single mother/single father randomly
 \end{itemize}
+
+\subsubsection{Altering Fertility Shocks}
+I consider two counterfactual scenarios: when unexpected fertility never happens at the moment people meet and when it never happens at all (but people still can make kids by choice). I compare key targets in Table \ref{cf-shocks}. In general, it looks like contribution of fertility shocks to the divorce rates is quite substantial, and major part of it is driven by fertility shocks before the marriage happens. Especially reducing fertility shocks affects divorces in early stages.
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}\hline
+Target & Baseline & No shocks at meeting & No shocks at all \\\hline
+\multicolumn{4}{|c|}{Marriage Dimension} \\\hline
+Never married by 25  & $32.8\%$ & $30.6\%$ & $31.1\%$  \\
+Never married by 30 & $12.6\%$ & $10.8\%$ & $11.2\%$  \\
+Never married by 40 & $6.3\%$ & $5.7\%$ & $6.1\%$  \\\hline
+\multicolumn{4}{|c|}{Fertility Dimension} \\\hline
+No kids at 25 & $59.0\%$ & $66.3\%$ & $68.3\%$ \\
+No kids at 30 (low $30\%$ income) & $46.7\%$  &   $53.5\%$ & $54.8\%$ \\
+No kids at 30 (top $30\%$ income) & $52.1\%$  &   $61.9\%$ & $62.7\%$ \\
+No kids at 35  & $32.9\%$  &   $36.2\%$ & $36.6\%$ \\\hline
+\multicolumn{4}{|c|}{Divorce Dimension} \\\hline
+Divorced by 25 & 6.6\%   &  2.6\% & 1.4\% \\
+Divorced by 30 (low $30\%$ income)  & 14.5\% &     11.0\% & 8.6\% \\
+Divorced by 30 (top $30\%$ income)  & 14.0\% &     9.0\% & 7.5\% \\
+Divorced by 35  & 15.8\% &    13.6\% & 11.9\% \\
+Divorced by 40  & 15.5\% &    14.3\% & 13.0\% \\\hline
+\end{tabular}
+\caption{Contribution of fertility shocks \label{cf-shocks}}
+\end{center}
+\end{table}
+
+
+
+
+
 
 \newpage
 \section{Robustness Checks}
@@ -411,6 +603,7 @@ Formally,for income considerations I take a subsample of females who is marked a
 
 To mitigate selectivity, I compute income percentiles in all sample of females with household composition mentioned above, regardless of their marriage and fertility status. I use total family income as the key variable. To mitigate misreporting I drop observations with total yearly family income below $\$4000$ for ACS (that is about a third of federal the poverty level) or monthly income below $\$300$ for SIPP.
 
+[TBD]
 
 \section{Additional Robustness Checks}
 
