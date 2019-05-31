@@ -84,7 +84,7 @@ the main reason for this is that $\theta$ changes in the future as a result of r
 \subsection{Couples With Kids}
 State space for couples is the same as for singles, except for additional variable $\xi$ representing child's age, therefore $\Omega = \{\theta,\psi,z^f,z^m,\xi\}$. I consider just two states for $\xi \in \{y,s\}$ representing young and school-age child. At birth the child is young, then each period with probability $p^{s}$ the child becomes of school-age. The difference between young and school-age children are mother's time requirement, namely young children require more time and elder --- more money.
 
-Couples with kids have additional choice variable $q$, that can be interpreted as flow of child quality or child consumption. Child quality is produced using mother's labor $l_f$ and monetary expenditures $x$ according to constant returns to scale production function. Labor input to child quality causes female to lose part of her labor income. The production function depends on age, namely I parametrize it as $q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}}$. This follows, for instance, [Sommer ...], with the addition of changing labor share $\mu$.
+Couples with kids have additional choice variable $q$, that can be interpreted as flow of child quality or child consumption. Child quality is produced using mother's labor $l_f$ and monetary expenditures $x$ according to constant returns to scale production function. Labor input to child quality causes female to lose part of her labor income. The production function depends on age, namely I parametrize it as $q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}}$. This follows Sommer, 2014, with the addition of changing labor share $\mu$. Also, following the same paper, I introduce the lower bound for possible choices of $q$ (that may rationalize additional distress in case of unplanned pregnancies).
 
 \begin{align}& \hspace{5em}  V^{ck}_t(\Omega) = \max\limits_{c^f,c^m,q,l_f,x}  \bigg\{ \theta\cdot u(c^f,q) + (1-\theta)\cdot u(c^m,q) + \psi + \label{vf_ck} \\  \nonumber
  & \hspace{10em} \beta \E_t \Big[   \left\{ (1-d)\cdot   V^{ck}_{t+1}(\Omega') + d\cdot [ \theta V_{t+1}^{f,sk}(\omega^{df}) + (1-\theta)V_{t+1}^{m,s}(\omega^{dm})]\right\} \Big] \bigg\},
@@ -93,6 +93,7 @@ Couples with kids have additional choice variable $q$, that can be interpreted a
 \text{s.t. \ } & a' + c + x = R\cdot a  + W^m_t(z^m) + (1-l_f)\cdot W^f_t(z^f) & \text{(evolution of joint assets)},\\
                     & c = [(c^f)^{1+\rho_c} + (c^m)^{1+\rho_c}]^{\frac1{1+\rho_c}} & \text{(increasing returns in consumption)},\\
                     & q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}} & \text{(production function of child quality)},\\
+                    & q \geq \underline{q} & \text{(required childcare costs)},\\
                     &  z^{f\prime} = z^f + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of female productivity)}\\
 				 &  z^{m\prime} = z^m + \varepsilon^{z,m}_t, \ \ \varepsilon^{z,m}_t \sim \mathcal{N}(0;\sigma_{z,m}^2) &  \text{ (evolution of male productivity)}\\
                     & \psi' = \psi + \varepsilon^{\psi}_t, \ \ \varepsilon^{\psi}_t \sim \mathcal{N}(0;\sigma_{\psi}^2)  & \text{(evolution of marriage surplus),} \\
@@ -109,6 +110,7 @@ The problem of a female who stays single mother is
 \begin{align*}
  \text{s.t. \ }  &  a' = R\cdot a  + (1-l_f)W^f_t(z) - c  & \text{ (evolution of assets)}\\
  & q = [\mu_\xi\cdot l_f^{\theta_q} + (1-\mu_\xi)\cdot x^{\theta_q}]^{\frac1{\theta_q}} & \text{(production function of child quality)},\\
+& q \geq \underline{q} & \text{(required childcare costs)},\\
  &  z' = z + \varepsilon^{z,f}_t, \ \ \varepsilon^{z,f}_t \sim \mathcal{N}(0;\sigma_{z,f}^2) &  \text{ (evolution of productivity)}\\
  &  \P(\xi' = s | \xi = y) = p^s, \ \ \P(\xi' = s | \xi = s) = 1 & \text{(evolution of child's age)},\\
 \end{align*}
@@ -172,5 +174,5 @@ Finally, to simplify computations I also do not allow marriage status and marria
 
 \subsection{Functional Forms}
 I use standard CES utility functions for individuals and couples with no kids: $u(c) = \frac{c^{1-\sigma}}{1-\sigma}$.  When kids appear, people extract additional utility of child quality, I use the following non-separable utility function:
-\[u(c,q) = \frac{\left(e^{\phi_0}\cdot c^{1-\phi_1} \cdot (\phi_2 + q)^{\phi_1}\right)^{1-\sigma}}{1-\sigma},\]
-parameter $\phi_0$ represents fixed gain in marginal utility because of having a baby, $\phi_1$ drives relative importance of child quality in utility function and $\phi_2$ is a ``luxury good'' parameter that can rationalize large child expenditures of wealthy couples that are discussed in the estimation section.
+\[u(c,q) = \frac{\left(e^{\phi_0}\cdot c^{1-\phi_1} \cdot (\phi_2 + q)^{\phi_1}\right)^{1-\sigma}}{1-\sigma} + \psi_3,\]
+parameter $\phi_0$ represents fixed gain in marginal utility because of having a baby, $\phi_1$ drives relative importance of child quality in utility function and $\phi_2$ is a ``luxury good'' parameter that can rationalize large child expenditures of wealthy couples that are discussed in the estimation section, $\phi_3$ is an additional utility shifter.

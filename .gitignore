@@ -18,3 +18,7 @@ main/\.DS_Store
 main/draft\.pdf\.sb-d1fcb019-QTgWlP
 
 emp-notes/\.DS_Store
+
+\.DS_Store
+
+*.gph
