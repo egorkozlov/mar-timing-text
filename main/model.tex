@@ -1,13 +1,45 @@
 % This is part of draft.tex containig the model
 % \section{Model}
-The model is a mixture between conventional heterogeneous agents savings model (B--A--H framework) and household formation and dynamic bargaining, that is extensively developed by [...]. 
+The model is a mixture between conventional heterogeneous agents savings model (Bewley--Huggett--Aiyagari framework) and household formation and dynamic bargaining, that is extensively surveyed by Chiaporri, Mazzocco 2015. 
 
 Agents live for $T$ periods. The agents are males, females and married couples. Couples can have a child together, and if a couple with a child divorces up, the child stays with mother, and this is how singe females can have kids. Single females with kids randomly re-enter marriage market by becoming single females without kids.\footnote{The reason for this assumption is to avoid modeling mixture between step and own children, and the fact that single mothers are not a main focus of the paper.}
 
 
 Single people without kids randomly meet partners with characteristics similar to them and decide whether to create a couple. Couples agree on some marriage terms, represented by each spouse's weight in couple's objective function. The rationale for marriage includes risk-sharing, returns to scale in consumption, possibility to have a child in the future and additional utility surplus of being married (love shock). Each period after random shocks are realized, couples may decide to renegotiate their marriage terms if one of the spouses is better off being single. If they cannot find marriage terms that are satisfactory for both, divorce happens.
 
-Couples can choose to have a child and can also experience unplanned pregnancies. Unplanned pregnancies cannot be aborted. In addition to couples, single people who met each other may experience an unplanned pregnancy just before they decide whether to create a couple. In this case, upon disagreement female becomes a single mother. This mechanism is a stylized representation of kids appearing in unmarried cohabitating couples: since I do not model cohabitation, those kids appear just before people actually decide to marry each other.\textit{ I discuss this issue additionally in Section ....}
+Couples can choose to have a child and can also experience unplanned pregnancies. Unplanned pregnancies cannot be aborted, but the arrival rate of unplanned pregnancies depend on woman's productivity as well as on age. In addition to couples, single people who met each other may experience an unplanned pregnancy just before they decide whether to create a couple. In this case, upon disagreement the female becomes a single mother. This mechanism is a stylized representation of kids appearing in unmarried cohabitating couples: since I do not model cohabitation, those kids appear just before people actually decide to marry each other.
+
+Figure \ref{transitions} summarizes the discussed transitions.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[every text node part/.style={align=center}]
+   % Place nodes
+   \node [block] (1) {Single Female\\[-0.5ex]  No Kids};
+   \node [block, above right = 1cm and 1cm of 1] (2) {Married Couple \\[-0.5ex] No Kids};
+   \node [block, right = of 2] (3) {Married Couple \\[-0.5ex] With Kids};
+   \node [block, above = 3cm of 1] (4) {Single Male  \\[-0.5ex]  No Kids};
+   \node [block, below right = 1cm and 3 cm of 1]  (5) {Single Female\\[-0.5ex]  With Kids};
+  
+   \draw[->, color = red] (1) to [bend left = 10] node [left] {\scriptsize Met and agreed \\[-1ex] \scriptsize (no shock)} (2);
+   \draw[->, color = brown, dashed] (1) to [bend right = 30] node [below left] {\scriptsize Disagreed \\[-1ex] \scriptsize (shock)} (5);
+   %\draw[->, color = red] (1.210) to [bend right=90]  node [below] {\scriptsize Did't meet or \\[-1ex]  \scriptsize disagreed (no shock) } (1.330);
+    \draw[->, color = brown, dashed] (1.350) to [bend right=10]  node [right] {\scriptsize Met and agreed \\[-1ex]  \scriptsize (shock) } (3.225);
+    \draw[->, color = red] (4) to [bend right = 30] node [left] {\scriptsize Met and agreed \\[-1ex] \scriptsize (no shock)} (2);
+     \draw[->, color = brown, dashed] (4.30) to [bend left = 40] node [right] {\scriptsize Met and agreed \\[-1ex] \scriptsize (shock)} (3.60);
+    %\draw[->, color = red] (4.150) to [bend left=90]  node [above] {\scriptsize Did't meet or disagreed} (4.30);
+    \draw[->, color = blue, dashed] (2.90) to [bend left=30] node  {\scriptsize Made baby by choice \\[-1ex] \scriptsize or shock} (3.90);
+    \draw[->, color = gray] (2.120) to [bend right=10] node {\scriptsize Divorced} (4.0);
+    % \draw[->, color = gray, dashed] (2.270) to [bend left=20] node [above right] {\scriptsize Divorced  \\[-1ex] \scriptsize + became pregnant } (5.90);
+    \draw[->, color = gray] (2.300) to [bend left=10] node [below right] {\scriptsize Divorced} (1.0);
+  \draw[->, color = gray] (3.75) to [bend right=25] node  {\scriptsize \ Divorced} (4.15);
+  \draw[->, color = gray] (3.270) to [bend left=10] node [right] {\scriptsize \ Divorced} (5.90);
+    \draw[->, color = blue] (5.180) to [bend left=10] node [above] {\scriptsize Kids randomly \\[-1ex] \scriptsize disappeared} (1.345);
+\end{tikzpicture}
+\caption{ Summary of important transitions \label{transitions} }
+\end{center}
+\end{figure}
+
 
 \subsection{Remarks on Notation}
 I write $V^{i,j}$ to represent individual value functions in the model. Here $i$ represents gender: $f$ for female or $m$ for male. $j$ represents demographic status: $s$ for singles without kids, $sk$ for singles with kids (females only), $c$ for couples without kids and $ck$ for couples with kids. Couple's joint value functions have only one superscript $j \in \{c,ck\}$. Relation between joint value function $V^{c}$ and each spouse's value functions $V^{m,c}$ and $V^{f,c}$ is described in details in couple's section.
@@ -102,10 +134,10 @@ Couples with kids have additional choice variable $q$, that can be interpreted a
 \end{align*}
 
 \subsection{Single Mothers}
-State space for single mothers contains individual productivity and child's age. Single mothers cannot marry, but have chance $p^{\text{out}}$ of recovering their marriage prospectives. In the model this is captured by transition of them to single females. This form is somewhat restrictive, although any other option requires modeling marriage of single mothers separately. This is a complex issue, for instance, males would seek females who already have kids if we do not make difference between step and own children. Since for the purposes of the model option of being single mother is used mainly as a factor affecting bargaining, I introduce additional (constant) utility factor $S$ to flexibly control utility of exiting the state. This can be interpreted as equivalent of utility of kids from past marriages when entering the marriage market again. This form seems flexible enough to capture variation in an option of being a single mother without putting extra computational and modeling burden.
+State space for single mothers contains individual productivity and child's age. Single mothers cannot marry, but have chance $p^{\text{out}}$ of recovering their marriage prospectives. In the model this is captured by transition of them to single females. This form is somewhat restrictive, although any other option requires modeling marriage of single mothers separately. This is a complex issue, for instance, males would seek females who already have kids if we do not make difference between step and own children. Since for the purposes of the model option of being single mother is used mainly as a factor affecting bargaining, I introduce additional marginal utility shifter in single mother's preferences (see \ref{prefs}), that can be interpreted as equivalent of utility/costs of children from past marriages before entering the labor market again.  This form seems flexible enough to capture variation in an option of being a single mother without putting extra computational and modeling burden.
 
 The problem of a female who stays single mother is
-\begin{align}V^{f,sk}_t(\omega) = \max\limits_{c} & \bigg\{ u(c,q) + \beta \E_t \Big[ p^{\text{out}} \cdot \left\{ V^{f,s}_{t+1}(\omega') + S\right\} +(1-p^{\text{out}})V^{f,sk}_{t+1}(\omega') \Big]  \bigg\},
+\begin{align}V^{f,sk}_t(\omega) = \max\limits_{c} & \bigg\{ u(c,q) + \beta \E_t \Big[ p^{\text{out}} \cdot  V^{f,s}_{t+1}(\omega') +(1-p^{\text{out}})V^{f,sk}_{t+1}(\omega') \Big]  \bigg\},
 \end{align}\vspace{-1em}
 \begin{align*}
  \text{s.t. \ }  &  a' = R\cdot a  + (1-l_f)W^f_t(z) - c  & \text{ (evolution of assets)}\\
@@ -166,13 +198,20 @@ Renegotiation that involves making discrete decisions has few more issues as bac
 \subsection{Additional Details}
 The model I solve an estimate contains few additional things that are omitted for more clear exposition above.
 
-First, females may exit the state of being single mother immediately. This transition is assumed to happen after divorce or failure to agree to marry, therefore in the value functions and in (re)negotiation I use $V^{f,s?} = p^{\text{out}} [V^{f,s} + S] + (1-p^{\text{out}})V^{f,sk}$ instead of just $V^{f,sk}$. This allows for quicker re-marriage and easier implementation of counterfactual in which females do not have risk of becoming single mother at all. I use notation of $V^{f,s?}$ in Appendix \ref{add-trans} where I show exact value functions.
+First, females may exit the state of being single mother immediately. This transition is assumed to happen after divorce or failure to agree to marry, therefore in the value functions and in (re)negotiation I use $V^{f,s?} = p^{\text{out}} V^{f,s} + (1-p^{\text{out}})V^{f,sk}$ instead of just $V^{f,sk}$. This allows for quicker re-marriage and easier implementation of counterfactual in which females do not have risk of becoming single mother at all. I use notation of $V^{f,s?}$ in Appendix \ref{add-trans} where I show exact value functions.
 
 Second, I assume that having a baby is possible only before certain age $\bar{T}$. After that, value functions and negotiation rules are modified in a straightforward manner.
 
 Finally, to simplify computations I also do not allow marriage status and marriage terms to change after certain $\bar{T}_2$. Therefore I drop participation constraints in the couples, the value functions look the same but do not allow for $\theta$ to change.
 
-\subsection{Functional Forms}
-I use standard CES utility functions for individuals and couples with no kids: $u(c) = \frac{c^{1-\sigma}}{1-\sigma}$.  When kids appear, people extract additional utility of child quality, I use the following non-separable utility function:
-\[u(c,q) = \frac{\left(e^{\phi_0}\cdot c^{1-\phi_1} \cdot (\phi_2 + q)^{\phi_1}\right)^{1-\sigma}}{1-\sigma} + \psi_3,\]
-parameter $\phi_0$ represents fixed gain in marginal utility because of having a baby, $\phi_1$ drives relative importance of child quality in utility function and $\phi_2$ is a ``luxury good'' parameter that can rationalize large child expenditures of wealthy couples that are discussed in the estimation section, $\phi_3$ is an additional utility shifter.
+\subsection{Specifying Preferences\label{prefs}}
+I use standard CES utility functions for individuals and couples with no kids: $u(c) = \frac{c^{1-\sigma}}{1-\sigma}$.  When kids appear, people extract additional utility of child quality, so I use the following non-separable utility function:
+\[u(c,q) = \frac{\left(e^{\phi_{0j}}\cdot c^{1-\phi_1} \cdot (\phi_2 + q)^{\phi_1}\right)^{1-\sigma}}{1-\sigma} + \phi_3,\]
+parameter $\phi_{0j}$, $j \in \{c,s\}$ represents gain in marginal utility because of having a baby (where $c$ refers to couple and $s$ to single mothers), $\phi_1$ drives relative importance of child quality in utility function and $\phi_2$ is a ``luxury good'' parameter that can rationalize large child expenditures of wealthy couples that are discussed in the estimation section, $\phi_3$ is an additional utility shifter analogous to marriage surplus in couple.
+
+This non-separability is important as I use average share of expenditures on children as one of my targets. In the case of $\phi_2 = 0$ and non-binding lower bar ($q > \bar{q}$) and no labor input in childcare $\mu = 0$ the share is exactly constant at the level of $\phi_1$. As childcare requires labor and the stylized fact is that higher-income households spend relatively more time and money on childcare, parameter $\phi_2$ is introduced. The role of different utility shifters $\phi_{0,j}$ for having children in couple as opposed by single mother is mainly to mitigate ad-hoc assumptions for lifecycle of single mothers. 
+
+\subsection{Pregnancy Shocks}
+I use flexible bilinear form for probability that unplanned pregnancy happens:
+\[p_t(z) = \min \left\{ \max\{ p^{\text{preg}}_0 +  p^{\text{preg}}_{1} \cdot t + p^{\text{preg}}_{2} \cdot z + p^{\text{preg}}_{3} \cdot t\cdot z, 0\}, 1\right\},\]
+where $z$ stands for productivity of the woman. This form is a shortcut to avoid modeling variation in abortion and contraception decisions and different attitudes towards pregnancy planning by population group, though still produces substantial randomness.
