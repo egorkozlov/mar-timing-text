@@ -1,4 +1,3 @@
-
 \documentclass[12pt,letter]{article}
 \usepackage[left=0.8in,right=0.8in,top=1in,bottom=1in]{geometry}
 \usepackage{amsmath}
@@ -156,19 +155,19 @@ $\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
 
 
 \begin{abstract}
-Unplanned pregnancies often trigger marriage for unmarried couples. I document two robust empirical facts. First, women who have their first child before or at the year of marriage are statistically more likely to be divorced in the future than those who marry before they have a child. Second, this difference is more pronounced for women with higher income and educational attainment, although it is less common for them to have their kids before marriage. I estimate a lifecycle model with dynamic bargaining, marriage selection and unplanned pregnancy risks. I show that the first fact can be attributed to household bargaining friction, as women agree to enter lower quality marriages to avoid being a single mother, and  the second fact is consistent with childcare requiring both time and money, as this suggests that the costs of being a single mother are higher for more productive women. The model suggests large causal effect of unplanned pregnancies on observable divorce rates. 
+Unplanned pregnancies often trigger marriage for unmarried couples. I document two robust empirical facts. First, women who have their first child before or at the year of marriage are statistically more likely to be divorced in the future than those who marry before they have a child. Second, this difference is more pronounced for women with higher income and educational attainment, although it is less common for them to have their kids before marriage. I estimate a lifecycle model with dynamic bargaining, marriage selection and unplanned pregnancy risks. I show that the first fact can be attributed to household bargaining friction, as women agree to enter lower quality marriages to avoid being a single mother, and  the second fact is consistent with childcare requiring both time and money, as this suggests that the costs of being a single mother are higher for more productive women. Qualitatively, this sheds some light on household formation and dissolution and importance of accounting for heterogeneous time costs. Qualitatively, the model suggests sizable causal effect of unplanned pregnancies on observable divorce rates.
 \end{abstract}
 
 \section{Introduction}
-As of 2018, [40\%] of new births occurred by unmarried mothers. This number is rising for decades, but, more importantly, it is rather heterogeneous, reaching three-quarters for mothers who are African American, [...] under 25 and [...] for high school or less in education. But even for educated and older women this share is substantial [...]. An increase in non-marital cohabitation is also a documented trend, despite of this, persistent non-marital cohabitation is still not the most common thing: according to National Survey of Family And Growth, median duration of cohabitation is 22 months, and median duration of cohabitation if it ends by marriage is 21.\footnote{Source: Copen et al, \cite{copen}}. Unmarried unions with children are still pretty rare: according to Payne, 2013\nocite{payne}, only about 3\% of children live in unions with unmarried cohabitating parents (as opposed to 21\% with single mothers). 
+As of 2018, [40\%] of new births occurred by unmarried mothers. This number is rising for decades, but, more importantly, it is rather heterogeneous, reaching three-quarters for mothers who are African American, [...] under 25 and [...] for high school or less in education. But even for educated and older women this share is substantial [...]. An increase in non-marital cohabitation is also a documented trend, despite of this, persistent non-marital cohabitation is still not commong: according to National Survey of Family And Growth, the median duration of cohabitation is 22 months, and median duration of cohabitation if it ends by marriage is 21.\footnote{Source: Copen et al, \cite{copen}}. Unmarried unions with children are still pretty rare: according to Payne, 2013\nocite{payne}, only about 3\% of children live in unions with unmarried cohabitating parents (as opposed to 21\% with single mothers). 
 
-These numbers have important economic implications: children born by unmarried women, as documented by, for instance Kearney, Levine, 2017, display significantly worse future outcomes in terms of education and income, and this pattern survives controlling in many dimensions. Although it is well understood that children of never married single mothers or children of blended families (when a woman marries someone else than child's father) have generally worse outcomes, even when parents marry each other after they made a baby their marriage is statistically less stable, as I argue in this paper, and the larger chances of marriage dissolution do affect future prospects of the children. 
+These numbers have important economic implications: children born by unmarried women, as documented by, for instance Kearney, Levine, 2017, display significantly worse future outcomes in terms of education and income, and this pattern survives controlling for many dimensions. Although it is well understood that children of never married single mothers or children of blended families (when a woman marries someone else than child's father) have generally worse outcomes, even when parents marry each other after they made a baby their marriage is statistically less stable, as I argue in this paper, and the larger chances of marriage dissolution do affect future prospects of the children. 
 
 This pairs well with common perception that some couples marry at or shortly after the moment they make a baby. If cohabitation is viewed as uncommitted relationship, unexpected fertility may serve as a trigger to obtain more commitment. Narrowly, we can interpret this as shotgun marriage story, however in the times with large abortion access many unplanned pregnancies are aborted, and cohabitating couples seem to \emph{choose} to keep an unplanned baby. The whole role of marriage changes as it is more socially acceptable to cohabitate, though it is much more conventional to do it before having kids. As highlighted by, for instance, Lafortune, 2018, despite of general decrease of role of marriage in the society, securing investment to children is one of the most important forces that makes people marry each other.
 
 This paper highlights one important aspect of this: I argue that when marriage decision is driven by having an unexpected child, bargaining friction makes marital outcome worse. The source of this friction is the large childcare costs and unequal relative exposure to them: as women bear relatively more childcare costs, they are more likely to enter relatively lower quality marriages as a commitment to share a part of these costs. This can rationalize observable differences in marital outcomes between couples with and without out-of-wedlock births. 
 
-Namely, I document that females who had their first birth before their first marriage have higher chances of divorce in the future, this is mainly driven by women married to the parents of their children, and this is robust and relatively more pronounced for high education or high income groups. I then provide a model incorporating the bargaining mechanism that can rationalize these differences. I estimate the model parameters to match observable patterns in the data and show what it implies about the role of unequal exposure to childcare costs in observable marriage selection and divorce patterns. Shortly, the model suggests if people could perfectly control timing of their births, general share of divorced people would decrease by [...], especially in high-income groups.
+I document that females who had their first birth before their first marriage have higher chances of divorce in the future, this is mainly driven by women married to the parents of their children, and this is robust and relatively more pronounced for high education or high income groups. I then provide a model incorporating the bargaining mechanism that can rationalize these differences. I estimate the model parameters to match observable patterns in the data and show what it implies about the role of unequal exposure to childcare costs in observable marriage selection and divorce patterns. Shortly, the model suggests if people could perfectly control timing of their births, general share of divorced people would decrease by [...], especially in high-income groups.
 
 Section 2 of this paper discuss existing results and general trends that are already described by the literature. Section 3 discuss how I construct the dataset and timing variables, and Section 5 establishes main observations about differences in groups depending on their marriage timing, together with a number of additional considerations useful to understand the content of these differences. After that I explain theoretical model in Section 5 and the process of setting its parameters in Section 6. Section 7 describes estimation results and counterfactual simulations implied by these results. Section 8 provides more general discussion and concludes.
 
@@ -239,7 +238,7 @@ SIPP has much more detailed information on marital history and fertility: it exp
 
 %When dividing people by income, however, I have to further restrict attention to households that consist of mother + spouse/partner (if reported) + children. This creates some attrition especially for young people, but differences in defining household members are minimal between ACS and SIPP, so it is not likely that it creates an issue.
 
-\subsection{Income Partition}
+\subsection{Income Partition\label{inc-part}}
 I define income groups based on per hour income of working females, by excluding those who does not work or work too little from income considerations. Precisely, I define working as those who are employed now, report to work more than 25 weeks in the last year, report non-missing labor income above or equal to $\$1000$ per year, report non-missing usual working hours above or equal to $5$ hours per week.
 
 As weeks worked last year are defined only on intervals for ACS, I impute them using the midpoints of respective intervals, then define yearly hours as a product of usual hours and imputed weeks worked. This allows to define log per-hour income as log-difference of yearly log wage and salary income with yearly log hours. I residualize these income data by regressing it on 4th degree polynomial in age, dummies and linear trends in age for each US state and dummies for each ACS survey year.
@@ -383,6 +382,47 @@ See Table \ref{intra} for the numbers. The exercise suggests that children on K$
 I use techniques of indirect inference to fit the model to the data. Namely, given the parameter values I solve for decision rules and simulate $5{,}000$ agents for the first 20 periods of their life corresponding to ages of (21--40 used in the data part). During estimation procedure I look for the parameter values such that observable differences between between the simulated and actual data, measured by the targets I describe below, is minimal.
 
 
+
+
+\subsection{Externally Set Parameters}
+Length of the period is set to be 1 year, the model assumes people start their life with no assets at the age of $21$ and die deterministically at the age of $81$ (so $T = 60$). However, it assumes that fertility status can change only till age of 37 ($T_f = 17$) and marriage status till age of 45 ($T_m = 25$). It also assumes that after the age of 60 people retire and get $b = 0.4$ as in Sommer, 2014 of their income at age of 60 (so no transitions happen after $T = 40$). I only simulate the data for age 21--40, therefore these choices are not likely to play a crucial role. 
+
+Following standard approach in the macro literature, I choose $\sigma = 1.5$, $R = 1.03$ and $\beta = 1/R$. Also, following estimates of Voena, 2014 I set returns to scale in couple's consumption to be $\rho_c = 0.23$.
+
+I take age-income profiles  $(a^f_0,a^f_1,a^f_2)$, $(a^m_0,a^m_1,a^m_2)$ to match coefficients in per-hour labor earnings in cross-sectional ACS regressions. I borrow variances of income shocks $\sigma^{z,f}$, $\sigma^{z,m}$ from Low et al 2018 as they cannot be estimated correctly in cross-sectional data, and although they were estimated for subsample of non college graduates in SIPP, in the model they produce inter-quaritle ratio at the age of 30 that is very similar to the full sample of ACS data.
+
+I also externally estimate $\sigma^{z,p}$ as variance of (unpredicted part of) log-difference in spouses earnings, see Appendix \ref{partearn} for this. Based on this calculations I set $\sigma^{z,p} = 0.6$ (this reproduces $\sigma = 0.7$ in the simulated data because income shocks are uncorrelated in the model so they are likely to diverge over time). As I both do not have good assets data and do not aim to replicate the assets distribution, I set $\sigma^{a,p} = \sigma^{z,p}$.
+
+I also set $p_s = \frac14$ to roughly reflect that children go to school on average at 6 and to pre-school few years earlier and this should correspond to a change in childcare costs structure.
+
+In the part with assets, I assume savings can be between 0 and 20 times average labor income in the beginning of life. This bar in pretty low, but it is enough to create reasonable assets variation at the moment most of marriage decisions are made, creating median assets-to-income ratio at 30 being slightly above 1.
+
+$9\%$ of individuals are assumed to be married at the age of $21$ ($t = 1$) as suggested by ACS, no one is assumed to have any children at $t = 1$ for simplicity. People start their life with zero assets and with productivity distribution as in Low et al 2018 (variances of initial $z$ are $0.15$ for women and $0.18$ for men). 
+
+Random walk variables are limited to stay within $\pm 20$ one-period standard deviations around zero. Marriage terms $\theta$ are forced to be within $[0.1,0.9]$ as wider bounds occasionally create numerical issues. 
+
+\subsection{Estimated Parameters}
+This section describes parameters estimated jointly in simulated method of moments, as well as targets that are relevant for capturing each parameter. Shares of divorced for K$\to$M and M$\to$K groups are used in addition to these targets, it is not obvious which parameters they identify directly, but they help to overcome possibly insufficient identifying power of the ones listed below. 
+
+\begin{table}[h!!]
+\begin{tabular}{|c|p{0.25\linewidth}|c|p{0.25\linewidth}|}\hline
+Parameters & Description & Values & Identifying variation \\\hline
+($\sigma_{\psi,0},\sigma_{\psi}$) & { \footnotesize
+ Marriage surplus initial distribution \& shocks, standard deviations} &$(0.76,1.73)$ & {\footnotesize
+ \% of divorced at $(25,35,40)$, \% of women with one marriage at 40} \\\hline\hline
+$p^{\text{meet}}_{\{t = 21, 30, 37, 45\}}$ & {\footnotesize Meeting probabilities by age (linearly interpolated in between)} & 
+ $(0.13,0.10,0.07,0.12)$ & {\footnotesize \% of never married by age , \% of women with one marriage at 40} \\\hline
+$(\phi_{0,c},\phi_3)$ & {\footnotesize Scale parameters for utility of child's quality} & $(-1.89,2.58)$ & {\footnotesize \% of women with no children at 25, 35, and at 30 by income groups}\\\hline
+$(\phi_1,\phi_2,\theta)$ & {\footnotesize Child quality preference structure and substitutability} & $(0.44,1.07,-1.02)$  & {\footnotesize Average share of money spent on children, ratio of money and time spent by income groups} \\\hline
+$(\mu_y,\mu_a)$ & {\footnotesize Time structure of childcare by child's age} &  $(0.35,0.01)$ & {\footnotesize Time spent with children 0--5 relative to 6--12}  \\\hline
+$\bar{q}$ & {\footnotesize Childcare quality requirement } & $2.12$ & {\footnotesize Income of never married with kids and divorced with kids relative to general population} \\\hline
+$(p^{\text{out}},\phi_{0,s})$ & {\footnotesize Single mothers: probability of re-entering marriage market and utility shifter} & $(0.10,-3.34)$ & {\footnotesize \% of divorced with kids and never married with kids at $30$} \\\hline\hline
+$(p^{\text{preg}}_0,p^{\text{preg}}_1,p^{\text{preg}}_2,p^{\text{preg}}_3)$  & {\footnotesize Arrival probabilities of unplanned pregnancies by age and $z$} & $(0.67,0.13,-0.50,-0.005)$ & {\footnotesize Share of K$\to$M at 25, 35; share of K$\to$M at 30 and 40 by income groups} \\\hline
+\end{tabular}
+\caption{Estimated parameters and relevant variation.}
+\end{table}
+
+
 %\subsection{Overview}
 %Full list of parameters involves many things:
 %\begin{itemize}
@@ -407,22 +447,7 @@ I use techniques of indirect inference to fit the model to the data. Namely, giv
 %\end{itemize}
 %\end{itemize}
 
-Few additional choices involve time horizons, bounds for random walk variables and bounds for assets and $\theta$.
-
-
-
-\subsection{Externally Set Parameters}
-Length of the period is set to be 1 year, the model assumes people start their life with no assets at the age of $21$ and die deterministically at the age of $81$ (so $T = 60$). However, it assumes that fertility status can change only till age of 37 ($T_f = 17$) and marriage status till age of 45 ($T_m = 25$). It also assumes that after the age of 60 people retire and get $b = 0.4$ as in Sommer, 2014 of their income at age of 60 (so no transitions happen after $T = 40$). I only simulate the data for age 21--40, therefore these choices are not likely to play a crucial role. 
-
-Following standard approach in the macro literature, I fix $\sigma = 2$, $R = 1.03$ and $\beta = 1/R$. Also, following estimates of Voena, 2014 I set $\rho_c = 0.23$.
-
-I take age-income profiles  $(a^f_0,a^f_1,a^f_2)$, $(a^m_0,a^m_1,a^m_2)$ to match coefficients in per-hour labor earnings in ACS (see Appendix [...] for details). I borrow variances of income shocks $\sigma^{z,f}$, $\sigma^{z,m}$ from Low et al 2018 as they cannot be estimated in cross-sectional data, and although they were estimated for subsample of non college graduates in SIPP, in the model they produce IQR at the age of 30 that is very similar to the full sample of ACS data.
-
-I also externally estimate $\sigma^{z,p}$ as variance of (unpredicted part of) log-difference in spouses earnings, see Appendix \ref{partearn} for this. Based on this calculations I set $\sigma^{z,p} = 0.6$ (this reproduces $\sigma = 0.7$ in the simulated data because income shocks are uncorrelated in the model as opposed to the data). As I both do not have good assets data and do not aim to replicate assets distribution, I set $\sigma^{a,p} = \sigma^{z,p}$.
-
-I also set $p_s = \frac14$ to roughly reflect that children go to school on average at 6 and to pre-school few years earlier and this should correspond to a change in childcare costs structure.
-
-In the part with assets, I assume savings can be between 0 and 20 times average labor income in the beginning of life. This bar in pretty low, but it is enough to create reasonable assets variation at the moment most of marriage decisions are made, creating median assets-to-income ratio at 30 being slightly above 1.
+%Few additional choices involve time horizons, bounds for random walk variables and bounds for assets and $\theta$.
 
 %\subsection{Estimated Parameters}
 %Out of 31, 15 parameters are set externally, so I am left with $16$ parameters to estimate: child's parameters $(\phi_0,\phi_1,\phi_2)$, child quality production parameters $(\theta_k,\mu_y,\mu_a)$, variances of initial marriage surplus and its innovations $(\sigma^{\psi_0},\sigma^{\psi})$, meeting probability parameters $(p^{\text{meet}}_{21},p^{\text{meet}}_{27},p^{\text{meet}}_{34},p^{\text{meet}}_{40})$, pregnancy probability parameters $(\lambda^{\text{preg}}_0,\lambda^{\text{preg}}_1)$, transition out of being single mother parameters $p^{\text{out}}$, $S$. Unfortunately, all of them interact and as the model is highly stylized but involves many choices, they cannot be estimated externally. 
@@ -438,47 +463,55 @@ In the part with assets, I assume savings can be between 0 and 20 times average 
 %\end{enumerate}
 %On top of it, I use shares of divorced people for $K\to M$ and $M \to K$ at 40 per se and by income groups as additional targets that are affected by mixture of parameters described above.
 %
-For income considerations I trim females/couples with $l$ larger than its 77\% percentile\footnote{This corresponds to $77\%$ of ACS females of 21--40 who are employed and at least 5 hours.} (imputing $l = 0$ for those who do not have children) in simulated data, and treat their log per-hour income as missing. I then perform similar detrending and divide individuals by group using the same regression procedure.
+
+\subsection{Simulating Attrition\label{income-attr}}
+For income considerations in the simulated data I put missing values of per-hour income for females/couples who have children and choose $l$ larger than its 58\% percentile. This corresponds to $58\%$ of ACS females of 21--40 who are employed and at least 5 hours and have children. I then perform similar detrending and divide individuals by group using the same regression procedure as described in \ref{inc-part}. This aims to replicate similar attrition in the data (as I focus on female's income many women with young children are missing from considerations), without explicitly modeling labor force participation margin.
+
+In the same way, while classifying on M$\to$K and K$\to$M I exclude women who married more than once. I also exclude never married single mothers, even if they re-entered the marriage market and married someone. Therefore, in the model K$\to$M refers only to couples who got a pregnancy shock at the meeting ($\Delta T = 0$). A subtle consequence of this is that as I use K$\to$M share to discipline the pregnancy shock and assume that in existing couples probabilities of unplanned pregnancies are the same as for people who just met, inside-couple fertility may not be modeled correctly. In the current calibration, however, majority of couple's pregnancies are by choice rather that by fertility shock\footnote{This is consistent, with, for instance, \href{https://www.guttmacher.org/fact-sheet/unintended-pregnancy-united-states}{data from Guttmacher Institute} reporting that about 4 out of 10 births are unplanned.}, and this does not seem to affect the numbers significantly, so I currently avoid introducing another parameter that adjusts intensity of pregnancy shocks for married and unmarried women.
 
 \section{Results}
-Table \ref{targets-main} shows the targets in the model and in the data.
+Table \ref{targets-main} shows the targets in the model and in the data. The model fits reasonably well and replicated key magnitudes. [I keep updating the solution occasionally].
 
 \begin{table}
 \begin{center}
 \begin{tabular}{|l|c|c|}\hline
 Target & Model & Data \\\hline
-\multicolumn{3}{|c|}{Marriage Dimension} \\\hline
-Never married by 25  & $67.8\%$ & $68.3\%$ \\
-Never married by 30 & $25.2\%$ & $25.6\%$  \\
-Never married by 40 & $20.6\%$ & $18.8\%$  \\\hline
-One marriage by 40  & $68.9\%$ & $64.7\%$ \\\hline
-\multicolumn{3}{|c|}{Fertility Dimension} \\\hline
-No kids at 25 & $71.7\%$ & $67.7\%$ \\
-No kids at 30 (low $30\%$ income) & $58.6\%$  &   $44.0\%$ \\
-No kids at 30 (top $30\%$ income) & $56.6\%$  &   $57.8\%$ \\
-No kids at 35  & $22.4\%$  &   $28.1\%$ \\
-No kids at 40 & $19.4\%$ & $25.6\%$ \\\hline
-\multicolumn{3}{|c|}{Marriage/Fertility Interactions} \\\hline
-Never married with kids at 30 & $12.4\%$  & $12.3\%$ \\
-Divorced with kids at 30 & $3.2\%$ & $3.8\%$ \\\hline
-\multicolumn{3}{|c|}{Divorce Dimension (Divorced $=$ Divorced and not remarried)} \\\hline
-Divorced by 25 & $4.9\%$   & $10.7\%$ \\
-Divorced by 30 (low $30\%$ income)  & 15.6\% &     20.8\% \\
-Divorced by 30 (top $30\%$ income)  & 9.9\% &     8.1\% \\
-Divorced by 35  & 8.4\% &    15.9\% \\
-Divorced by 40  & 10.6\% &    19.1\% \\\hline
-\multicolumn{3}{|c|}{K$\to$M --- M$\to$K partition} \\\hline
-Divorced by 40 if K$\to$M & 20.2\% &   23.5\% \\
-Divorced by 40 if M$\to$K & 8.7\% &      13.0\% \\
-Divorced by 40 if K$\to$M and low 30\% & 34.0\% & 28.5\% \\
-Divorced by 40 if K$\to$M and top 30\% & 26.6\% & 23.3\% \\
-Divorced by 40 if M$\to$K and low 30\% & 15.3\% & 18.0\% \\
-Divorced by 40 if M$\to$K and top 30\% & 9.3\% & 11.3\% \\\hline
-\multicolumn{3}{|c|}{Childcare} \\\hline
-Money for childcare / labor income & 40.1\% & 40.0\% \\
-Time spent 0--5 / Time spent 6--12 & 1.91 & 2 \\
-Time spent top 30\% / Time spent low 30\% & 0.80 & 1.19 \\
-Money spent top 30\% / Money spent low 30\% & 1.42 & 2.67 \\\hline
+\multicolumn{3}{|c|}{Marriage Dimension (source: my calculations on ACS)} \\\hline
+Never married by 25  & $60.6\%$ & $68.3\%$ \\
+Never married by 35 & $24.6\%$ & $25.6\%$  \\
+Never married by 40 & $19.0\%$ & $18.8\%$  \\\hline
+One marriage by 40  & $69.6\%$ & $64.7\%$ \\\hline
+\multicolumn{3}{|c|}{Fertility Dimension (source: my calculations on ACS)} \\\hline
+No kids at 25 & $65.0\%$  & $67.7\%$ \\
+No kids at 30 (low $30\%$) & $52.1\%$  &   $44.0\%$ \\
+No kids at 30 (top $30\%$) & $56.8\%$ &   $57.8\%$ \\
+No kids at 35  &  $27.2\%$ &   $28.1\%$ \\
+No kids at 40 & $23.8\%$ & $25.6\%$ \\\hline
+\multicolumn{3}{|c|}{Marriage/Fertility Interactions (source: my calculations on ACS)} \\\hline
+Never married with kids at 30 & $10.4\%$  & $14.1\%$ \\
+Divorced with kids at 30 & $4.2\%$ & $4.0\%$ \\
+{\footnotesize Income(Never mar with kids at 30) / Income(Everyone at 30)} & $86.5\%$ & $70.7\%$\\
+{\footnotesize Income(Divorced with kids at 30) / Income(Everyone at 30)} & $82.2\%$ & $87.0\%$\\\hline
+\multicolumn{3}{|c|}{Divorce Dimension } \\\hline
+Divorced by 25 &  $4.5\%$  & $10.7\%$ \\
+Divorced by 30 (low $30\%$)  & $17.2\%$ &     20.8\% \\
+Divorced by 30 (top $30\%$)  & $9.0\%$ &     8.1\% \\
+Divorced by 35  & $10.8\%$ &    15.9\% \\
+Divorced by 40  & $16.3\%$  &    19.1\% \\\hline
+\multicolumn{3}{|c|}{K$\to$M --- M$\to$K partition (source: my calculations on ACS)} \\\hline
+Divorced by 40 if K$\to$M & 25.1\% &   23.5\% \\
+Divorced by 40 if M$\to$K & 14.8\% &      13.0\% \\
+Divorced by 40 if K$\to$M (low 30\%) & $32.5\%$ & 28.5\% \\
+Divorced by 40 if K$\to$M (top 30\%) & $26.1\%$ & 23.3\% \\
+Divorced by 40 if M$\to$K (low 30\%) & $23.0\%$ & 18.0\% \\
+Divorced by 40 if M$\to$K (top 30\%) & $15.2\%$ & 11.3\% \\\hline
+\multicolumn{3}{|c|}{Childcare (data: CEX and ATUS, sources in parenthesis)} \\\hline
+Money for childcare /Total expenditures &$43.4\%$ & 40.0\% \cite{sommer} \\
+Time spent 0--5 / Time spent 6--12 & $2.07$ & 2 [\href{https://www.bls.gov/charts/american-time-use/activity-by-parent.htm}{BLS}]\\
+Time spent top 30\% / Time spent low 30\% & 1.11 & 1.19  \cite{schneider} \\
+Money spent top 30\% / Money spent low 30\% & 2.56  & 2.67 \cite{schneider} \\\hline
+\multicolumn{3}{|p{0.7\linewidth}|}{\footnotesize Note 1: shares of divorced are computed for subsample of married exactly once in both data and model.}\\
+\multicolumn{3}{|p{0.7\linewidth}|}{\footnotesize Note 2: low 30\% -- mid 40\% -- top 30\% refers to woman's per hour income. The income partition is not full as income can be missing, see \ref{inc-part} and \ref{income-attr}.}\\\hline
 \end{tabular}
 \caption{Targets in the data and in the model\label{targets-main}}
 \end{center}
@@ -494,49 +527,52 @@ This part looks at counterfactual impact of the fertility shocks. To do this, I 
 
 First, one can look at average impact of the shock, presented at Figure \ref{individual-av}. I take $\bar{t} = 25$. On the top panel, I present probabilities of being married for those who agreed to marry to the partner they met at 25 (so at 25 this is one). As we can see, In the middle, there are unconditional shares of married for two groups. In the bottom I present average utility surplus (love shock) of married couples.
 
-There are two important observations. First, conditional on having satisfactory partner women who did receive fertility shocks have around higher chances of not being married (to anyone) in 10 years. Second, threshold for satisfactory partners falls upon receiving fertility shock: more people marry if the shock happens and average surplus of married couples is lower. This indicates the presence of females who married \emph{because} the pregnancy shock happened (meaning that they would reject the partner if they were not pregnant). Then we can notice that after a number of years surviving couples become very identical in the amount of ``love shock'', meaning that couples with low $\psi$ break up. Third, in the model the largest impact of fertility shock is hurting future marriage prospective for those who stayed a single mother. This is curious although pretty speculative, as how the lifecycle of single mothers is modeled in pretty stylized way.
+There are two important observations. First, conditional on having satisfactory partner women who did receive fertility shocks have around higher chances of not being married (to anyone) in 10 years. Second, threshold for satisfactory partners falls upon receiving fertility shock: more people marry if the shock happens and average surplus of married couples is lower. This indicates the presence of females who married \emph{because} the pregnancy shock happened (meaning that they would reject the partner if they were not pregnant). Then we can notice that after a number of years surviving couples become very identical in the amount of ``love shock'', meaning that couples with low $\psi$ break up. Third, in the model the largest impact of fertility shock is hurting future marriage prospective for those who stayed a single mother. This is curious although pretty speculative, as the lifecycle of single mothers is modeled in a pretty stylized way.
 
-In the second part, I decompose the observable impact on three groups: those who would marry the partners they met with and without fertility shocks (always-marry), those who marry only if fertility shocks happen (compliers) and those who never marry their matches (never-marry). In principle, there could exist a group of those who marry only without the shock (defiers), but it is empty in my simulations. Figure \ref{ind-decomp} shows this decomposition. Two dashed lines correspond to the top panel of Figure \ref{individual-av}. The average impact of shock (dashed line with crosses) is a weighted average of two groups (presented by two solid lines). We can see that mainly the divorce probability is driven by small (5.5\%) group of compliers who have dramatically lower probabilities to stay married. Effect on fertility shocks on those who would've married anyway still persists, but is around 2-3\% (this is, however, substantial if we compare it to average probability of not-staying-married without shock that is slightly above 10\%.  
+In the second part, I decompose the observable impact on three groups: those who would marry the partners they met with and without fertility shocks (always-marry), those who marry only if fertility shocks happen (compliers) and those who never marry their current matches (never-marry). In principle, there could exist a group of those who marry only without the shock (defiers), but it is empty in my simulations. Figure \ref{ind-decomp} shows this decomposition. Two dashed lines correspond to the top panel of Figure \ref{individual-av}. The average impact of shock (dashed line with crosses) is a weighted average of two groups (presented by two solid lines). We can see that mainly the divorce probability is driven by small (8.7\%) group of compliers who have dramatically lower probabilities to stay married. Effect on fertility shocks on those who would've married anyway still persists, but is around 1\%. %(this is, however, substantial if we compare it to average probability of not-staying-married without shock that is slightly above 10\%.  
 
-In terms of characteristics, the group of compliers have about 14\% higher median savings and 1.7\% higher median labor income relative to the general population. What makes them compliers is mainly the value of love shock $\psi$: for this group, it is lower than the shock for general population of new couples by about 2/3 of initial standard deviation (i.e. $\sigma(\psi_0)$). This sort of highlights that  the compliers are generally more picky group (that is roughly consistent with evidence on education/income partition) who got a pregnancy shock together with unlucky draw of $\psi$. This is however partially hardcoded in the model, as I target different divorce probabilities for higher-income women.
+%In terms of characteristics, the group of compliers have about 14\% higher median savings and 1.7\% higher median labor income relative to the general population. What makes them compliers is mainly the value of love shock $\psi$: for this group, it is lower than the shock for general population of new couples by about 2/3 of initial standard deviation (i.e. $\sigma(\psi_0)$). This sort of highlights that  the compliers are generally more picky group (that is roughly consistent with evidence on education/income partition) who got a pregnancy shock together with unlucky draw of $\psi$. This is however partially hardcoded in the model, as I target different divorce probabilities for higher-income women.
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.85\linewidth]{individual-av.eps}
+\vspace{-3em}
 \caption{Average impact of fertility shock at $t=25$\label{individual-av}}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.85\linewidth]{ind-decomp.eps}
-\vspace{-4em}
+\vspace{-0.5em}
 \caption{Decomposition of the average impact\label{ind-decomp}}
 \end{figure}
 
 
 
 \subsubsection{Aggregate Impact}
-I consider two counterfactual scenarios: when unexpected fertility never happens at the moment people meet and when it never happens at all (but people still can make kids by choice). I compare key targets in Table \ref{cf-shocks}. First, absence of fertility shocks dramatically reduces early fertility (in the model every couple before 37 can have a baby by choice). Then, fertility shocks at meeting are large driver of observable divorce rates, especially for higher-income couples. Finally, fertility shocks in couples (i.e. mistimed births) are also large contributor to the divorce rate,disabling them eliminates early divorces almost completely (though is not so important for later divorces relative to shocks at births). 
+I consider two counterfactual scenarios: when unexpected fertility never happens at the moment people meet and when it never happens at all (but people still can make kids by choice) and when there are no fertility completely. I compare key targets in Table \ref{cf-shocks}.The key insight is that fertility shocks do look as a sizable contributor to observable divorce rates, especially at early ages and for lower income couples. This kind of aligns with intuitive understanding of how unplanned pregnancies affect households, and the whole magnitude is roughly in line with vairation of share of K$\to$M couples. 
+
+%First, absence of fertility shocks reduces early fertility (in the model every couple before 37 can have a baby by choice). Then, fertility shocks at meeting are sizable driver of observable divorce rates, especially for higher-income couples and early divorces. Finally, fertility shocks in couples (i.e. mistimed births) are also large contributor to the divorce rate,disabling them eliminates early divorces almost completely (though is not so important for later divorces relative to shocks at births). 
 \begin{table}
 \begin{center}
 \begin{tabular}{|l|c|c|c|}\hline
 Target & Baseline & No shocks at meeting & No shocks at all \\\hline
 \multicolumn{4}{|c|}{Marriage Dimension} \\\hline
-Never married by 25  & $67.8\%$ & $68.2\%$ & $66.4\%$  \\
-Never married by 30 & $25.2\%$ & $21.8\%$ & $21.4\%$  \\
-Never married by 40 & $20.6\%$ & $18.1\%$ & $17.5\%$  \\\hline
+Never married by 25  & $60.6\%$ & $60.7\%$ & $60.7\%$  \\
+Never married by 35 & $24.6\%$ & $24.3\%$ & $24.3\%$  \\
+Never married by 40 & $19.0\%$ & $18.8\%$ & $18.8\%$  \\\hline
 \multicolumn{4}{|c|}{Fertility Dimension} \\\hline
-No kids at 25 & $59.0\%$ & $85.8\%$ & $99.8\%$ \\
-No kids at 30 (low $30\%$ income) & $76.0\%$  &   $53.5\%$ & $92.8\%$ \\
-No kids at 30 (top $30\%$ income) & $70.5\%$  &   $61.9\%$ & $89.5\%$ \\
-No kids at 35  & $32.9\%$  &   $26.8\%$ & $29.0\%$ \\
-No kids at 40 & $19.4\%$   &  $23.2\%$  & $25.1\%$ \\\hline
+No kids at 25 & $65.0\%$ & $68.4\%$ & $68.9\%$ \\
+No kids at 30 (low $30\%$ income) & $52.1\%$  &   $57.5\%$ & $59.3\%$ \\
+No kids at 30 (top $30\%$ income) & $56.8\%$  &   $57.7\%$ & $58.0\%$ \\
+No kids at 35  & $27.2\%$ &   $28.8\%$ & $29.3\%$ \\
+No kids at 40 & $23.8\%$  &  $25.0\%$  & $25.4\%$ \\\hline
 \multicolumn{4}{|c|}{Divorce Dimension} \\\hline
-Divorced by 25 & 6.6\%   &  2.9\% & 0.0\% \\
-Divorced by 30 (low $30\%$ income)  & 14.5\% &     11.4\% & 1.4\% \\
-Divorced by 30 (top $30\%$ income)  & 14.0\% &     6.5\%  & 0.0\% \\
-Divorced by 35  & 15.8\% &    6.3\% & 4.5\% \\
-Divorced by 40  & 15.5\% &    8.7\% & 7.4\% \\\hline
+Divorced by 25 & $4.5\%$   &  $3.2\%$ & $2.3\%$ \\
+Divorced by 30 (low $30\%$ income)  & $17.2\%$  &     $14.6\%$ & $11.9\%$ \\
+Divorced by 30 (top $30\%$ income)  & $9.0\%$ &     $8.3\%$  & $7.4\%$ \\
+Divorced by 35  & $10.8\%$  &   $9.9\%$ & $9.2\%$  \\
+Divorced by 40  & $16.3\%$ &  $15.4\%$ & $14.8\%$ \\\hline
 \end{tabular}
 \caption{Contribution of fertility shocks \label{cf-shocks}}
 \end{center}
@@ -546,15 +582,11 @@ Divorced by 40  & 15.5\% &    8.7\% & 7.4\% \\\hline
 
 
 
+\section{Conclusions [TBD, these are just some thoughts for the future section]}
+There are several qualitative conclusions to be drawn. First, the story of K$\to$M couples experiencing unexpected fertility shocks (rather than choosing to have kids while being unmarried) aligns with the data and economic theory reasonably well. The data presents them as having lower quality marriages, and the theory incorporating bargaining provides a good rationale for why this happens. In this sense, dynamic bargaining theories get another validation by rationalizing this fact.
 
-
-
-
-%\section{Robustness Checks}
-\section{Discussion And Conclusions}
-
-[TBD]
-
+%Second, aggregate impact of pregnancy shocks is relatively larger for younger and lower income couples, while impact of selection into marriage is more pronounced for richer households. 
+Second, the data highlight the importance of time-money substitutability: for instance, in counerfactual simulations when the kids are born being adult, K$\to$M couples still divorce more because unexpected pregnancies create distress, but the gradient in terms of income cannot be seen. In fact, this highlights the idea that less productive couples can mitigate the distress caused by shock by substituting money with time, where higher-income couples do not have this option. This emphasizes importance of time use in modeling childcare.
 \clearpage
 
 \section*{Literature}
