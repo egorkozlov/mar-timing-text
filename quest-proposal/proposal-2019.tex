@@ -1,0 +1,198 @@
+
+\documentclass[12pt,letter]{article}
+\usepackage[left=0.8in,right=0.8in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{euscript}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand{\hypo}{\mathcal{H}}            
+\bibliographystyle{ieeetr}
+
+\usepackage[flushleft]{threeparttable}
+
+%\usepackage[cp1251]{inputenc}
+\usepackage[english]{babel} 
+\DeclareMathOperator{\rank}{rank}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+            {\hbox{$\mathsurround=0pt #1$}}{}}
+
+            \def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}  
+\newcommand{\bsA}{\boldsymbol{A}}
+
+%\setstretch{1}                         
+\flushbottom                            
+\righthyphenmin=2                      
+\pagestyle{plain}                       
+%\settimeformat{hhmmsstime}  
+\widowpenalty=300                   
+\clubpenalty=3000                     
+\setlength{\parindent}{0em}           
+\setlength{\topsep}{0pt}              
+\usepackage[pdftex,unicode,colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{bbm}
+\renewcommand{\emptyset}{\varnothing}
+
+\setlength{\parskip}{0.5\baselineskip plus2pt minus2pt}
+
+\newcommand{\e}{\varepsilon}
+\DeclareMathOperator*{\Argmax}{\mathrm{Argmax}}
+\DeclareMathOperator*{\Argmin}{\mathrm{Argmin}}
+\DeclareMathOperator*{\argmax}{\mathrm{arg\,max}}
+\DeclareMathOperator*{\argmin}{\mathrm{argmin}}
+
+\newcommand{\blp}{\mathrm{BLP}}
+\DeclareMathOperator*{\plim}{\mathrm{plim}}
+\DeclareMathOperator{\Max}{\mathrm{Max}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Z}{\mathcal{Z}}
+\renewcommand{\geqslant}{\geq}
+\renewcommand{\leqslant}{\leq}
+\newcommand{\p}{\bs p}
+\newcommand{\y}{\bs y}
+\def\dd#1#2{\frac{\partial#1}{\partial#2}}
+
+\renewcommand{\emptyset}{\varnothing}
+
+
+\DeclareMathOperator{\tr}{\mathrm{tr}}
+
+\newcommand{\bb}{\bs \beta}
+\newcommand{\X}{\bs X}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\PP}{\mathbb{P}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\CM}{\mathbb{C}}
+\renewcommand{\C}{\CM}
+\DeclareMathOperator{\var}{\mathrm{var}}
+\DeclareMathOperator{\cov}{\mathrm{cov}}
+\DeclareMathOperator{\corr}{\mathrm{corr}}
+\DeclareMathOperator{\MSE}{\mathrm{MSE}}
+\DeclareMathOperator{\Bias}{\mathrm{Bias}}
+\renewcommand{\P}{\PP}
+\newcommand{\dsim}{\stackrel{d}{\sim}}
+\newcommand{\hn}{\mathcal{H}_0}
+\newcommand{\ha}{\mathcal{H}_a}
+\newcommand{\thetab}{\bs \theta}
+\newcommand{\pv}{\text{P-value}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\MLE}{\scriptscriptstyle MLE}
+\newcommand{\LR}{\mathrm{LR}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\sumin}{\sum\limits_{i=1}^n}
+\newcommand{\sumti}{\sum\limits_{t=0}^\infty}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\hvar}{\widehat{\var}}
+\newcommand{\hcov}{\widehat{\cov}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+
+\newcommand{\pconv}{\xrightarrow{ \ p \ }}
+\newcommand{\dconv}{\xrightarrow{ \ d \ }}
+\newcommand{\asconv}{\xrightarrow{ \ a.s. \ }}
+\newcommand{\msconv}{\xrightarrow{ \ m.s. \ }}
+
+\newcommand{\pic}[4][h!]{\begin{figure}[#1]
+
+
+\begin{center}\includegraphics[width=#2cm]{#3}\caption{#4\label{#3}}\end{center}
+\end{figure}}
+
+%outtex
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+%end outtex
+
+%\bibliographystyle{ieeetr}
+
+\newcommand{\laseq}{\stackrel{\lambda\text{-a.e.}}{=}}
+\renewcommand{\d}{\underline}
+\renewcommand{\u}{\overline}
+\newcommand{\td}{\underline{\theta}}
+\newcommand{\tu}{\overline{\theta}}
+%\renewcommand{\theenumi}{\alph{enumi}}
+%\renewcommand{\labelenumi}{(\theenumi)}
+%\renewcommand{\theenumii}{\roman{enumii}}
+%\renewcommand{\labelenumii}{\theenumii.}
+%\renewcommand{\theenumiii}{\arabic{enumiii}}
+%\renewcommand{\labelenumiii}{\theenumiii.}
+%\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\hneq}{\stackrel{\hn}{=}}
+\newcommand{\deq}{\stackrel{d}{=}}
+%\title{416-2 Final Project\\
+%Reproductive Technologies, Aging and Fertility Choice (Proposal)}
+%\author{Egor Kozlov}
+\begin{document}
+
+
+\title{Three Computational Projects on Marriage and Fertility Choice (Quest Proposal)\footnote{Advisor: Matthias Doepke.}}
+\author{Egor Kozlov}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+This briefly describes three related research projects I am requesting Quest renewal for. My main focus for the coming year is a project about economics of shotgun marriage, that is going to be the leading chapter of my dissertation. In this work I use a structural lifecycle model that aims to understand why couples who marry after they had a child divorce more often then those, who marry and have children later. The second project, that I and my colleague recently started, attempts to rationalize recent trends about increasing popularity of long-term unmarried cohabitations as opposed to marriage, that is especially  more pronounced among non-college graduates. Namely, we explore how changes in divorce laws from bilateral and unilateral and changes in assets division rules affected people's choices about whether to marry each other. Finally, I continue doing some work on exploring the effects of reproductive technologies (e.g. In Vitro Fertilization) that allow to postpone having children for several years on labor market behavior and outcomes of high-skilled women. All three project require solving large dynamic optimization models and working with large datasets, and their tasks are typically parallelisable.
+
+%The first one that I originally requested the allocation for, explores the effects of reproductive technologies (e.g. In Vitro Fertilization) that allow to postpone having children for several years on labor market behavior and outcomes of high-skilled women. The second one, using the similar data and modeling techniques, considers how childcare costs distort marriage behavior of women in cases of unplanned pregnancies by incentivizing them to join marriages that are more likely to end up with divorce. Both of these project involve solving large dynamic optimization models and working with large datasets that is demanding both in terms of computational power and storage space.
+\end{abstract}
+
+\section*{Brief summary}
+
+
+
+\subsection*{The Economics Of Shotgun Marriage}
+
+This is the main focus for the current academic year, that is most likely going to be the leading chapter of my dissertation and my job market paper. Its goal is to understand why couples who marry shortly after woman gets pregnant divorce divorce significantly more often. I show this can be rationalized by endogenous selection into marriage: women who experienced unplanned pregnancy agree to enter marriages of lower quality. In addition to the divorce rates, patterns in the data including how women in shotgun marriages use their time and how often do their children repeat grades suggest the validity of the marriage quality explanation. This patterns in marriage selection can be rationalized by the structure of childcare costs, where kids require both money and time, and disproportional exposure of women to these costs, so the women agree to lower quality marriages in a response to a threat of becoming a single mother. I estimate a structural model endogenizing marriage selection and use it to argue that causal impact of unplanned fertility shock, as opposed to different composition of the groups, drives the major part of the observable difference in divorce chances. Qualitatively, this suggests that the main reason for poor performance of shotgun marriages is large, unexpected and heterogeneous childcare costs. Quantitatively, the model suggests sizable effects of risks of unplanned pregnancy on observable divorce rates, especially for young women.
+
+This year I will be revising the current draft by adding more evidence and building more flexible model. I also present the current version on Midwest Macroeconomics Meetings of Fall 2019 at Michigan State University, November 1-3. At this stage I prepare a new iteration of the project that uses Python instead of Matlab, utilizes more precise and modern methods of approximating value functions and integration routines and using GPUs to perform optimization of possibly non-concave functions efficiently.
+
+\subsection*{Divorce Laws and The Rise of Cohabitation}
+
+This is a joint project with Fabio Blasutto from UC Louvain. We explore how changes in divorce laws and property division rules affected the choice of couples between marriage and unmarital cohabitation. The data part exploits data from different US states that had changed their divorce laws from mutual consent to unilateral divorce during 1970s -- 2000s, as well as had differences between title based and equitable property division. The model part heavily reuses the core things from the first project I show, adding more options for choices of couples and considering marriage and cohabitation as unions with different degree of commitment, that is mainly generated by how costly is it divorce relative to break up in unmarried couple and how asymmetric the costs of divorce are, where the asymmetry is caused by the rules of property divison. This is an early stage research and we expect to have first presentations by the end of December. Computationally it uses very similar tools to the previous project
+
+\subsection*{Reproductive Technologies and Labor Market}
+This is an ongoing project that will be a chapter of my thesis. It had three iterations in Fall 2017 and Spring 2018 and Summer 2019. It focuses on how an option to postpone fertility and mitigate infertility shocks affects the lifecycle of high-skilled women. It turns out that a model that matches key patterns in the US data does not predict substantial effects on general population, but the gains increase a lot with the level of education/skills, hence the impact for women who got advanced degrees as MD, JD, PhD can be huge. First, the reproductive technologies allow both to mitigate substantial part of earning within each career losses that are caused by almost inevitable work in career in case of having a baby (by shifting interruption later in life where it appears to be less costly). Second, that is perhaps more important, the technologies change the relative attractiveness of demanding careers, and this, for instance, can attract more women into getting PhDs, as it relaxes the pressure from biological factors for those who put high emphasis on having family. At the coming iteration, I plan to re-calibrate the model to make it focused on small sub-population of the highest skilled women, that I recently was able to get detailed data for, and this will allow to get some concrete figures about how much of recent demographic changes is already driven by  existing state in reproductive technologies and what can we expect in the future when the efficiency of them will be improving (as by now they still have large degree of uncertainty). 
+
+
+\section*{Computational Plans}
+
+I use Quest for both solving theoretical models and working with data. On the modeling part, I numerically solve large finite-horizon dynamic programming models describing interaction of individuals' decision of savings, fertility, marriage and divorce. To adequately capture the phenomena I described these models have to have many dimensions of state space (i.e. several dimensions individual characteristics, like productivity and wealth), and this requires substantial amount of computational resources. Before that I was mainly using Matlab, but this year I transition my projects to Python, as it has some packages and routines not readily available for Matlab. It also allows using Numba and CuPy to efficiently use GPUs that are very suitable for most of the problems I solve. At the current stage, it takes around 40 seconds to compute my main model using Python with GPU as opposed to 2--3 minutes using Matlab with C compiled routines on CPU. Estimating the models to get appropriate parameter values, however, requires solving it hundreds of times, especially given non-smoothness of the fit function that prevents using gradient methods. For Matlab I used Particle Swarm Optimization algorithm to fit the models to the data that is easily parallelizable but pretty inefficient and using 55 cores was delivering appropriate results in 2--3 hours.
+
+In addition to the modeling part I use the US data to find complimentary empirical evidence and to establish key stylized features that I use as goals for calibrating the models. Two main datasets I use is cross-sectional American Community Survey (from the US Census Bureau) and longitudinal National Longitudinal Survey of Youth. They can contain up to several millions of observations with thousands variables, raw file sizes sometimes exceed 10 Gb. I use Stata/MP for the most of the tasks, typical computational task takes several minutes but uses amounts of memory and disk space that I do not have on my computer.
+
+\section*{Links}
+
+The most recent draft of the shotgun marriage project is available \href{https://drive.google.com/open?id=18fwM9vFx5Hq0Ghr9-vG9ETaQbWT7_uXq}{here}. 
+
+A presentation on the third project is available \href{https://www.dropbox.com/s/r752m1oljk250os/springLunch.pdf}{here}.
+
+My presentation on dissertation proposal is \href{https://www.dropbox.com/s/656nkkfvhjwzy4w/proposal.pdf}{here}.
+
+Drafts of other papers are available upon request.
+
+
+
+
+
+Thank you for your consideration!
+\end{document}
