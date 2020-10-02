@@ -1,0 +1,6 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Mechanism}{11}{0}{1}
+\beamer@sectionintoc {2}{Model}{15}{0}{2}
+\beamer@sectionintoc {3}{Fit and Results}{25}{0}{3}
+\beamer@sectionintoc {4}{Data Patterns}{35}{0}{4}
+\beamer@sectionintoc {5}{Appendix}{44}{1}{5}

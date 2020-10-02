@@ -1,0 +1,210 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts}
+\usepackage{multicol}
+
+\usepackage{IEEEtrantools}
+\usepackage{multirow}
+% beamer setup
+
+%\usecolortheme{dove}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[ball]
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+\tikzstyle{block} = [rectangle, draw, rounded corners]
+\tikzstyle{line} = [draw, -latex']
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\I}{\mathbb{I}}
+
+\AtBeginSection[]{
+  \begin{frame}[plain]
+  \addtocounter{framenumber}{-1}
+  \vfill
+  \centering
+  %\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    %\usebeamerfont{title}
+    \Huge{\insertsectionhead\par}%
+  %\end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+
+
+
+
+\title{The Economics of Shotgun Marriage}
+\subtitle{and Household Bargaining}
+\author{Egor Kozlov}
+
+\institute{
+  Department of Economics\\
+  Northwestern University}
+  
+  
+\setbeamertemplate{footline}[frame number]
+
+  
+%  \usepackage{pgf}
+%\logo{\pgfputat{\pgfxy(0,0)}{\pgfbox[right,base]{\footnotesize{\insertframenumber\,/\,\inserttotalframenumber}}}}
+%\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+
+\let\olditem\item
+\renewcommand{\item}{%
+\olditem\vspace{\fill}} 
+
+\usepackage{xcolor}
+
+\begin{document}
+
+
+
+\begin{frame}[plain]
+\addtocounter{framenumber}{-1}
+\date{\scriptsize}
+\titlepage
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Kids First or Marriage First}
+\begin{itemize}
+\item Around 1/4 of childbearing marriages in the US are \textbf{kids-first}:
+\begin{itemize}
+\item they have their first child \textit{before or in the year} of their marriage
+\end{itemize}
+\item These marriages have much higher divorce rates but are still widespread
+\item What economic reasons make people do this? 
+\item Unplanned pregnancies are a potential cause
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{``America's strongest anti-poverty weapon''?}
+\begin{itemize}
+\item Marriage is a good thing (statistically)
+%\item Conservatives blame millennials for not following ``the sequence''
+\item Is making people marry more and stay married longer welfare improving?
+\item The answer depends on understanding the economic \emph{value} of marriage
+\item Simple competitive market setup says no (but may not fit here)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions}
+\begin{itemize}
+\item Narrow: \begin{enumerate}
+\item Why marriage / childbearing timing matters for divorce? Is it a causal relation?
+\item How policies shape the creation and dissolution of the marriages? Should they?
+\end{enumerate}
+\item Broad:
+\begin{enumerate}
+\item How marriage works? What makes people enter ``risky'' marriages?
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What I Do}
+\begin{enumerate}
+\item Describe empirically the behavior of kids-first and marriage-first couples
+\item Use this empirical evidence to estimate a structural lifecycle model
+\begin{itemize}
+\item Singles meet potential partners and sometimes get unplanned pregnancies
+\item Agents are heterogeneous in wages and savings, marriages differ in quality
+\item People marry endogenously and cannot commit not to divorce
+\end{itemize}
+\item Use the model to talk about causality and policy
+\begin{itemize}
+\item Endogenous response to unplanned pregnancy explains the data well
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Literature}
+\begin{itemize}
+\item Policy literature:
+\begin{itemize}
+\item Empirical: {\small \color{gray}Alessina, Guiliano, 2005;  Tannenbaum, 2020; Rossin-Slater, 2017}
+\item Structural: {\small  \color{gray}Forester, 2020; Brown, Flinn, 2011; Kennes, Knowles, 2020}
+\item I am the first to consider creation and dissolution of shotgun marriages structurally
+\end{itemize}
+\item Lifecycle literature:
+\begin{itemize}
+\item Dynamic limited commitment for marriage and divorce: {\small  \color{gray}Mazzocco, 2007; Voena, 2015; Low et al., 2018; Shephard, 2019; Blasutto, 2020}
+\item Fertility during lifecycle: {\small  \color{gray}Sommer, 2015, Ejrnæs, Jørgensen, 2018}
+\item I am the first to estimate a marriage/divorce model with fertility choice
+\end{itemize}
+\item Empirics on shotgun marriages (demography and sociology):
+\begin{itemize}
+\item {\small  \color{gray}Gibson-Davis et al (2016), Guzzo (2009),  Nuevo-Chiquero (2014)}
+\item I can recover the causal content of these numbers
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Statistical Pattern: Kids-First $\Rightarrow$ Divorce More}
+\begin{center}
+\includegraphics[scale=0.5]{../pics/div_5y_by_dt.pdf}
+\end{center}
+\begin{itemize}
+\item Controlling for many observable dimensions do not mitigate the difference
+\item In subgroups, the pattern is sharper for college graduates
+\item No exogenous variation, so the model is needed
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Conclusions}
+\begin{enumerate}
+\item Value of the marriage:
+\begin{itemize}
+\item Causality: kids-first marriage increases chances of future divorce by $\frac13$ to $\frac12$
+\item Why do kids-first divorce more? Imperfect control over fertility, social stigma, disutility from stepchildren are the leading causes.
+\item Selection: couples choose to have kids only if their risk of divorce is low enough
+\item \textit{Risks} of unplanned pregnancies shape people's behavior quite a lot
+\end{itemize}
+\item Policy insights:
+\begin{itemize}
+\item Child support is inefficient in regulating marriage decisions for kids-first
+\item Child support creates more single mothers but is still welfare improving
+\item Pushing people towards marriage generally works, but only temporary
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Key Takeaways}
+\begin{itemize}
+\item Kids-first marriages are adult analogues of teenage pregnancies
+\item Reaction to unplanned pregnancies rationalizes the divorce pattern
+\item Managing this reaction is difficult, but its causes can be controlled
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+

@@ -1,0 +1,382 @@
+
+\documentclass[12pt,letter]{article}
+ \linespread{1.25}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{euscript}
+\usepackage{epsfig}
+\usepackage{verbatim}
+\usepackage{epstopdf}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand{\hypo}{\mathcal{H}}            
+\bibliographystyle{ieeetr}
+
+\usepackage[flushleft]{threeparttable}
+
+%\usepackage[cp1251]{inputenc}
+\usepackage[english]{babel} 
+\DeclareMathOperator{\rank}{rank}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+            {\hbox{$\mathsurround=0pt #1$}}{}}
+
+            \def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}  
+\newcommand{\bsA}{\boldsymbol{A}}
+
+%\setstretch{1}                         
+\flushbottom                            
+\righthyphenmin=2                      
+\pagestyle{plain}                       
+%\settimeformat{hhmmsstime}  
+\widowpenalty=300                   
+\clubpenalty=3000                     
+\setlength{\parindent}{0em}           
+\setlength{\topsep}{0pt}              
+\usepackage[pdftex,unicode,colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{bbm}
+\renewcommand{\emptyset}{\varnothing}
+
+\setlength{\parskip}{0.5\baselineskip plus2pt minus2pt}
+
+\newcommand{\e}{\varepsilon}
+\DeclareMathOperator*{\Argmax}{\mathrm{Argmax}}
+\DeclareMathOperator*{\Argmin}{\mathrm{Argmin}}
+\DeclareMathOperator*{\argmax}{\mathrm{arg\,max}}
+\DeclareMathOperator*{\argmin}{\mathrm{argmin}}
+
+\newcommand{\blp}{\mathrm{BLP}}
+\DeclareMathOperator*{\plim}{\mathrm{plim}}
+\DeclareMathOperator{\Max}{\mathrm{Max}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Z}{\mathcal{Z}}
+\renewcommand{\geqslant}{\geq}
+\renewcommand{\leqslant}{\leq}
+\newcommand{\p}{\bs p}
+\newcommand{\y}{\bs y}
+\def\dd#1#2{\frac{\partial#1}{\partial#2}}
+
+\renewcommand{\emptyset}{\varnothing}
+
+
+\DeclareMathOperator{\tr}{\mathrm{tr}}
+
+\newcommand{\bb}{\bs \beta}
+\newcommand{\X}{\bs X}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\PP}{\mathbb{P}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\CM}{\mathbb{C}}
+\renewcommand{\C}{\CM}
+\DeclareMathOperator{\var}{\mathrm{var}}
+\DeclareMathOperator{\cov}{\mathrm{cov}}
+\DeclareMathOperator{\corr}{\mathrm{corr}}
+\DeclareMathOperator{\MSE}{\mathrm{MSE}}
+\DeclareMathOperator{\Bias}{\mathrm{Bias}}
+\renewcommand{\P}{\PP}
+\newcommand{\dsim}{\stackrel{d}{\sim}}
+\newcommand{\hn}{\mathcal{H}_0}
+\newcommand{\ha}{\mathcal{H}_a}
+\newcommand{\thetab}{\bs \theta}
+\newcommand{\pv}{\text{P-value}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\MLE}{\scriptscriptstyle MLE}
+\newcommand{\LR}{\mathrm{LR}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\sumin}{\sum\limits_{i=1}^n}
+\newcommand{\sumti}{\sum\limits_{t=0}^\infty}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\hvar}{\widehat{\var}}
+\newcommand{\hcov}{\widehat{\cov}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+
+\newcommand{\pconv}{\xrightarrow{ \ p \ }}
+\newcommand{\dconv}{\xrightarrow{ \ d \ }}
+\newcommand{\asconv}{\xrightarrow{ \ a.s. \ }}
+\newcommand{\msconv}{\xrightarrow{ \ m.s. \ }}
+
+\newcommand{\pic}[4][h!]{\begin{figure}[#1]
+
+
+\begin{center}\includegraphics[width=#2cm]{#3}\caption{#4\label{#3}}\end{center}
+\end{figure}}
+
+%outtex
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+%end outtex
+
+%\bibliographystyle{ieeetr}
+
+\newcommand{\laseq}{\stackrel{\lambda\text{-a.e.}}{=}}
+\renewcommand{\d}{\underline}
+\renewcommand{\u}{\overline}
+\newcommand{\td}{\underline{\theta}}
+\newcommand{\tu}{\overline{\theta}}
+%\renewcommand{\theenumi}{\alph{enumi}}
+%\renewcommand{\labelenumi}{(\theenumi)}
+%\renewcommand{\theenumii}{\roman{enumii}}
+%\renewcommand{\labelenumii}{\theenumii.}
+%\renewcommand{\theenumiii}{\arabic{enumiii}}
+%\renewcommand{\labelenumiii}{\theenumiii.}
+%\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\hneq}{\stackrel{\hn}{=}}
+\newcommand{\deq}{\stackrel{d}{=}}
+%\title{416-2 Final Project\\
+%Reproductive Technologies, Aging and Fertility Choice (Proposal)}
+%\author{Egor Kozlov}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\begin{document}
+
+\section{Introduction}
+
+Having children before or in the year of marriage substantially increases the risk of divorce, and this phenomenon cannot be easily explained by observable confounders. This indicates important bargaining friction: when pregnancy occurs, a woman may want to marry a partner who otherwise would be rejected. The resulting risky marriages, which I refer to as shotgun marriages, are therefore the marginal ones in terms of responses to economic environment and policies, including child support and visitation rights, custody allocation, alimony payments, welfare programs targeting single mothers (like AFDC — TANF in the US), divorce laws and childcare policies like a paid parental leave in general. 
+
+In this paper I develop and estimate a structural model that is capable of explaining the empirical patterns about the shotgun marriages and delivers realistic answers about reasons shotgun marriages are created, factors driving their divorce risk, and overall capability of policies to control them. In particular, I argue that in the most shotgun marriages the marginal agent affecting marriage decision is husband, therefore the practice of shotgun marriage can be viewed as a response to limited child support enforcement and limited commitment of unmarried fathers to their children in general. Quantitatively, I show that although the existing schedule of the child support in the US is welfare-improving over no schedule it all, it is likely to incentivize people to enter the shotgun marriages if establishing paternity is disproportionally easier for married parents. [Predictions with numbers TBD]
+
+Understanding shotgun marriages helps to understand the trends in family and related inequality determination. For instance, around half of the kids in the US are currently born by unmarried mothers, nevertheless, most of the couples having kids together are married --- unmarried cohabitation with children is still not a common practice, unlike in many places over the world.\footnote{According to Payne, 2013, only about 3\% of children live in unions with unmarried cohabitating parents, as opposed to 21\% living with single mothers.} Many couples use pregnancies or births as triggers for the transition from unmarried cohabitation to marriage.  While supporting two-parent families is viewed as an anti-poverty measure, incentivizing shotgun marriages is certainly not the best thing to do. Large divorce risk facilitates the chances of the children from these marriages to end up with single mothers, which is considered to be one of the strongest predictors of poor early and adult life outcomes (Chetty, Hendren 2018 or Ginther, Pollak, 2004). Divorce itself is commonly associated with female poverty (Holden, Smock 2001). Additionally, even if an unstable couple does not end up divorcing, the larger divorce risk shapes all their decisions (Voena, 2015) and possibly hurts both the partners and the children.
+%More generally, this contributes toward understanding the trends in out-of-wedlock births. I
+
+
+Finally, many non-negligible interactions arise here: if a woman has a child from someone who is not the right fit for marriage it may be beneficial for both her and the child to wait some time and to find a new partner, yet both uncertainty about the future matches and large unexpected childcare costs drive her away from this decision. Therefore, in addition to obvious marriage stability determinants, I show that the marriage market, costs of childcare, and borrowing constraints to be important determinants of the selection. This justifies the usage of a structural model rather than inferring some parts of causal relationships from the data.
+
+\newcommand{\fn}{\footnote{The dataset I use in establishing the empirical results and estimating the model is the American Community Survey (ACS) since 2009. Its benefits include large sample size and uniform coverage of the US population with a wide range of household and individual characteristics reported. For supplementary robustness exercises, I also use Survey of Income and Program Participation (SIPP). It has more detailed coverage of a few variables that I am interested in, although their small sample sizes do not allow to condition well on some variables like marriage duration.}}
+
+The contribution of the paper is threefold. First, I am the first to document empirically large incidence and significant underperformance of shotgun marriages in the modern US data.\fn I compare two groups of women: ``kids first'' and ``marriage first''. Existing studies, like Alessina, Guiliano 2005, and Tannenbaum 2020, mainly focus on the creation of shotgun marriages and treat them in a narrow sense, focusing only on women who marry while being pregnant. I expand this sense of shotgun marriage to a simpler definition: I define kids-first women as those who had their first birth before or at the year of their first marriage. I argue that these women are reasonably close in characteristics and outcomes to those who had a ``true'' shotgun marriage, and this definition does not require knowing the precise timing of the marriage and fertility which facilitates using large population datasets. In contrast, marriage-first women are those who had their first birth at least at the year following their first marriage.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1.0]{../slides-may-20/div_5y_by_dt.pdf}
+\caption{Share of divorced in 5 years by relative timing of marriage and fertility.\label{fig1}}
+\end{center}
+\end{figure}
+
+The main empirical result is that the kids-first women divorce more often: for instance, 18\% of kids-first and 10\% of marriage-first are divorced 5 years after marriage. Figure \ref{fig1} provides an idea of these divorce rates by marriage timing as well as the distribution of the timings. This difference in divorces is robust to controlling for the composition of the groups including many conventional determinants of the divorce rates, and this suggests that unobservable experiences of unplanned pregnancies and related unobservable selection on the quality of marriage play a major role here. In addition, I show that kids first college graduates divorce around 2.8 times more often than marriage first, and for those with high school or less this ratio is just around 1.3. This education gradient suggests that different economic conditions for college and non-college people play the role and provides additional information about possible origins of the difference to discipline the structural model. Finally, I show that shotgun marriages are not specific to young ages. While teenage pregnancies are studied extensively from Card, Wise 1978 to Ashcraft et al. 2013 and Rosenbaum 2019, the shotgun marriage may be viewed as a manifestation of similar phenomenon later in life.
+
+The second contribution is an estimation of a lifecycle model of marriage, divorce, and fertility choice. The seminal papers are Mazzocco 2007, and Voena 2015, notable recent examples include Low et al 2018, Shephard 2019, Blasutto 2020. I am the first to study fertility decisions in this context and their interaction with decisions of marriage. In the model people are heterogeneous with respect to age, labor productivity and savings. In a spirit of random search, they randomly meet potential matches and form couples, which are heterogeneous additionally with respect to relationship quality and relative decision power of spouses, the latter being determined by symmetric Nash Bargaining.  Spouses cannot commit not to divorce, so their decisions are subject to the participation constraints that are determined dynamically based on their option to divorce and possibly find new partners. This exploits developments of the limited commitment literature (Kocherlakota 1996, Marcet and Marimon 2019). Married childless couples endogenously decide on their fertility timing, children bring utility and require both money and time.
+
+A main driving force in the model is random fertility shocks happening to the partners before they make their marriage decision. When a potential couple meets, with some chance they have an unplanned child. If this happens, the couple's bargaining is affected: if the partners agree they become a (kids-first) couple with a child, otherwise the woman risks to become a single mother or to face a costly pregnancy abortion, and the man loses access to the child. Relative to the regular situation, in which upon disagreement partners just wait for their new matches this generates different selection into a marriage based on fertility timing, and the model fundamentals determine its strength and implications. In particular, as people generally like the arrival of children and being a single mother or aborting is not a desirable option, the model predicts that if the unplanned pregnancy happened some couples with inferior match quality agree to marry each other, and this later generates the higher risk of divorce for them.
+
+I estimate the model parameters using a simulated method of moments, matching the established ACS evidence to the quantities in the simulated data. The parameters I estimate are the preference for children, the features of household technology, and the transition probabilities. The moments I match are the percentage of divorced women by different durations of marriage in kids-first and marriage-first group, the share of never married and divorced with and without kids by age, the share of couples having children by the duration of their marriage and few others. To account for the education gradient flexibly I perform two distinct estimations on two subgroups -- college graduates and high school graduates. In both subgroups the model fits very well, with few exceptions for the high school graduates where the fit is still reasonable. The estimates indicate substantial differences in the probability of unplanned pregnancy between the high school and the college groups, while for both of them it is a substantial risk of women with a monetary equivalent of 4---6 yearly incomes. [TBA: interpretation of estimates]
+
+This also contributes to the broader literature studying the general value of marriage, which has been discussed since the work of Becker, 1981. Modern studies emphasize roles of risk-sharing, as in Lise and Yamada 2019, the general comparative advantage of being a couple as in Chiappori 1997, and shared production of public good as in Greenwood et al. 2016. While having all these mechanisms in place, my work here primarily focuses on the last one: children are the crucial part of the value that is created within a couple and therefore are first-order issues in how couples are formed. One fundamental question that is possible to address is how large is the value of marriage per se relative to the value of the possibility of the couple to have children together, and exploiting how people choose to enter inferior quality marriages for the opportunity to raise their child together seems directly relevant.
+
+Third, I contribute to the policy literature that studies the consequences of family regulations like child support, alimony rights, custody allocation, as well as broader things like divorce, property division, and welfare policies. This has received considerable attention recently by two separate lines of literature: Tannenbaum 2020 exploits how the child support obligations affect the formation of new shotgun marriages, and Forester 2020 and Brown, Flinn 2011 explore the impact of the regulations on existing couples. My approach is complementary to both of them: I consider both formation and dissolution together, and, most importantly, show that these two sides interact non-trivially, therefore should be studied together. Some women would choose not to enter marriages if they can just collect child support and raise their children as single mothers, and this selection effect would increase the stability of remaining shotgun marriages. However, women in existing marriages would have more power and possibly would like to leave their partners, and this may create the opposite direction effect on the divorce rates.
+
+[Preview of the policy results here]
+
+A seminal piece of economic research regarding shotgun marriage is Akerlof, Yellen, and Katz 1996. They interpret them as commitment technology to access premarital sex and argue that contraception and abortion technologies lead to the disappearance of them. Further, welfare expansion (Neal, 2004) and changes in the supply of marriageable men (Chiappori, Oreffice, 2008) were argued to influence women's decision to enter marriages following pregnancies. Empirically, Alessina, Guiliano 2005 have shown that easier divorce increased the number of shotgun marriages created, and Tannenbaum 2020 and Rossin-Slater 2017 have shown that stricter child support enforcement reduces pregnancy-related marriages. All these findings are consistent with the story that shotgun marriage is a device to obtain the required commitment and resources for childbearing.
+
+Section 2 documents the shotgun marriages in the data, Section 3 outlines the theoretical model, Section 4 discusses the model solution, estimation and fit, Section 5 talks about the mechanisms qualitatively through the lens of the model, Section 6 presents quantitative policy exercises and Section 7 concludes.
+
+\section{Empirical Patterns}
+%
+%\begin{enumerate}
+%\item ACS table
+%\item Graphs by dT
+%\item raw and comparable sample
+%\item observables cannot explain
+%\item SIPP table
+%\end{enumerate}
+
+Before presenting a model I summarize the main results about the incidence and presence of shotgun marriage. This section does not aim to establish causality, and yet I attempt to argue that there are no obvious explanation in the data for the reasons relative timing matters. First, I show the main result of marriage performance for kids-first and marriage-first couples. Second, I show that it holds on large subsamples of the data: whether I pick older or younger, or more or less educated I still get the persistent difference, although it magnitude varies. Relatedly, I show that controlling for many variables influencing the share of divorced does not invalidate the result. Third, using a supplementary sample from SIPP data I argue that the fact the in the main dataset marriage and fertility history are not recovered perfectly is not likely to drive the conclusions. Finally, I argue that with my definitions majority of kids-first couples actually have their own children as opposed to being a result of single mothers finding a new partner, though the fact of having their own children does not seem to play a major role.
+
+I mainly use American Community Survey (ACS) samples of 2009--2017 for the main empirical exercise and the model estimation. Its advantage is large sample sizes with very precise household data, bearing enough information to recover the parts of marriage and fertility history I am interested in and to deliver very fine partitions of the data, like focusing only on people surveyed a certain number of year after their marriage. Its main disadvantage is incompleteness of the marriage and fertility histories. 
+
+To classify the couples by fertility timing, I consider the following simple measure:
+\begin{equation}
+\Delta T = \text{Year of the first marriage} -  \text{Year of the first birth}
+\end{equation}
+assuming both events happened by the time the person is observed. Based on the $\Delta T$ I call kids-first (KF) women those who have $\Delta T \leq 0$ and marriage-first (MF) those who have $\Delta T > 0$. Figure ... presents a motivating graph: the histogram shows distribution of women with given $\Delta T$ between $-5$ and $5$, and the scatter plot shows percentage of those divorced five years after marriage with this value of $\Delta T$.
+
+To form the sample for the analysis I pick 2009--2016 ACS, pick women aged 21--40 at the moment of survey, exclude those with marital statuses ``spouse absent'', ``widowed'' and ``separated''. This is what I refer to as general population of women. Within this population I focus on females who are either married or divorced now, have children present in a household and are married no more than once. Finally, within those I focus on an 11-year window between the years of marriage and fertility $-5 \leq \Delta T \leq 5$.  The year of the first birth is computed based on the age of the eldest child, so this assumes that the eldest child still resides with the woman.\footnote{Some cases have the age difference between the mother and the child is above 14, for them the year was treated as missing.} ACS person-specific weights are used in all calculations.
+
+The described restrictions are aimed to address the imperfections of the ACS data, which is a large cross-sectional household survey. Focusing on women allows to capture divorces more accurately, as children staying with mothers is a default custody allocation in the US. Restricting the age allows to focus on women who are likely to reside with their children. Picking only married once is a limitation of the data, as only the year of the most recent marriage is recorded. I address this selection issue in subsection .... Finally, picking a window around $\Delta T = 0$ allows to mitigate family arrangements which are likely to have step children, as well as families where the older child has moved out. Appendix ... shows that result still holds without this restriction, although observations with $\Delta T$ outside the window decreases the magnitude of the differences I discuss.
+
+%Lag between pregnancy and childbearing is important yet not crucial for the classification. The main group of interest are people with $\Delta T = 0$. Assuming that average pregnancy lasts a little less than nine months, even with random timing less then one-quarter of these couples will be married before their pregnancy. One still can imagine a couple who married in January, got pregnant in March and gave a birth in December, but this requires very precise timing of decisions and, moreover, marrying no later than March, which is uncommon in particular due to cold season in most of the US. By similar reasoning, some share of couples with $\Delta T = 1$ did actually marry while being pregnant, and yet those people are less constrained in the time.
+
+%A substantial share of couples has $\Delta T < 0$, meaning out-of-wedlock childbirth preceding the marriage. In most of the empirical part I pool this group with those with $\Delta T = 0$. 
+
+The top part Table \ref{share_table_0} illustrate the differences in the divorce between kids-first and marriage-first groups in general, as well as the relative proportion of the kids-first group. To measure the divorce, I focus on shares of divorced within those ever married. I first use a simple cross-sectional measure, comparing raw percentages of divorced in each of the two groups. This measure does not account for duration properly: given $\Delta T$ some couples may be married longer than others at the moment of the survey, therefore I also present the difference conditional on particular durations. The table presents the results conditional on being 5 or 10  years after the marriage, the large sample size allows to do this. Surprisingly, this conditioning does not change the difference substantially. Further, the bottom part of the table illustrates the heterogeneity by partitioning people on education groups and comparing women with earlier and later births.  
+
+\begin{table}[h]
+\caption{Share of divorced among kids-first and marriage-first, ACS\label{share_table_0}}
+\begin{tabular}{l r r r r }
+\hline
+& \multicolumn{2}{c}{share of divorced if ... }&  \\
+&  marriage-first & kids-first & (share of kids-first) &  \\\hline
+\multicolumn{5}{l}{\textbf{All sample}} \\\hline
+\textit{Cross-sectional share of divorced} &  9.9 & 18.1 & (26.1) \\
+\textit{Divorced 5 years after marriage} &  5.1 & 14.3  & (24.6) \\
+\textit{Divorced 10 year after marriage} & 10.4 & 22.8 & (24.4) \\\hline
+\multicolumn{5}{l}{\textbf{Cross-sectional share of divorced for subsamples}} \\\hline
+\textit{High school only} &  12.8 & 17.3 & (37.0) \\
+\textit{Some college} & 14.3 & 21.0 & (31.3) \\
+\textit{College or more} &   5.3 & 14.8 & (11.9) \\\hline
+\textit{First birth before 25} & 15.5 & 19.9 & (41.8) \\
+\textit{First birth at 25 or later} &  6.2 & 10.9 & (10.7)  \\\hline
+ \multicolumn{5}{p{0.9\linewidth}}{\footnotesize \textit{Notes.} This is American Community Survey data, 2009--2017. The numbers are percentages. Two left columns show percentage of divorced conditional on being in a marriage-first or kids-first group, respectively. The right column shows relative percentage of kids-first in those who belong to either group. Kids-first refers to women who have their first child before or at the year of marriage, marriage first to those who have their first child at least at the following year. Everything is conditional on being married once, see the text for precise definitions. }\\\hline\hline
+\end{tabular}
+\end{table}
+
+Few patterns are worth noting. First, people in kids-first group systematically have higher divorce rates. Second, this difference is more pronounced for college graduates, despite the smaller yet sizable share of the kids-first group for them: with comparable absolute difference marriage-first group is relatively much more stable. Third, although very related with the previous one, the difference is more visible for women who give a birth later rather than earlier. Fourth, heterogeneity in shares of kids-first and shares of divorced by subgroups suggests that composition is an important factor. 
+
+As the divorced rates are heterogeneous within the population, the ratio of shares of divorced is more informative than the difference. In particular, the table suggests that the divorce rate for kids-first high school graduates is 1.4 times higher than for the marriage-first, and this ratio is 2.8 for college graduates. 
+
+Table \ref{share_table_1} uses a flexible linear regression to control for the composition. The specification is
+\[\text{Divorced}_i =\Delta\cdot \text{KF}_i + \gamma \cdot X_i + \varepsilon_i\]
+where $X_i$ represents possible controls. Raw difference in the divorce rate corresponds to $\hat\Delta$ when $X_i$ contains only constant.
+
+I employ three sets of controls: individual characteristics include dummy variables age and education interacted, as well as race, fixed effects of state, metropolitan area status and survey year. Duration controls include dummies for all interactions of age with age of the first marriage and age of the first birth. Finally, income controls are a 3rd degree polynomial of log income on a subsample of women who are employed, have non-missing income data, work at least 10 hours per week and report labor earnings more than \$3000 a year. To supplement this result I present a matching estimator based on a propensity score, that is an implied probability to be in a kids-first group predicted by the same set of controls (excluding duration controls, as the predict the treatment perfectly by definition).
+ 
+These regression results are subject to an important limitation: as kids-first and marriage-first couples differ in their marriage and birth timing, the common support is violated --- it is not possible to pick people from two groups with identical timing. This motivates exclusion of duration when predicting propensity score, and this also generally hurts the statistical interpretation of all the differences in divorce, nevertheless, its large magnitude and robustness does suggest that this is not solely an artifact of the data structure.
+
+\begin{table}[h]
+\caption{Difference in share of divorced, regression and matchin\label{share_table_1}}
+\begin{tabular}{l r r r r }
+\multicolumn{5}{c}{\textit{Regression equation:} $\text{Divorced}_i = \Delta \cdot \text{kids-first}_i + \text{Controls}_i + \varepsilon_i$} \\\hline
+\hline
+& \multicolumn{2}{c}{Estimates} &  & \\
+&  Difference ($\Delta$)  & (standard error) & Ratio $= \frac{\text{div if KF}}{\text{div if MF}}$ &  \\\hline
+\multicolumn{5}{l}{\textbf{All sample, regression}} \\\hline
+\textit{No controls (raw difference) }& 8.2 & (0.1) & 1.83 \\
+\textit{Demographic controls }& 5.7 & (0.1) & 1.58 \\
+\textit{Duration controls} &  5.8 & (0.2) & 1.59 \\
+\textit{Demographic + duration} &  4.8 & (0.2) & 1.48 \\
+\textit{Demographic + duration + income} & 4.1 & (0.3) & 1.41 \\\hline
+\multicolumn{5}{l}{\textbf{All sample, propensity score matching}} \\\hline
+\textit{Demographic controls} & 5.0 & (0.3) & 1.50 \\
+\textit{Demographic controls + income} & 4.9 & (0.2) & 1.49 \\\hline
+\multicolumn{5}{p{\linewidth}}{\footnotesize \textit{Notes.} This is American Community Survey data, 2009--2017. The numbers are regression estimates in percents.  $\Delta$ corresponds to the difference in share of divorced between kids first and marriage first. Ratio is the ratio of the percentages of divorced between kids-first and marriage first, in a context of regression it is defined as $1 + \frac{\hat{\Delta}}{\text{div if MF}}$. Regression with income controls is for subsample of those whose income data is non-missing and of good quality, see the text for precise definitions. Propensity score matching is done using default Stata \texttt{psmatch2} options, interactions of the controls were not included due to computational reasons.}\\\hline\hline
+\end{tabular}
+\end{table}
+
+This evidence suggests that although composition plays a role, regardless of observable characteristics kids-first women are divorced more often than marriage first. Marriage duration and demographics only explains less than half of these differences. 
+
+The following subsections and Appendix ... provide few extra checks and additional insights. Shortly, using more detailed and more complete data does not change the patterns I discuss here. 
+
+\subsection{Full Marital History (SIPP) \label{sipp-results}}
+This section provides supplementary evidence using Survey of Income and Program Participation data, Wave 2014. The main distinct feature is concrete recording of the year of the first marriage and the year of the first birth for every woman. This allows to relax two sampling restrictions: conditioning on women ever married instead of married once (counting remarried) and correctly counting women with non-residential children (including women older than 40). In the dimensions excluding those two things the methodology is identical, including the use of $\pm 5$ year window for $\Delta T$.
+
+
+\begin{table}[h]
+\caption{Share of divorced among kids-first and marriage-first, SIPP\label{share_table_0}}
+\begin{center}
+\begin{tabular}{l r r r r }
+\hline
+& \multicolumn{2}{c}{share of divorced if ... }&  \\
+&  marriage-first & kids-first & (share of kids-first) &  \\\hline
+\multicolumn{5}{l}{\textbf{All sample, cross-sectional shares}} \\\hline
+\textit{Ever divorced} & 34.4 & 48.0 & (21.0) \\
+\textit{Divorced if married once} &  12.4 & 19.3 & \\
+\textit{Remarried} &  22.0 & 28.7 &  \\
+\multicolumn{5}{l}{\textbf{Cross-sectional share of ever divorced for subsamples}} \\\hline
+\textit{High school only} &  37.5 & 46.3 & (26.4) \\
+\textit{Some college} & 41.6 & 52.0 & (22.0) \\
+\textit{College or more} &   24.6 & 45.8 & (12.7)\\\hline
+\textit{First birth before 25} & 45.1 & 53.1 & (28.2) \\
+\textit{First birth at 25 or later} &  20.7 & 23.4 & (9.4)  \\\hline
+\multicolumn{5}{p{0.8\linewidth}}{\footnotesize \textit{Notes.} This is Survey of Income and Program Participation data, cross-section of Wave 1, 2014. The numbers are percentages. Two left columns show percentage of divorced conditional on being in a marriage-first or kids-first group, respectively. The right column shows relative percentage of kids-first in those who belong to either group. Kids-first refers to women who have their first child before or at the year of marriage, marriage first to those who have their first child at least at the following year. }\\\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\subsection{Finer Partitions of the Data}
+This part supplements the main result by digging dipper into the composition of the kids-first group. Shortly, regardless of who is considered, the qualitative result that kids-first people have higher divorce rates hold, although quantitatively it may differ quite a lot.
+
+\subsubsection{Partition by $\Delta T$ (ACS)}
+In the main exercise people with $\Delta T \leq 0$ were pooled together. This parts aims to see how people with $\Delta T = 0$ (having fertility and marriage at the same year) and $\Delta T < 0$ (fertility before marriage) are different. Table \ref{dt_table} shows the first set of results, doing the comparison with and without controls. It shows that regardless of controlling strategy women who have kids at the very year of marriage have somewhat higher divorce rates than those who married at the following years, although all of them divorce more than marriage-first women.
+
+\begin{table}[h]
+\caption{Difference in share of divorced, by different $\Delta T$\label{dt_table}}
+\begin{tabular}{l r r r }
+\multicolumn{4}{c}{\textit{Regression equation:} $\text{Divorced}_i = \Delta_0 \cdot \I[\Delta T = 0] + \Delta_{<} \cdot \I[\Delta T < 0]  + \text{Controls}_i + \varepsilon_i$} \\\hline
+\hline
+& \multicolumn{2}{c}{Estimates} &   \\
+& Kids-first, at ($\Delta_0$)  & Kids-first, before ($\Delta_<$)  \\\hline
+\textit{No controls (raw difference) }&  8.6 &  8.0  \\
+\textit{Demographic controls }& 6.8 &  5.2 \\ 
+\textit{Duration controls} &  6.2 &  5.1 \\ 
+\textit{Demographic + duration} &  5.2 &  3.9 \\
+\textit{Demographic + duration + income} & 5.0 &  2.3  \\\hline
+\multicolumn{4}{p{\linewidth}}{\footnotesize \textit{Notes.} ACS, 2009--2017. The numbers are regression estimates in percents.  The estimates indicate the difference in share of divorced relative to the marriage-first women}\\\hline\hline
+\end{tabular}
+\end{table}
+
+Finally, I show the graphs with perecentage of divorced for each $\Delta T$ on Figure \ref{fig2}, which is an extended version of Figure \ref{fig1}. Namely, I residualize the share of divorced using the same set of controls as in the tables before (Duration + Demographic), and normalize the share at $\Delta T = 0$ to zero. [I have the version with ``5 years after marriage'' instead of ``cross-section'', it does look a bit better but seems repetitive.]
+
+The graph shows that $\Delta T = 0$ generally has the highest share of divorced, either with or without controlling. The largest difference is between people with $\Delta T = 0$ and $\Delta T \in \{2,3,4\}$, and it drives most of the result, where for other points the difference is less striking or even reversed, although their weight (indicated by height of the bars) is lower, and therefore they do not overturn the main result.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1.0]{dt_jul30.eps}
+\caption{Share of divorced in 5 years by relative timing of marriage and fertility.\label{fig2}}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Multi-Partner Women (SIPP)}
+Although the use of $\pm 5$ years window is dedicated to reduce the concern of people having step children, it does not eliminate it completely. Within the kids first group, one may desire to consider women marrying the father of her first child and women marrying someone else than the child father separately. An important issue of most of the surveys is that relation of the male to the child is clear if the male is present in the household, but once the couple divorces and the male is not present then only few sources provide information on retrospective relationship. This issue is not possible to overcome directly in ACS, however it is possible to handle using SIPP.
+
+For a subsample of women having more than one child SIPP asks the question about having children from multiple partners.Therefore I introduce a partition on three groups. Marriage-first women are those having $\Delta T > 0$ as before. Kids-first-own are those with $\Delta T \leq 0$ who (1) do not report to have multi-partner fertility and (2) have had children born both before and after their first marriage. Kids-first-other are those who do not meet these criteria. In the data, more than three quarters of this group do report multipartner fertility. Due to the nature of the multipartner fertility questions I also exclude women who are married more than once --- most of them are likely to be missclassified to the ``other'' group. To repeat the strategy from the ACS part, I also restrict attention to women 40 or younger: as many people remarry later, the attrition will introduce bias considering only married once.
+
+Table \ref{fine_table} shows the distribution of the females 21--40 and older conditional on having more than one child and being married once by the three groups, as well as share of divorced in each of them. Three important conclusions are (1) majority of the kids-first group seem to have their own children, (2) the percentage of divorced is higher for both subgroups of kids-first, (3) people with multipartner fertility have higher divorce rates, but their share is relatively smaller.
+
+\begin{table}[h!]
+\caption{Finer partition of kids-first, SIPP\label{fine_table}}
+\begin{center}
+\begin{tabular}{l r r}
+\hline
+& share in sample & share of divorced  \\\hline
+\multicolumn{3}{l}{\textbf{Women 21--40, 1 marriage, 2+ children}} \\\hline
+\textit{Marriage-first} & 72.1 & 10.5 \\
+\textit{Kids-first-own} &  16.4 & 14.6 \\
+\textit{Kids-first-other} &  11.4 & 27.2 \\\hline
+\multicolumn{3}{p{0.6\linewidth}}{ \footnotesize \textit{Notes.} This is Survey of Income and Program Participation data, cross-section of Wave 1, 2014. The numbers are percentages. Kids-first-own is a subset of kids-first for which it is verifiable that woman married a father of the first child, kids-first-other includes all other cases.} \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\newpage
+\appendix
+
+\section{Additional ACS Evidence}
+\subsection{Flow-Based Divorce Rates}
+Demographic statistics (see ... for an example) typically defines divorce rates as number of divorces by $1{,}000$ of women, either all or ever married, that happen within a particular year. This measure is different from mine: I focus on a cumulative measure of share divorced, and the divorce rate is a flow measure of the new divorced. Its advantage though that is is more robust to composition. 
+
+Table ... shows the divorce rates: number of divorces in KF group (divorces per 1{,}000 KF women), in MF group (divorces per 1{,}000 MF women), as well as KF-divorces and MF-divorces per 1{,}000 women in general population. Switching the measure does not provide particularly different insights.
+
+\subsection{Changing the $\Delta T$ window}
+Here I show the results excluding restriction $-5\leq \Delta T \leq 5$. Many people with $\Delta T > 5$ are divorced, which perhaps indicate that they might have divorced before having the child, and this can bias the judgement of the marital stability, however qualitatively the pattern still holds. See ....
+
+\subsection{Step or Own Children in ACS}
+For existing marriages ACS sometimes allows to capture the relation of children to the father. The requirement for this is that the male is the household head, and the exact criterion for it is not clear, however in two-person households ...\% have male heads. Focusing on them, it is easy to recover the percentage of stepchildren in surviving marriages by $\Delta T$. As we can see from the left panel of Table ..., as $\Delta T$ approaching zero, the share of households with stepchildren decreases, and it never exceeds ...\%. 
+
+Focusing on surviving marriages is restrictive, as it is possible that marriages with step children live shorter and drive the difference in divorce rate. If this is the case, then one would expect that the observable duration of a surviving marriage with step children will be shorter. Therefore the right panel of Table ... shows the average duration of an observable marriage. It suggests the differences in duration are almost absent, and therefore it is not likely that the marriages with step children have drastically different divorce patterns, which is another validation of the results from SIPP.
+\end{document}

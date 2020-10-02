@@ -1,0 +1,410 @@
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts}
+\usepackage{multicol}
+
+\usepackage{IEEEtrantools}
+\usepackage{multirow}
+% beamer setup
+
+\usetheme{default}
+\usecolortheme{seahorse}
+%\usecolortheme{dove}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+\tikzstyle{block} = [rectangle, draw, rounded corners]
+\tikzstyle{line} = [draw, -latex']
+
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\I}{\mathbb{I}}
+
+\AtBeginSection[]{
+  \begin{frame}[plain]
+  \addtocounter{framenumber}{-1}
+  \vfill
+  \centering
+  %\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    %\usebeamerfont{title}
+    \Huge{\insertsectionhead\par}%
+  %\end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+
+
+
+
+\title{The Economics of Shotgun Marriage}
+\subtitle{and Household Bargaining}
+\author{Egor Kozlov}
+
+\institute{
+  Department of Economics\\
+  Northwestern University}
+  
+  
+\setbeamertemplate{footline}[frame number]
+
+  
+%  \usepackage{pgf}
+%\logo{\pgfputat{\pgfxy(0,0)}{\pgfbox[right,base]{\footnotesize{\insertframenumber\,/\,\inserttotalframenumber}}}}
+%\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+
+\begin{document}
+
+\begin{frame}[plain]
+\addtocounter{framenumber}{-1}
+\date{\scriptsize}
+\titlepage
+\end{frame}
+
+
+\begin{frame}[plain]
+\frametitle{Question}
+\begin{itemize}
+
+\item Why people marry? What part of couple's value come from having children together?
+
+\item People get pregnant and choose to marry each other. Their marriage performs worse yet they choose to enter it. Rational reasons?
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[plain]
+\frametitle{What I Do}
+\begin{itemize}
+
+\item Quantify difference of marriage performance by the timing of childbirth
+
+\item Use a structural model matching these difference to understand sources of it
+
+\item Quantify importance of fertility for marriage, aggregate impact of unplanned childbirths and policy counterfactuals
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Preview of Results}
+
+\begin{enumerate}
+
+\item Data: 
+\begin{itemize}
+\item Kids before marriage $\Rightarrow$ divorce more often.
+\item College graduates: $\sim$ 3 times. Non-college: $\sim$ 1.2 times.
+\item Robust yet not causal
+\end{itemize}
+
+\item Quantifying:
+\begin{itemize}
+\item Unplanned pregnancy changes outside options in family bargaining
+\item Effect is present generically, its size identifies amount of distress
+\end{itemize}
+
+\item Exploring:
+\begin{itemize}
+\item 
+\end{itemize}
+
+\end{enumerate}
+\end{frame}
+
+
+\section{Identification}
+
+\begin{frame}
+\frametitle{Marriage}
+Distribution of partners:
+\begin{itemize}
+\item $z^{\text{part}} = \mu_z +z^{\text{own}} + \sigma^{z,p} \cdot \epsilon_{z,p}$
+
+target: regression of spouse's log-wage to own log-wage
+\item $\log a^{\text{part}} = \mu_a + \log a^{\text{own}} + \sigma^{a,p} \cdot \epsilon_{a,p}$
+
+target: $\mu_a = 0.2$ suggested by ..., small fixed $\sigma^{a,p} = 0.1$
+\end{itemize}
+
+Meeting process:
+\begin{itemize}
+\item $\psi_0 \sim \mathcal{N}(0,\sigma^2_{\psi,0})$. $\sigma^2_{\psi,0}$ estimated
+\item $p^{\text{meet}} = g_0 + g_1\cdot \text{Age}$, $g_1<0$. $g_0$, $g_1$ estimated
+\item Identifying variation: share of never married by age, share of re-married at 
+\end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item Identified 
+\end{itemize}
+
+
+
+
+\begin{frame}
+\frametitle{Updates Since November}
+\begin{itemize}
+\item Brand new codes in Python
+\item Remarriage of single mothers
+\item Skills depreciation because of time to childcare
+\item No unplanned pregnancies in marriage: restrictive but cleaner identification
+\item Two separate estimations: college grads versus non-college grads
+\item Decomposition exercises as a goal
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary of Data Part}
+\begin{itemize}
+\item Kids First: those who had kids before or at the year of marriage
+\item Marriage First: those who had kids at least at the next year
+\item Sharp difference in divorce rates, robust and large
+\item Much larger for college graduates
+\end{itemize}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+& Kids First & Marriage First & Ratio \\
+College & & & \\
+High School & & & \\\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Generic Feature?}
+\begin{itemize}
+\item Suppose that people:
+\begin{itemize}
+\item Can choose fertility 
+\item But sometimgs kids arrive randomly
+\end{itemize}
+\item Then, negative impact of unplanned pregnancy is generic
+\item If people choose not to have a kid in this period they are worse off b/c of arrival of the shock
+\item How large is the effect depends on how indifferent are people between different fertility timings
+\item We don't know how bad people feel
+\item But this makes sense from prospective of college--non-college partition
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Generic Feature?}
+\begin{itemize}
+\item Bargaining model: if stress is symmetric things don't happen
+\item Stress has to be asymmetric: females suffer more
+\item College grads suffer more if they care more about fertility timing
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Theory}
+\begin{itemize}
+\item Why do people enter low quality marriage when kids happen?
+\begin{itemize}
+\item Women: 
+\begin{itemize}
+\item splitting childcare costs
+\item worsening of marital prospectives otherwise
+\end{itemize}
+\item Men:
+\begin{itemize}
+\item access to their children
+\end{itemize}
+\end{itemize}
+\item Why are college people hurt more by unplanned pregnancy?
+\begin{itemize}
+\item They are more sensitive to fertility timing
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Model-Free Evidence}
+\begin{itemize}
+\item \textit{If people are free to choose their fertility, arrival of a child unexpectedly makes them worse off}
+\item Couple is together if
+\[V^{fM} \geq V^{fS} \& V^{mM} \geq V^{mS}.\]
+\item People worse off $\Rightarrow$ more divorce? Not necessary, as baby enters both $V^{\bullet M}$ and $V^{\bullet S}$. 
+\item If values decrease asymmetrically, this can happen
+\item Size of the asymmetry defines the size of the effect
+\item Perfect child support enforcement = ?
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Planned Fertility}
+I estimate $(\phi,\alpha,\kappa,\bar{Q})$
+
+\[u_{\text{child}} = \phi + \alpha \cdot \frac{Q^{1-\sigma}}{1-\sigma},\]
+
+\[Q = \left[x^{\lambda} + \kappa \cdot (1-l_f)^{\lambda}\right]^{\frac1{\lambda}}, \ \ Q\geq \bar{Q},\]
+
+\[\text{budget constraint}: \ \ C + x = R\cdot a + W^m_t + W^f_t \cdot l_f.\]
+
+Identification:
+\begin{itemize}
+\item $\phi$ --- total fertility level
+\item $\alpha$ --- age structure (older $=$ more money)
+\item $(\bar{Q},\kappa)$ are tricky:
+\begin{itemize}
+\item Share of earnings spent on $x$ 
+\item \textit{Fertility by spouse's income}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Unplanned Fertility \& Meetings}
+$p^{\text{preg}} = p_0 + p_1\cdot \text{Age}$.
+Identification:
+\begin{itemize}
+\item Share of kids first couples at 25, 30, 35 (stock): $p_0$
+\item \% who married and had kids exactly at age 25, 30, 25: $p_1$
+\end{itemize}
+Concern: the data suggests $p_1>0$.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Income Process}
+\framesubtitle{$i \in \{m,f\}$}
+\[W^i_t = \exp(z^i_t + T^i_t)\]
+
+\begin{enumerate}
+\item Trend: $ T^i_t = a^i_0 + a^i_1\cdot t +  a^i_2\cdot t^2 + a^i_2\cdot t^3.$
+\begin{itemize}
+\item Estimate based on cross-section per-hour wage in ACS with state and year dummies
+\item Normalize wage at 25 to 1
+\end{itemize}
+\item Shocks: $z^i_t = z^m_{t-1} + \varepsilon^i_t$; $z^m_0 \sim \mathcal{N}(0;\sigma^2_{zi0})$; $\varepsilon^m_t \sim \mathcal{N}(0;\sigma^2_{zi})$.
+\begin{itemize}
+\item Pick $\sigma^2_{zi0}$ and  $\sigma^2_{zi}$ to match cross-sectional variance in log earnings at 25 and 30.
+\item Outliers matter a lot: remove top and bottom $5\%$ of per-hour earnings
+\item Male: $\sigma_{zm0} = 0.44$, $\sigma_{zm} = 0.033$.
+\item Female: $\sigma_{zf0} = 0.41$, $\sigma_{zm} = 0.042$. \textbf{Rescale} to match the targets.
+\item 3\%--4\% wage variation seems reasonable...
+\item Skill depreciation
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Labor Supply Margin}
+\begin{itemize}
+\item Females can reduce labor supply and use as input to child quality process
+\item $Q = \left[x^{\lambda} + \kappa\cdot (1-l)^{\lambda}\right]^{\frac1\lambda}$
+\item Labor supply affects current income:
+\[c + x  = W^m + W^f\cdot l + R a.\]
+\item Reduction in labor supply hurts female's productivity:
+\[z^f_t = z^f_{t-1} + \varepsilon^f_{t} - f(l)\cdot \mu,\]
+\item Currently $l$ is discrete, $l \in \{0.25,0.5,0.75,0.9\}$, corresponding $f(l) \in \{0.1,0.05,0,0\}$. $0.1$ roughly matches Adda et al (...)
+\item $\kappa$ is calibrated such that average married female's labor supply is $0.75$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Remarriage}
+\begin{itemize}
+\item If woman with kids divorces, it becomes a single mother
+\item Single mothers meet single males
+\item If partners agree to marry they become a regular couple with a child
+\item Males have a one-time utility penalty parameter for marrying a single mother. This affects bargaining:
+\[NBS = \left[ V^{m,MK} - \phi_m - V^{m,S}\right] \times  \left[ V^{f,MK} - V^{f,S}\right].\]
+\item Rationalizes decrease in marital prospectives for females with children
+\item Estimated by matching share of remarried women with vs without children
+\end{itemize}
+\end{frame}
+
+\section{Results}
+
+
+\begin{frame}
+\frametitle{Causal Consequences of Unplanned Pregnancy}
+Graphs: divorce probabilities, labor supply / child's expenditures, earnings loss
+\end{frame}
+
+\begin{frame}
+\frametitle{Decomposing College versus Non-college}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+& MF & KF & Ratio \\
+Baseline: college & \\
++ income process of HS & \\
++ meeting probabilities of HS & \\
++ pregnancy probabilities of HS & \\
++ love shock distribution of HS & \\
++ single mother prospective of HS & \\
+Comparison: high school & \\
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Understanding Value of Marriage}
+\begin{tabular}{|c|c|c|c|c|c|}
+Married by 25 & \\
+Married by 30 & \\
+Married by 40 & \\
+Divorced by 25 &\\
+Divorced by 30 &\\
+DIvorced by 40 &\\
+\multicolumn{4}{|c|}{Model Partss:}\\
+Unplanned fertility & $+$ & $-$ & $-$ & $-$ & $-$ \\
+Fertility & $+$ &  $+$ & $-$ & $-$  & $-$ \\
+Love & $+$ & $+$ & $+$ & $-$ & $-$ \\
+Returns to scale & $+$ & $+$ & $+$ & $+$ & $-$ \\ 
+Risk-sharing & $+$ & $+$ & $+$ & $+$ & $+$ \\
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Hey}
+\[\lim\limits_{n\to\infty} |f_n(\theta)| = 0 \text{a.s.}, \ \ \text{ but } \lim\limits_{n\to\infty}\sup_\theta |f_n(\theta)| \neq 0,\]
+
+\[|Y - bX|'_b = -X\cdot 1 \cdot I(Y - bX>0) +X \cdot 1 \cdot I(Y - bX<0)  = \]
+\[-X\cdot 1 \cdot I(Y - bX>0) + X\cdot 1 (1 - I(Y - bX>0))\]
+
+\[(|Y - bX|^5)'_b = (Y-bX)^4 \cdot |Y - bX|'_b\]
+
+
+\[ \E( |Y - bX|'_b ) = 0 \Rightarrow \E( -X\cdot 1 \cdot I(Y - bX>0) +X \cdot 1 \cdot I(Y - bX<0) ) = 0\]
+\[ \E(X\cdot I(A) ) = \E(X|A)\cdot P(A).\]
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Consistency Theorem}
+\[Q_n(\theta) \text{ (sums) } \to Q(\theta)  \text{ (expectations) }\]
+show that
+\[Q'(\theta) = 0 \text{ at } \theta = \theta_0\]
+\end{frame}
+
+\end{document}
+
+

@@ -1,0 +1,376 @@
+
+\documentclass[12pt,letter]{article}
+\usepackage[left=0.8in,right=0.8in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{euscript}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand{\hypo}{\mathcal{H}}            
+\bibliographystyle{ieeetr}
+
+\usepackage[flushleft]{threeparttable}
+
+%\usepackage[cp1251]{inputenc}
+\usepackage[english]{babel} 
+\DeclareMathOperator{\rank}{rank}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+            {\hbox{$\mathsurround=0pt #1$}}{}}
+
+            \def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}  
+\newcommand{\bsA}{\boldsymbol{A}}
+
+%\setstretch{1}                         
+\flushbottom                            
+\righthyphenmin=2                      
+\pagestyle{plain}                       
+%\settimeformat{hhmmsstime}  
+\widowpenalty=300                   
+\clubpenalty=3000                     
+\setlength{\parindent}{0em}           
+\setlength{\topsep}{0pt}              
+\usepackage[pdftex,unicode,colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{bbm}
+\renewcommand{\emptyset}{\varnothing}
+
+\setlength{\parskip}{0.5\baselineskip plus2pt minus2pt}
+
+\newcommand{\e}{\varepsilon}
+\DeclareMathOperator*{\Argmax}{\mathrm{Argmax}}
+\DeclareMathOperator*{\Argmin}{\mathrm{Argmin}}
+\DeclareMathOperator*{\argmax}{\mathrm{arg\,max}}
+\DeclareMathOperator*{\argmin}{\mathrm{argmin}}
+
+\newcommand{\blp}{\mathrm{BLP}}
+\DeclareMathOperator*{\plim}{\mathrm{plim}}
+\DeclareMathOperator{\Max}{\mathrm{Max}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Z}{\mathcal{Z}}
+\renewcommand{\geqslant}{\geq}
+\renewcommand{\leqslant}{\leq}
+\newcommand{\p}{\bs p}
+\newcommand{\y}{\bs y}
+\def\dd#1#2{\frac{\partial#1}{\partial#2}}
+
+\renewcommand{\emptyset}{\varnothing}
+
+
+\DeclareMathOperator{\tr}{\mathrm{tr}}
+
+\newcommand{\bb}{\bs \beta}
+\newcommand{\X}{\bs X}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\PP}{\mathbb{P}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\CM}{\mathbb{C}}
+\renewcommand{\C}{\CM}
+\DeclareMathOperator{\var}{\mathrm{var}}
+\DeclareMathOperator{\cov}{\mathrm{cov}}
+\DeclareMathOperator{\corr}{\mathrm{corr}}
+\DeclareMathOperator{\MSE}{\mathrm{MSE}}
+\DeclareMathOperator{\Bias}{\mathrm{Bias}}
+\renewcommand{\P}{\PP}
+\newcommand{\dsim}{\stackrel{d}{\sim}}
+\newcommand{\hn}{\mathcal{H}_0}
+\newcommand{\ha}{\mathcal{H}_a}
+\newcommand{\thetab}{\bs \theta}
+\newcommand{\pv}{\text{P-value}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\MLE}{\scriptscriptstyle MLE}
+\newcommand{\LR}{\mathrm{LR}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\sumin}{\sum\limits_{i=1}^n}
+\newcommand{\sumti}{\sum\limits_{t=0}^\infty}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\hvar}{\widehat{\var}}
+\newcommand{\hcov}{\widehat{\cov}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+
+\newcommand{\pconv}{\xrightarrow{ \ p \ }}
+\newcommand{\dconv}{\xrightarrow{ \ d \ }}
+\newcommand{\asconv}{\xrightarrow{ \ a.s. \ }}
+\newcommand{\msconv}{\xrightarrow{ \ m.s. \ }}
+
+\newcommand{\pic}[4][h!]{\begin{figure}[#1]
+
+
+\begin{center}\includegraphics[width=#2cm]{#3}\caption{#4\label{#3}}\end{center}
+\end{figure}}
+
+%outtex
+\def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+%end outtex
+
+%\bibliographystyle{ieeetr}
+
+\newcommand{\laseq}{\stackrel{\lambda\text{-a.e.}}{=}}
+\renewcommand{\d}{\underline}
+\renewcommand{\u}{\overline}
+\newcommand{\td}{\underline{\theta}}
+\newcommand{\tu}{\overline{\theta}}
+%\renewcommand{\theenumi}{\alph{enumi}}
+%\renewcommand{\labelenumi}{(\theenumi)}
+%\renewcommand{\theenumii}{\roman{enumii}}
+%\renewcommand{\labelenumii}{\theenumii.}
+%\renewcommand{\theenumiii}{\arabic{enumiii}}
+%\renewcommand{\labelenumiii}{\theenumiii.}
+%\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\hneq}{\stackrel{\hn}{=}}
+\newcommand{\deq}{\stackrel{d}{=}}
+%\title{416-2 Final Project\\
+%Reproductive Technologies, Aging and Fertility Choice (Proposal)}
+%\author{Egor Kozlov}
+\begin{document}
+%\begin{center}\textbf{Economics 416-1} \\ \emph{By Egor Kozlov}\end{center}
+%\maketitle
+
+
+
+%\section{Introduction}
+%Not all unplanned pregnancies happen at teenage age. Among adults quite substantial share of people have kids before or at the year they marry, and this translates is associated with a great increase of share of divorced. In fact, even among college graduates 30 years old kids first females are 3.6\% as opposed to unmarried women with kids being 4.6\%. Counting only  ever married women 21--40 with kids, these women account for more than 10\% in college population and more than 25\% in general population. So the incidence of shotgun marriage is substantial.
+
+\section{Functions}
+
+Instantaneous utility:
+\[U^{\text{no children}} = \theta^m \cdot \frac{c_m^{1-\sigma}}{1-\sigma} + \theta^f \cdot \frac{c_f^{1-\xi}}{1-\xi}.\]
+\[U^{\text{with children}} = \theta^m \cdot \frac{c_m^{1-\sigma}}{1-\sigma} + \theta^f \cdot \frac{c_f^{1-\sigma}}{1-\sigma} + \phi_0 + \alpha\cdot \frac{Q^{1-\sigma}}{1-\sigma}.\]
+
+Budget constraint (the most general) is:
+\[(c_f^{1+\rho} + c_m^{1+\rho})^{\frac1{1+\rho}} + x + a' = R\cdot a + W^m_t(z_m) + l_f\cdot W^f_t(z_f).\]
+\[W^i_t = \exp( z_i + \text{Trend}^i_t), \ \ \text{Trend}^i_t = \tau^i_0 + \tau^i_1 \cdot t + \tau^i_2 \cdot t^2 + \tau^i_3 \cdot t^3.\]
+\[z_m' = z_m + \varepsilon^m_t, \ \ \varepsilon^m_t \sim \mathcal{N}(0,\sigma^{2}_{\varepsilon,m}), \ \ z_0 \sim \mathcal{N}(0,\sigma^{2}_{z_0,m}).\]
+\[z_f' = z_f - \delta(l_f) + \varepsilon^f_t, \ \ \varepsilon^f_t \sim \mathcal{N}(0,\sigma^{2}_{\varepsilon,f}), \ \ z_0 \sim \mathcal{N}(0,\sigma^{2}_{z_0,f}).\]
+\[\text{Child quality production function:} \ \ Q = \left[ x^{\lambda}  + \kappa \cdot (1-l_f)^{\lambda}\right]^{\frac1{\lambda}}.\]
+\newpage
+\section{Parameters}
+\begin{center}
+\begin{tabular}{|c|p{0.35\linewidth}|c|p{0.3\linewidth}|}\hline
+ & Meaning  & Value & Identification \\\hline
+\multicolumn{4}{|c|}{Utility parameters:}\\\hline
+$\phi_0$ & Additive utility from having a child & 1.80 & {\footnotesize Total \% with kids} \\
+$\alpha$ & Weight of child quality in utility & 0.61 & {\footnotesize steepness of age profile } \\
+$\kappa$ & Relative productivity of labor & 0.84 & {\footnotesize female labor supply} \\
+$\lambda$ & CES power in prod fun &  $0.7^{*}$ & {\footnotesize \textit{External:} Sommer (2016) } \\
+$\xi$ & CRRA power of $Q$ in utility &  $1.5^{*}$ & {\footnotesize \textit{External:} as $\sigma$} \\
+$\rho$ & RTS in partrens' consumption & $0.23^{*}$ & {\footnotesize \textit{External:} Voena (2015) } \\\hline
+\multicolumn{4}{|c|}{$p^{\text{meet}}_t = p_0 + p_1\cdot (\text{Age}-30) + p_2 \cdot (\text{Age}-30)^2$}\\\hline
+$p_{21}$ & Meeting probability at 21 &  $0.16$ & \\
+$p_{28}$ & Meeting probability at 28 &  $0.37$ & {\footnotesize marriage rate by age} \\
+$p_{35}$ & Meeting probability at 35 &  $0.39$ &  \\\hline
+\multicolumn{4}{|c|}{$p^{\text{pregnant}}_t = p_0 + p_1\cdot (\text{Age}-30) + p_2\cdot (\text{Age}-30)^2$ }\\\hline
+$p_{21}$ & Pregnancy probability at 21 &  $0.028$ & \\
+$p_{28}$ & Pregnancy probability at 28 &  $0.031$ &  {\footnotesize shares of KF and MF couples} \\
+$p_{35}$ & Pregnancy probability at 35 &  $0.009$ & \\\hline
+\multicolumn{4}{|c|}{Love shock: $\psi' = \psi + \varepsilon$}\\\hline
+$\sigma_\psi$ & Variance of innovation &  0.58 & {\footnotesize \% divorced by years after marriages}   \\
+$\sigma_{\psi_0}$ & Relative variance of initial & $5.16\cdot \sigma_\psi$ & {\footnotesize total divorce rates} \\\hline
+\multicolumn{4}{|c|}{Utility shifters:}\\\hline
+$\phi_m$ & {\footnotesize Male utility lost at bargaining from if marry a single mother} &  $11.0\cdot \phi_0$ & {\footnotesize stock of divorced w and w/o kids} \\
+$\phi_s$ &{\footnotesize  Utility loss at bargaining from not entering a shotgun marriage (both)} & $0.83\cdot \sigma_{\psi_0}$ & {\footnotesize KF and MF divorce difference} \\\hline
+\multicolumn{4}{|c|}{${}^*$ indicates externally fixed values, all other values are SMM estimates }\\\hline
+\end{tabular}
+\end{center}
+
+\section{Utility Shifters in Bargaining}
+{\footnotesize
+\begin{tabular}{|c||c|c||c|c||c|}\hline
+ & \multicolumn{2}{|c||}{Male gets:} & \multicolumn{2}{|c||}{Female gets:} &  \\\hline
+Situation & Agree & Disagree & Agree & Disagree &  NBS \\\hline
+Regular match & $V^{m,c}_t(\theta)$ & $V^{m,s}_t$ & $V^{f,c}_t(\theta)$ & $V^{f,s}_t$ & $\scriptstyle \left[ V^{m,c}_t(\theta) - V^{m,s}_t\right]\times \left[ V^{f,c}_t(\theta) - V^{f,s}_t\right]$\\
+Unplanned pregnancy & $V^{m,ck}_t(\theta)$ & $V^{m,s}_t - \phi_s$ & $V^{f,ck}_t(\theta)$ & $V^{f,s}_t - \phi_s$ & $\scriptstyle  \left[ V^{m,ck}_t(\theta) - V^{m,s}_t + \phi_s\right]\times \left[ V^{f,ck}_t(\theta) - V^{f,s}_t + \phi_s\right]$\\
+Meeting a single mother & $V^{m,ck}_t(\theta) - \phi_m$ & $V^{m,s}_t$ & $V^{f,ck}_t(\theta)$ & $V^{f,s}_t$ & $\scriptstyle  \left[ V^{m,ck}_t(\theta) - V^{m,s}_t - \phi_r\right]\times \left[ V^{f,ck}_t(\theta) - V^{f,s}_t\right]$\\\hline
+\end{tabular}
+}
+
+
+\newpage
+\section{Moments and Fit (College Graduates)}
+
+{
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+Target & Model & Data \\\hline
+\multicolumn{3}{|c|}{\textbf{Hazards:}} \\\hline
+Hazard of marriage by age, 22--35 & \multicolumn{2}{|c|}{see fit graphs}\\
+Hazard of the first child by age, 23--35 & \multicolumn{2}{|c|}{see fit graphs}\\\hline
+\multicolumn{3}{|c|}{\textbf{Transitions in couples:}} \\\hline
+Divorced by years after marriage, 1--10 & \multicolumn{2}{|c|}{see fit graphs}\\
+Have children by years after marriage, 1--10 & \multicolumn{2}{|c|}{see fit graphs}\\\hline
+\multicolumn{3}{|c|}{\textbf{Group shares:}} \\\hline
+\% Kids First in population by age, 23--35 & \multicolumn{2}{|c|}{see fit graphs}\\
+\% Marriage First in population by age, 23--35 & \multicolumn{2}{|c|}{see fit graphs}\\
+\% Kids First (relative), by age, 23--35 & \multicolumn{2}{|c|}{see fit graphs}\\\hline
+\multicolumn{3}{|c|}{\textbf{Total stocks:}}\\\hline
+Divorced at 30 if one marriage & 6.2\% & 6.9\% \\
+Divorced + with kids at 30  & 2.6\% & 2.7\% \\
+Never married + with kids at 30  & 2.3\% & 4.4\% \\
+$>1$ marriage at 40 & 11.0\% & 12.0\% \\
+\textbf{Divorced if Kids First (21--40) }&14.7\% &14.8\% \\
+\textbf{Divorced if Marriage First (21--40)} &5.5\% & 5.4\% \\\hline
+\multicolumn{3}{|c|}{\textbf{Household Technology:}}\\\hline
+In Labor Force (30, married, kids) & 74.1\% & 74.0\% \\
+Child Expenditures / Labor Earnings & 41.1\% & 40.0\% \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\hspace{-1cm}\begin{tabular}{|c|c|c|}\hline
+\multicolumn{3}{|c|}{\textbf{Fit Graphs:}}\\\hline
+\includegraphics[scale=0.4]{haz_mar.pdf} & \includegraphics[scale=0.4]{share_kfmf.pdf} & \includegraphics[scale=0.4]{kids_yaftmar.pdf} \\\hline
+\includegraphics[scale=0.4]{haz_child.pdf} & \includegraphics[scale=0.4]{share_kfrel.pdf}   & \includegraphics[scale=0.4]{div_yaftmar.pdf}  \\\hline
+\end{tabular}
+
+
+}
+
+
+\newpage
+
+\section{Less Nice Things (Non-Targeted Moments)}
+\begin{center}
+\includegraphics[scale=0.6]{men_kids_ratio.pdf} \\
+\includegraphics[scale=0.6]{men_mar_ratio.pdf} \\
+\includegraphics[scale=0.6]{div_kfmf.pdf} 
+\end{center}
+
+
+\newpage
+\section{Removing The Social Stigma}
+\begin{center}
+\textbf{Lots of couples divorce immediately...}
+
+\includegraphics[scale=1.0]{div_kfmf_ref.pdf} 
+\end{center}
+
+
+\newpage
+
+\section{Identification Concerns}
+Identification of scale of $\psi$ is not obvious.
+
+Simple setup: 3-period model, $t \in \{0,1,2\}$ start as couple. Initial love shock is $\psi_0 \sim \mathcal{N}(0,\sigma^2_0)$, shock is $\delta \sim \mathcal{N}(0,\sigma^2_\delta)$.  Suppose $\beta = 1$ and all utility flows are fixed.
+
+\begin{enumerate}
+\item Normalize all utilities to $0$, and let males and females are perfectly symmetric. Suppose $10\%$ are divorced in period 1 and $5\%$ are divorced in period 2.
+
+Couple divorces before entering period $2$ if $\psi_0 + \delta_1 + \delta_2 < 0$
+
+Couple divorces before entering period $1$ if $\psi_0 + \delta_1 + \E(\psi_0 + \delta_1 + \delta_2 | \psi_0 + \delta_1 + \delta_2>0) < 0$.
+
+Replacing $\psi_0 \to 5\cdot\psi_0$ and $\delta \to 5\cdot \delta$ do not change the inequalities, so the scale is not identifiable.
+
+\item We need some interaction between $\psi$ and utilities to estimate size of $\psi$. Utility structure is
+\[u = \theta^f\cdot \frac{c_f^{1-\sigma}}{1-\sigma} + (1-\theta^f)\cdot \frac{c_m^{1-\sigma}}{1-\sigma} + \phi_0 + \alpha \cdot \frac{\left[ x^\lambda + \kappa\cdot(1-l_f)^{\lambda}\right]^{\frac{1-\sigma}{\lambda}}}{1-\sigma} + \psi.\]
+
+$\frac{x}{c+x + s} \approx 0.4$ identifies $\alpha$. Labor force participation identifies $\kappa$ (in fact, $\alpha$, $\kappa$. $\phi_0$ are very stable). I did quite a lot of estimations that slightly adjust the targets or add more targets without changing major things. $\sigma_{\psi_0} / \sigma_\psi$ is also always around $5$, but $\sigma_\psi$ itself is not.
+\end{enumerate}
+
+\newpage
+\section{Income Process}
+\begin{itemize}
+\item Income data: per-hour ACS labor earnings for people who:
+\begin{itemize}
+\item Work full year ($\geq 48$ weeks)
+\item Report ``usual hours worked'' $\geq 10$
+\item Report labor income more than $\$ 3000$ per year
+\item Drop top and bottom 5\% of resulted per-hour earnings
+\end{itemize}
+\item Trend $\tau$: cross-sectional regression of per-hour earnings on age polynomial
+\item Male variances: $\sigma_{\varepsilon,m}$, $\sigma_{z_0,m}$ --- matching variance of residuals from this regression at 24 and 30. Exact match.
+\item Female variances: do the same thing, get $\tilde\sigma_{\varepsilon,f}$, $\tilde\sigma_{z_0,f}$. Then set $\sigma_{z_0,f} = \tilde\sigma_{z_0,f}$ and rescale $\sigma_{z,f} = 0.9\times \sigma_{z,f}$. Result --- very close match.
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+\multicolumn{3}{|c|}{\textbf{Fit for the income variances}} \\
+\multicolumn{3}{|c|}{ACS, college graduates, per-hour earnings} \\
+\multicolumn{3}{|c|}{$W_i = \exp\{z_i + \text{Trend}_{i}\}, \ \ \ z_i' = z_i + \sigma_z\cdot \varepsilon_i$} \\\hline\hline
+Target & Data & Model \\
+Std of Labor Earnings at 24, male  & 0.445 & 0.420 \\
+Std of Labor Earnings at 30, male & 0.452 & 0.422 \\\hline
+\multicolumn{3}{|c|}{$\Rightarrow$ implied $\sigma_{z_0,m} = 0.441$, $\sigma_{z,m} = 0.033$} \\\hline\hline
+Std of Labor Earnings at 24, female & 0.413 & 0.417\\
+Std of Labor Earnings at 30, female & 0.425 & 0.417 \\\hline
+\multicolumn{3}{|c|}{$\Rightarrow$ implied $\sigma_{z_0,f} = 0.406$, $\sigma_{z,f} = 0.9 \times 0.042$} \\\hline
+\end{tabular}
+\end{center}
+
+\item \textbf{Better approach:} correct for selection.
+\end{itemize}
+
+\newpage
+\section{Marriage Market}
+\begin{itemize}
+\item Marriage market is reduced form: every period with probability $p^{\text{meet}}_t$ single people meet single people with random but similar characteristics.
+\item You only meet partners of your own age.
+\item College graduates meet college graduates, high school graduates meet high school graduates.
+\item Productivity $z^{\text{partner}} = \mu^i + \alpha^{i} \cdot z^{\text{own}} + \sigma^{i} \cdot \varepsilon$,  $\varepsilon \sim \mathcal{N}(0,1)$.
+\item Cross-sectional regressions for females suggest $\mu^f\approx 0$, $\mu^m \approx 0.25$, $\sigma^f \approx 0.5$. Regress age-detrended per-hour wages of females of spouses for recently married couples. 
+\item Assets: $\log(a^{\text{partner}}) = \mu_a + \log(a^{\text{own}} +  \sigma^{i} \cdot \varepsilon$
+\item $\mu^f = 0.2$ and $\mu^m = -0.2$ \emph{so on average males have 20\% more wealth},  $\sigma^{i} = 0.1$ creates small spread around these values.
+\item $\psi_0 \sim \mathcal{N}(0,\sigma^2_{\psi_0})$ is standard.
+\item All random shocks are uncorrelated. Resulting wages and asset levels are correlated.
+\end{itemize}
+
+\textbf{Question:} how to simulate better approach? May use some less parametric estimates, but how to organize them... Especially assets/savings data. This does not seem crucial but I want some reasonable and simple structure.
+
+
+
+
+
+\newpage
+
+
+\section{On Dynamic Bargaining}
+Imagine the bargaining problem with uncertainty ($a$, $b$ are future states)
+\[V_0 = \theta^f_0u(c^f_0) + \theta^m_0 u(c^m_0) +  p_a \beta \left\{ \theta^f_{1a} u(c^f_{1a}) + \theta^m_{1a} u(c^m_{1a})\right\} +  p_b\beta \left\{ \theta^f_{1b} u(c^f_{1b}) + \theta^m_{1b} u(c^m_{1b})\right\}.\]
+\[ \text{participation constraints:} \ \ u(c^f_{1a}) \geq \bar{u}^f_a, \ \ u(c^m_{1a}) \geq \bar{u}^m_a, \ \ u(c^f_{1b}) \geq \bar{u}^f_b, \ \ u(c^m_{1b}) \geq \bar{u}^m_b.\]
+People rebargain after they learn if the state is $a$ or $b$.
+
+If nothing is binding, $\theta^m$ and $\theta^f$ are unchanged, solution is $\bar{c}$ and the continuation value is
+\[\bar V_0 = \theta^f_0u(\bar c^f_0) + \theta^m_0 u(\bar c^m_0) +  p_a \beta \left\{ \theta^f_{0} u(\bar c^f_{1a}) + \theta^m_{0} u(\bar c^m_{1a})\right\} +  p_b\beta \left\{ \theta^f_{0} u(\bar c^f_{1b}) + \theta^m_{1} u(\bar c^m_{1b})\right\}.\]
+
+Suppose in state $a$ for $f$ is binding (so $\theta_a^f$ is adjusted by $\mu^f_a$) and in state $b$ constraint $m$ is binding (so $\theta_b^m$ is adjusted by $\mu^m_b$). Now
+\[\tilde{V}_0 = \theta^f_0u(c^f_0) + \theta^m_0 u(c^m_0) +  p_a \beta \left\{ (\theta^f_{0} + \mu^f_a) u(c^f_{1a}) + \theta^m_{0} u(c^m_{1a})\right\} +  p_b\beta \left\{ \theta^f_{0} u(c^f_{1b}) + (\theta^m_{1}+\mu^m_b) u(c^m_{1b})\right\}.\]
+So $c^i_j$ are chosen to maximize $\tilde{V}_0$.
+
+\textit{Does this mean that binding participation constraints increase continuation value?} \textbf{No!}
+
+$\mu$ are just Lagrange multipliers! True problem is 
+\begin{align*}L_0 = \theta^f_0u(c^f_0) + \theta^m_0 u(c^m_0) +  p_a \beta \left\{ \theta^f_{0} u(c^f_{1a}) + \theta^m_{0} u(c^m_{1a})\right\} +  p_b\beta \left\{ \theta^f_{0} u(c^f_{1b}) + \theta^m_{1} u(c^m_{1b})\right\} + \\ +\beta \mu^f_a [u^f(c_{1a}) - \bar{u}^f_a] + \beta \mu^m_b [u^m(c_{1b}) - \bar{u}^m_b] .\end{align*} 
+
+Now given a sequence of consumption $\tilde{c}$ that satisfies the constraints the value of the Lagrangian is
+\[\tilde{V}_0 =  \theta^f_0u(\tilde c^f_0) + \theta^m_0 u(\tilde c^m_0) +  p_a \beta \left\{ \theta^f_{0} u(\tilde c^f_{1a}) + \theta^m_{0} u(\tilde c^m_{1a})\right\} +  p_b\beta \left\{ \theta^f_{0} u(\tilde c^f_{1b}) + \theta^m_{0} u(\tilde c^m_{0b})\right\}.\]
+
+So even though we expect $\theta$ to change in the future the continuation values should not account for this! So all future values should be computed using the same $\theta$!
+
+If in case $b$ the constraints cannot be satisfied, we instead get
+
+\[\hat{V}_0 =  \theta^f_0u(\hat c^f_0) + \theta^m_0 u(\hat c^m_0) +  p_a \beta \left\{ \theta^f_{0} u(\hat c^f_{1a}) + \theta^m_{0} u(\hat c^m_{1a})\right\} +  p_b\beta \left\{ \theta^f_{0} \bar{u}^f_b + \theta^m_{0} \bar{u}^m_b \right\}.\]
+
+So the weights are $\theta^f_0$ everywhere! It also holds that
+\[\hat{V}_0 =  \theta^f_0\hat{V}^f_0 + \theta^m_0\hat{V}^m_0.\]
+\end{document}

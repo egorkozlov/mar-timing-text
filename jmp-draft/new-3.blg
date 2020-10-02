@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: new-3.aux
+The style file: ieeetr.bst
+Database file #1: bib.bib
+Warning--empty journal in shephard2019marriage
+Warning--empty note in kennes2012
+Warning--empty journal in lino2001expenditures
+You've used 37 entries,
+            1876 wiz_defined-function locations,
+            695 strings with 9376 characters,
+and the built_in function-call counts, 9502 in all, are:
+= -- 1015
+> -- 288
+< -- 0
++ -- 113
+- -- 76
+* -- 667
+:= -- 1351
+add.period$ -- 38
+call.type$ -- 37
+change.case$ -- 41
+chr.to.int$ -- 0
+cite$ -- 40
+duplicate$ -- 488
+empty$ -- 890
+format.name$ -- 76
+if$ -- 2314
+int.to.chr$ -- 0
+int.to.str$ -- 37
+missing$ -- 32
+newline$ -- 115
+num.names$ -- 37
+pop$ -- 69
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 336
+stack$ -- 0
+substring$ -- 718
+swap$ -- 205
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 105
+width$ -- 39
+write$ -- 371
+(There were 3 warnings)

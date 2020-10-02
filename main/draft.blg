@@ -1,49 +1,53 @@
 This is BibTeX, Version 0.99d (TeX Live 2018)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: draft.aux
-The style file: ieeetr.bst
+The style file: apa.bst
 Database file #1: bib.bib
 Warning--empty journal in copen
+Warning--empty journal in lafortune-1
+Warning--there's a number but no volume in lafortune-1
+Warning--empty journal in low-1
+Warning--empty note in rosenbaum
 Warning--empty journal in shephard
-You've used 12 entries,
-            1876 wiz_defined-function locations,
-            550 strings with 5448 characters,
-and the built_in function-call counts, 2878 in all, are:
-= -- 295
-> -- 95
-< -- 1
-+ -- 37
-- -- 25
-* -- 197
-:= -- 423
-add.period$ -- 12
-call.type$ -- 12
-change.case$ -- 13
-chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 151
-empty$ -- 274
-format.name$ -- 25
-if$ -- 692
-int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 10
-newline$ -- 39
-num.names$ -- 12
-pop$ -- 32
+You've used 23 entries,
+            1940 wiz_defined-function locations,
+            615 strings with 7462 characters,
+and the built_in function-call counts, 8489 in all, are:
+= -- 839
+> -- 285
+< -- 17
++ -- 100
+- -- 90
+* -- 770
+:= -- 1481
+add.period$ -- 66
+call.type$ -- 23
+change.case$ -- 159
+chr.to.int$ -- 23
+cite$ -- 29
+duplicate$ -- 311
+empty$ -- 611
+format.name$ -- 129
+if$ -- 1612
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 23
+newline$ -- 114
+num.names$ -- 69
+pop$ -- 119
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 160
 quote$ -- 0
-skip$ -- 93
+skip$ -- 244
 stack$ -- 0
-substring$ -- 195
-swap$ -- 57
-text.length$ -- 1
+substring$ -- 669
+swap$ -- 41
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 2
-while$ -- 30
-width$ -- 14
-write$ -- 114
-(There were 2 warnings)
+type$ -- 136
+warning$ -- 6
+while$ -- 75
+width$ -- 0
+write$ -- 286
+(There were 6 warnings)

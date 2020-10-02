@@ -1,0 +1,5 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Data}{7}{0}{1}
+\beamer@sectionintoc {2}{Model}{14}{0}{2}
+\beamer@sectionintoc {3}{Mechanics \& Intuition}{23}{0}{3}
+\beamer@sectionintoc {4}{Fit and Results}{27}{0}{4}

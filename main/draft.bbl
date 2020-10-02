@@ -1,59 +1,130 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{}
 
-\bibitem{kearney}
-M.~S. Kearney and P.~B. Levine, ``The economics of nonmarital childbearing and
-  the marriage premium for children,'' {\em Annual Review of Economics},
-  vol.~9, pp.~327--352, 2017.
+\bibitem[\protect\astroncite{Akerlof et~al.}{1996}]{akerlof}
+Akerlof, G.~A., Yellen, J.~L., and Katz, M.~L. (1996).
+\newblock An analysis of out-of-wedlock childbearing in the united states.
+\newblock {\em The Quarterly Journal of Economics}, 111(2):277--317.
 
-\bibitem{copen}
-C.~E. Copen, K.~Daniels, and J.~Vespa, ``First marriages in the united states;
-  data from the 2006-2010 national survey of family growth,'' 2012.
+\bibitem[\protect\astroncite{Ashcraft et~al.}{2013}]{ashcraft}
+Ashcraft, A., Fern{\'a}ndez-Val, I., and Lang, K. (2013).
+\newblock The consequences of teenage childbearing: Consistent estimates when
+  abortion makes miscarriage non-random.
+\newblock {\em The Economic Journal}, 123(571):875--905.
 
-\bibitem{payne}
-K.~K. Payne, ``Children's family structure, 2013,'' {\em National Center for
-  Family and Marriage Research, Bowling Green State University}, 2013.
+\bibitem[\protect\astroncite{Becker}{1981}]{becker1981}
+Becker, G.~S. (1981).
+\newblock {\em A Treatise on the Family}.
+\newblock NBER Books. National Bureau of Economic Research, Inc.
 
-\bibitem{chiappori-review}
-P.-A. Chiappori and M.~Mazzocco, ``Static and intertemporal household
-  decisions,'' {\em Journal of Economic Literature}, vol.~55, no.~3,
-  pp.~985--1045, 2017.
+\bibitem[\protect\astroncite{Card and Wise}{1978}]{cardwise}
+Card, J.~J. and Wise, L.~L. (1978).
+\newblock Teenage mothers and teenage fathers: The impact of early childbearing
+  on the parents' personal and professional lives.
+\newblock {\em Family planning perspectives}, 10(4):199--205.
 
-\bibitem{voena-1}
-A.~Voena, ``Yours, mine, and ours: Do divorce laws affect the intertemporal
-  behavior of married couples?,'' {\em American Economic Review}, vol.~105,
-  no.~8, pp.~2295--2332, 2015.
+\bibitem[\protect\astroncite{Chetty and Hendren}{2018}]{chetty}
+Chetty, R. and Hendren, N. (2018).
+\newblock The impacts of neighborhoods on intergenerational mobility ii:
+  County-level estimates.
+\newblock {\em The Quarterly Journal of Economics}, 133(3):1163--1228.
 
-\bibitem{low-1}
-H.~Low, C.~Meghir, L.~Pistaferri, and A.~Voena, ``Marriage, labor supply and
-  the dynamics of the social safety net,'' tech. rep., National Bureau of
-  Economic Research, 2018.
+\bibitem[\protect\astroncite{Chiappori}{1997}]{chiappori1997}
+Chiappori, P.-A. (1997).
+\newblock Introducing household production in collective models of labor
+  supply.
+\newblock {\em Journal of Political Economy}, 105(1):191--209.
 
-\bibitem{shephard}
-A.~Shephard, ``Marriage market dynamics, gender, and the age gap,'' 2019.
+\bibitem[\protect\astroncite{Chiappori and Mazzocco}{2017}]{chiappori-review}
+Chiappori, P.-A. and Mazzocco, M. (2017).
+\newblock Static and intertemporal household decisions.
+\newblock {\em Journal of Economic Literature}, 55(3):985--1045.
 
-\bibitem{sommer}
-K.~Sommer, ``Fertility choice in a life cycle model with idiosyncratic
-  uninsurable earnings risk,'' {\em Journal of Monetary Economics}, vol.~83,
-  pp.~27--38, 2016.
+\bibitem[\protect\astroncite{Copen et~al.}{2012}]{copen}
+Copen, C.~E., Daniels, K., and Vespa, J. (2012).
+\newblock First marriages in the united states; data from the 2006-2010
+  national survey of family growth.
 
-\bibitem{ejrnaes}
-M.~Ejrn{\ae}s and T.~J{\o}rgensen, ``Saving behavior around intended and
-  unintended childbirths,'' {\em Unpublished working paper, Department of
-  Economics, University of Copenhagen}, 2018.
+\bibitem[\protect\astroncite{Ejrn{\ae}s and J{\o}rgensen}{2018}]{ejrnaes}
+Ejrn{\ae}s, M. and J{\o}rgensen, T. (2018).
+\newblock Saving behavior around intended and unintended childbirths.
+\newblock {\em Unpublished working paper, Department of Economics, University
+  of Copenhagen}.
 
-\bibitem{lafortune-1}
-J.~Lafortune and C.~Low, ``{Betting the House: How Assets Influence Marriage
-  Selection, Marital Stability, and Child Investments},'' IZA Discussion Papers
-  11176, Institute for the Study of Labor (IZA), 2018.
+\bibitem[\protect\astroncite{Greenwood et~al.}{2016}]{greenwood}
+Greenwood, J., Guner, N., Kocharkov, G., and Santos, C. (2016).
+\newblock Technology and the changing family: A unified model of marriage,
+  divorce, educational attainment, and married female labor-force
+  participation.
+\newblock {\em American Economic Journal: Macroeconomics}, 8(1):1--41.
 
-\bibitem{akerlof}
-G.~A. Akerlof, J.~L. Yellen, and M.~L. Katz, ``An analysis of out-of-wedlock
-  childbearing in the united states,'' {\em The Quarterly Journal of
-  Economics}, vol.~111, no.~2, pp.~277--317, 1996.
+\bibitem[\protect\astroncite{Kearney and Levine}{2017}]{kearney}
+Kearney, M.~S. and Levine, P.~B. (2017).
+\newblock The economics of nonmarital childbearing and the marriage premium for
+  children.
+\newblock {\em Annual Review of Economics}, 9:327--352.
 
-\bibitem{schneider}
-D.~Schneider, O.~P. Hastings, and J.~LaBriola, ``Income inequality and class
-  divides in parental investments,'' {\em American Sociological Review},
-  vol.~83, no.~3, pp.~475--507, 2018.
+\bibitem[\protect\astroncite{Kocherlakota}{1996}]{kocherlakota}
+Kocherlakota, N.~R. (1996).
+\newblock Implications of efficient risk sharing without commitment.
+\newblock {\em The Review of Economic Studies}, 63(4):595--609.
+
+\bibitem[\protect\astroncite{Lafortune and Low}{2018}]{lafortune-1}
+Lafortune, J. and Low, C. (2018).
+\newblock {Betting the House: How Assets Influence Marriage Selection, Marital
+  Stability, and Child Investments}.
+\newblock (11176).
+
+\bibitem[\protect\astroncite{Lise and Yamada}{2019}]{liseyamada}
+Lise, J. and Yamada, K. (2019).
+\newblock Household sharing and commitment: Evidence from panel data on
+  individual expenditures and time use.
+\newblock {\em The Review of Economic Studies}, 86(5):2184--2219.
+
+\bibitem[\protect\astroncite{Low et~al.}{2018}]{low-1}
+Low, H., Meghir, C., Pistaferri, L., and Voena, A. (2018).
+\newblock Marriage, labor supply and the dynamics of the social safety net.
+
+\bibitem[\protect\astroncite{Marcet and Marimon}{2019}]{marcetmarimon}
+Marcet, A. and Marimon, R. (2019).
+\newblock Recursive contracts.
+\newblock {\em Econometrica}, 87(5):1589--1631.
+
+\bibitem[\protect\astroncite{Mazzocco}{2007}]{mazzocco}
+Mazzocco, M. (2007).
+\newblock Household intertemporal behaviour: A collective characterization and
+  a test of commitment.
+\newblock {\em The Review of Economic Studies}, 74(3):857--895.
+
+\bibitem[\protect\astroncite{Payne}{2013}]{payne}
+Payne, K.~K. (2013).
+\newblock Children's family structure, 2013.
+\newblock {\em National Center for Family and Marriage Research, Bowling Green
+  State University}.
+
+\bibitem[\protect\astroncite{Rosenbaum}{2019}]{rosenbaum}
+Rosenbaum, P. (2019).
+\newblock Does early childbearing matter?: New approach using danish register
+  data.
+
+\bibitem[\protect\astroncite{Schneider et~al.}{2018}]{schneider}
+Schneider, D., Hastings, O.~P., and LaBriola, J. (2018).
+\newblock Income inequality and class divides in parental investments.
+\newblock {\em American Sociological Review}, 83(3):475--507.
+
+\bibitem[\protect\astroncite{Shephard}{2019}]{shephard}
+Shephard, A. (2019).
+\newblock Marriage market dynamics, gender, and the age gap.
+
+\bibitem[\protect\astroncite{Sommer}{2016}]{sommer}
+Sommer, K. (2016).
+\newblock Fertility choice in a life cycle model with idiosyncratic uninsurable
+  earnings risk.
+\newblock {\em Journal of Monetary Economics}, 83:27--38.
+
+\bibitem[\protect\astroncite{Voena}{2015}]{voena-1}
+Voena, A. (2015).
+\newblock Yours, mine, and ours: Do divorce laws affect the intertemporal
+  behavior of married couples?
+\newblock {\em American Economic Review}, 105(8):2295--2332.
 
 \end{thebibliography}

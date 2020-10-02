@@ -1,0 +1,166 @@
+\documentclass[11pt,letter]{article}
+\usepackage[left=0.8in,right=0.8in,top=1in,bottom=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{pdflscape}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{microtype}
+\usepackage{euscript}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{mathrsfs}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+
+\tikzstyle{block} = [rectangle, draw, rounded corners]
+\tikzstyle{line} = [draw, -latex']
+\newcommand{\hypo}{\mathcal{H}}            
+
+\usepackage[flushleft]{threeparttable}
+
+\usepackage[english]{babel} 
+\DeclareMathOperator{\rank}{rank}
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+            {\hbox{$\mathsurround=0pt #1$}}{}}
+
+            \def\onepc{$^{\ast\ast}$} \def\fivepc{$^{\ast}$}
+\def\tenpc{$^{\dag}$}
+\def\legend{\multicolumn{4}{l}{\footnotesize{Significance levels
+:\hspace{1em} $\dag$ : 10\% \hspace{1em}
+$\ast$ : 5\% \hspace{1em} $\ast\ast$ : 1\% \normalsize}}}
+
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}  
+\newcommand{\bsA}{\boldsymbol{A}}
+%\setstretch{1}                         
+\flushbottom                            
+\righthyphenmin=2                      
+\pagestyle{plain}                       
+%\settimeformat{hhmmsstime}  
+\widowpenalty=300                   
+\clubpenalty=3000                     
+\setlength{\parindent}{0em}           
+\setlength{\topsep}{0pt}              
+\usepackage[pdftex,unicode,colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{bbm}
+\usepackage{tabularx}
+\renewcommand{\emptyset}{\varnothing}
+
+\setlength{\parskip}{0.5\baselineskip plus2pt minus2pt}
+
+\newcommand{\e}{\varepsilon}
+\DeclareMathOperator*{\Argmax}{\mathrm{Argmax}}
+\DeclareMathOperator*{\Argmin}{\mathrm{Argmin}}
+\DeclareMathOperator*{\argmax}{\mathrm{arg\,max}}
+\DeclareMathOperator*{\argmin}{\mathrm{argmin}}
+
+\newcommand{\blp}{\mathrm{BLP}}
+\DeclareMathOperator*{\plim}{\mathrm{plim}}
+\DeclareMathOperator{\Max}{\mathrm{Max}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\Z}{\mathcal{Z}}
+\renewcommand{\geqslant}{\geq}
+\renewcommand{\leqslant}{\leq}
+\newcommand{\p}{\bs p}
+\newcommand{\y}{\bs y}
+\def\dd#1#2{\frac{\partial#1}{\partial#2}}
+
+\renewcommand{\emptyset}{\varnothing}
+
+
+\DeclareMathOperator{\tr}{\mathrm{tr}}
+
+\newcommand{\bb}{\bs \beta}
+\newcommand{\X}{\bs X}
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\PP}{\mathbb{P}}
+\DeclareMathOperator{\V}{\mathbb{V}}
+\DeclareMathOperator{\CM}{\mathbb{C}}
+\renewcommand{\C}{\CM}
+\DeclareMathOperator{\var}{\mathrm{var}}
+\DeclareMathOperator{\cov}{\mathrm{cov}}
+\DeclareMathOperator{\corr}{\mathrm{corr}}
+\DeclareMathOperator{\MSE}{\mathrm{MSE}}
+\DeclareMathOperator{\Bias}{\mathrm{Bias}}
+\renewcommand{\P}{\PP}
+\newcommand{\dsim}{\stackrel{d}{\sim}}
+\newcommand{\hn}{\mathcal{H}_0}
+\newcommand{\ha}{\mathcal{H}_a}
+\newcommand{\thetab}{\bs \theta}
+\newcommand{\pv}{\text{P-value}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\MLE}{\scriptscriptstyle MLE}
+\newcommand{\LR}{\mathrm{LR}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\sumin}{\sum\limits_{i=1}^n}
+\newcommand{\sumti}{\sum\limits_{t=0}^\infty}
+\newcommand{\hbeta}{\hat{\beta}}
+\newcommand{\halpha}{\hat{\alpha}}
+\newcommand{\hsigma}{\hat{\sigma}}
+\newcommand{\hvar}{\widehat{\var}}
+\newcommand{\hcov}{\widehat{\cov}}
+\newcommand{\Q}{\mathbb{Q}}
+
+
+\begin{document}
+
+\title{The Economics of Shotgun Marriage (Quest Proposal)\footnote{\textbf{egorkozlov2020@u.northwestern.edu}. I am a graduate student at Economics Department entering my year 6. My dissertation committee is: Matthias Doepke (committee chair, \textbf{doepke@northwestern.edu}), Alessandra Voena (\textbf{avoena@uchicago.edu}), Marti Mestieri (\textbf{mmestieri@frbchi.org}).}}
+\author{Egor Kozlov}
+\date{\today}
+\maketitle
+\bibliographystyle{apa}
+
+
+\begin{abstract}
+This briefly describes the project I am requesting a Research II Quest allocation for. This project is going to be the leading chapter of my dissertation and my job market paper and I expect to finish it in Fall 2020. I have been using a Research I allocation \verb'p30190' by this moment, but as my model estimation requires lots of experimentation I have a need for extra resources for this summer to make sure I do not lose my priority in a critical moment.
+\end{abstract}
+
+\section{Project Summary}
+
+The broad motivation for the study lies within the issues of transformation of the US families and reproduction of inequality. Researchers often compare single parents to two-parent families in terms of future outcomes of the children. I argue that this division leaves out an important distinction: not all two-parent families are alike and some couples marry precisely because they had a baby, and this practice is called a shotgun marriage. Share of these marriages is comparable to the share of single-parent households. In the paper I show that those kids-induced marriages are the least stable in sense of divorce rates and their creation is the most sensitive to changes in the economic environment. Perhaps more surprisingly, the difference in performance between shotgun and regular marriages is more pronounced among more educated and adult couples. To understand the mechanics of formation of the shotgun marriages I set up and estimate a structural lifecycle model with endogenous fertility and limited commitment. Through the lens of the model I can identify factors causing different performance of shotgun marriages in different demographic groups and get credible answers to economic policy questions like child support and visitation rights, divorce laws and welfare programs, accounting for their impact on household formation. These issues are widely understudied: realistic economic models of marriage and divorce are complicated mathematically, involve multidimensional dynamic optimization and require large computational resources.  Several successful papers on these topics were developed in the recent years, including \nocite{voena-1}Voena (2015), \nocite{low-1}Low et al (2018), \nocite{shephard}Shephard (2019), \nocite{reynoso}Reynoso (2018). Yet many aspects of the marriage markets are underexplored.
+
+The economics of the result is generated by endogenous selection into marriage. In the model women who experience unplanned pregnancy agree to enter marriages of lower quality. In addition to the higher divorce rates, the data about how women in shotgun marriages use their time and how often do their children repeat grades suggest the validity of the marriage quality explanation. These features in the marriage selection can be rationalized by the structure of childcare costs, where kids require both money and time, and disproportional exposure of women to these costs, so the women agree to lower quality marriages in a response to a threat of becoming a single mother. Social pressure for partners to marry each other once they have a child also contributes to the result, but is not likely to be the leading explanation. I estimate a structural model endogenizing marriage selection and use it to argue that causal impact of unplanned fertility shock, as opposed to different composition of the group experiencing shotgun marriage, drives the major part of the observable difference in divorce chances. Qualitatively, this suggests that the main reason for poor performance of shotgun marriages is large, unexpected and heterogeneous costs of unplanned pregnancies. Quantitatively, the model suggests sizable effects of risks of unplanned pregnancy on observable divorce rates, especially for young women, and substantial impact of policies enforcing commitment, like child support, on formation of these low-quality marriages.
+
+At the current stage of the project, I have preliminary estimates of the model for two demographic groups: college graduates, who display the highest impact of shotgun marriage in the data, and high school graduates, for whom this impact is relatively modest. In the both groups, the model successfully reproduces the data about many dimensions of marriage, fertility and divorce rates in the US. Those estimates suggest, for instance, that strict enforcement of child support decreases difference in the divorce rates by one-third to one-half, and the monetary valuation of risk of getting into a shotgun marriage is within the magnitude of 4-6 yearly earnings for both college and non-college mothers, even though the incidence of these marriages is lower for college women. Few things, however, are not conclusive yet. The main of them is what is the main cause of the difference between college and non-college couples in terms of divorce: depending on relatively minor details of calibration this can be either attitudes towards childbearing, the characteristics of potential partners or the re-marriage prospectives after a divorce. This part is yet to be done.
+
+In general, the project is approaching its final stage, and this is the reason I need extra computing powers: I want my estimates to be stable, precise and reproducible and to see how deviations in the model assumptions translate to different conclusions. Few things are yet to be done: the model needs state-of-the-art estimates of stochastic processes for labor income of college and non-college individuals and a reasonable approximations of pools of potential partners in terms of income and wealth for men and women at each age. Policy angles are also pretty undeveloped: even when the model is settled, focusing on concrete economic policy questions may require unexpected adjustments to the setup.
+
+\section{Computational Problem}
+
+The mathematical framework for the model is summarized \nocite{mazzocco}Mazzocco (2007). Shortly, partners in a married couple cannot commit not to divorce, so the behavior of the couple is influenced by the value of their options to divorce and finding new partners to remarry. Need to both allocate resources in the most efficient way and simultaneously provide better options than splitting creates a recursive dynamic contracting problem, which has been formalized as a saddle point problem by \nocite{marcetmarimon}Marcet, Marimon (2019). On a discrete grid summarizing couple's wealth, each spouse's income, relationship quality and marriage terms I have to solve a problem of optimal allocation of resources between spouses and children consumption and savings, such that the behavior is efficient and provides to the both spouses more value than splitting up. If this allocation cannot be found, the contract is broken: the couple divorces and the partners re-enter the marriage market looking for new partners.
+
+Mathematically, the model is solved in discrete time using Bellman-like method. Possible characteristics of the couple are approximated on a discrete grid where some variables follow Markov transition process and some variables need to be chosen. For ages from 80 to 21, given the expected value of entering the age $t+1$ with given characteristics I can solve for optimal actions (like savings, amount of work, consumption, child expenditures, giving a birth or divorce), satisfying the participation constraints that I described above (optimization stage). After that, given all transition probabilities I can compute an expected value of entering the period $t$ (integration stage) and proceed backwards. Both stages, essentially, involve brute force global search of the best values on discrete grids, as well as global search for sets of points satisfying certain conditions. These tasks are highly parallelizable and GPUs can be involved. After solving the model for given parameters, I get the decision rules of the agents and simulate the transition of finite number of individuals for ages 21 to 80, starting from some initial conditions. On this simulated data I compute targets, like percentage of married or divorced at each age, and measure variance-weighed (Mahalanobis) distance of these targets to the real data, that allows me to estimate the model fit. 
+
+The process of estimation of the model is, essentially, a non-linear least squares problem: I am looking for \[\Theta^* = \argmin\limits_\Theta \sum\limits_i w_i\cdot (T_i^{\text{simulations}}(\Theta) - T_i^{\text{data}})^2,\]
+where $T_i$ are the targets and $w_i$ are the data-based weights. Two major challenges for this is expensive function evaluation and the noise of the simulations. For each choice $\Theta$ I need to solve and simulate the model from the beginning, and this takes around 3 minutes on a single core and around 1 minute using GPUs, where the latter number can be improved with investing more time and using better frameworks. Second, the simulated moments are not smooth in $\Theta$ as they involve many discrete decisions, including fertility, marriage and divorce. The simulated data are not smooth by nature, additionally, with a very small movement of the parameters there is a chance that no targets would change because of discreteness. This structure prevents using gradient-based solvers like BFGS. To solve this problem, I adopt TikTak global optimization method suggested by \nocite{benchmarking}Arnoud et al (2019): I first run a massive global stochastic search using $N$ points from Sobol sequence for $\Theta$, then pick $M$ of the best points among them and run series of local derivative-free optimizers iteratively (I use DF-OLS by \nocite{dfols}Cartis et al (2018)), where at each iteration the starting point for a local solver is a combination of the best point so far and one of the $M$ best Sobol points.
+
+\section{Computational Plans and Estimates}
+
+The project is implement on Python, and used NumPy with speeds up from Numba, including Numba-CUDA interface. There is a piece of work in progress that also uses JAX libraries, which potentially can give me much faster execution on GPUs, as the current bottlenecks of the code is slow transfer to and from the GPU device and many limitations of Numba-CUDA. For the data part I occasionally use Stata MP.
+
+Here are the rough time estimates, most of which are in terms of CPU time, as I paused my usage of GPUs dues to the fall in priority. It takes around 3 minutes of one-core and 10-15 Gb of memory to solve the model once. Typically the memory constraint is binding, but with the best attempts I can bring it down to 5--7 Gb per core, which is still pretty high. For the estimation part, $\Theta$ typically contains 10--15 parameters, and the estimation requires \textit{15 jobs with one core and 20 Gb memory on each running around 20--24 hours}, corresponding to solving the model 7-10 thousand times (and translating to 300-400 CPU hours on \verb'genhimem' partition). Each change to the model requires running the estimation again, so I run those things many times and by this moment I probably exceeded 35{,}000 hours limit. Yet as things keep improving I except to do this more during the summer. It is not likely that will exceed 100{,}000 hours of the total usage in the end, and I feel that the main bottleneck is with the amount of memory rather than CPU hours.
+
+\section{Support From Quest}
+I may need help with using PETSC with Python, as PETSC includes TAO optimization libraries which I may benefit to use instead of my current algorithm. Previously I also had some issues with making CUDA toolkit for Python work, but I think I resolved them though maybe not in the most elegant way.
+
+\section{Links and Other}
+
+The most recent presentation (May 2020) is available \href{https://drive.google.com/file/d/18xt01V2PYm8XG87fu-pRWxwXoRtPYRHG/view?usp=sharing}{here}.
+
+The current paper draft (last updated February and missing some features) is \href{https://drive.google.com/file/d/1BF--Pq8fCSGkPl8CS0L89G-tQeybVNMH/view?usp=sharing}{here}.
+
+The external presentations for the project included the Fall 2019 Midwest Macroeconomics Meetings (Michigan State University), H2D2 Conference at University of Michigan (March 2020) and Spring 2020 IRES Lunch (UCLouvain, Belgium, postponed to Fall due to Covid-19).
+
+Thank you for your consideration!
+
+\bibliography{bib}
+
+\end{document}

@@ -1,0 +1,44 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\astroncite{Arnoud et~al.}{2019}]{benchmarking}
+Arnoud, A., Guvenen, F., and Kleineberg, T. (2019).
+\newblock Benchmarking global optimizers.
+\newblock Technical report, National Bureau of Economic Research.
+
+\bibitem[\protect\astroncite{Cartis et~al.}{2019}]{dfols}
+Cartis, C., Fiala, J., Marteau, B., and Roberts, L. (2019).
+\newblock Improving the flexibility and robustness of model-based
+  derivative-free optimization solvers.
+\newblock {\em ACM Transactions on Mathematical Software (TOMS)}, 45(3):1--41.
+
+\bibitem[\protect\astroncite{Low et~al.}{2018}]{low-1}
+Low, H., Meghir, C., Pistaferri, L., and Voena, A. (2018).
+\newblock Marriage, labor supply and the dynamics of the social safety net.
+
+\bibitem[\protect\astroncite{Marcet and Marimon}{2019}]{marcetmarimon}
+Marcet, A. and Marimon, R. (2019).
+\newblock Recursive contracts.
+\newblock {\em Econometrica}, 87(5):1589--1631.
+
+\bibitem[\protect\astroncite{Mazzocco}{2007}]{mazzocco}
+Mazzocco, M. (2007).
+\newblock Household intertemporal behaviour: A collective characterization and
+  a test of commitment.
+\newblock {\em The Review of Economic Studies}, 74(3):857--895.
+
+\bibitem[\protect\astroncite{Reynoso}{2018}]{reynoso}
+Reynoso, A. (2018).
+\newblock The impact of divorce laws on the equilibrium in the marriage market.
+\newblock {\em Unpublished manuscript}.
+
+\bibitem[\protect\astroncite{Shephard}{2019}]{shephard}
+Shephard, A. (2019).
+\newblock Marriage market dynamics, gender, and the age gap.
+
+\bibitem[\protect\astroncite{Voena}{2015}]{voena-1}
+Voena, A. (2015).
+\newblock Yours, mine, and ours: Do divorce laws affect the intertemporal
+  behavior of married couples?
+\newblock {\em American Economic Review}, 105(8):2295--2332.
+
+\end{thebibliography}
